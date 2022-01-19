@@ -2,6 +2,7 @@ import Banner from "../components/banner";
 
 const HomePage = {
     render() {
+        document.title = "Trang chủ";
         return /* html */ `
          <main>
                ${Banner.render()}

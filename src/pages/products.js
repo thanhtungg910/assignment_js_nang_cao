@@ -1,5 +1,6 @@
 const Products = {
     render() {
+        document.title = "Sản phẩm";
         return /* html */ `
        <main>
        <div class="container mx-auto">

@@ -7,7 +7,7 @@ const Banner = {
         <div class="swiper banner w-full">
 			<div class="swiper-wrapper">
          <div class="swiper-slide w-full h-screen relative">
-         <video  autoplay muted>
+         <video style="width:100%" autoplay muted>
             <source
                src="https://cdn.shopify.com/s/files/1/1003/3354/files/20211022_seveth_homepage_hero_com.mp4?v=1634322572"
             />
