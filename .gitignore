@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+.template
+dist
+dist-ssr
+*.local
+detail.html
+test.html
+indexcopy.html
