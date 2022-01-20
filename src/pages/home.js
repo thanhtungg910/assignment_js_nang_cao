@@ -7,51 +7,96 @@ const HomePage = {
          <main>
                ${Banner.render()}
 
-               <div class="container mx-auto px-5">
-               <h1 class="text-3xl font-bold my-5 text-zinc-600 ml-[49px]">Danh muc san pham</h1>
-               <div
-                  class="grid categories grid-rows-2 grid-flow-col gap-6 justify-evenly items-center">
-                  <div class="">
-                     <a href="#"><img  src="https://cdn.shopify.com/s/files/1/1003/3354/products/Front_4e864a0f-d25a-4e06-97f0-d955443a7464_360x.jpg?v=1634754355" alt="img"></a>
-                        <h5 class="mt-3 text-xl text-zinc-600"> <span class="uppercase">Suitting - </span>Suit</h5>
+               <div class="container mx-auto">
+               <div class="px-5">
+                     <h2 class="text-3xl font-bold py-4">Mới nhất</h2>
+                     <div
+                        class="bg-fixed bg-center bg-cover bg-no-repeat"
+                        style="
+                           background-image: linear-gradient(
+                                 113deg,
+                                 rgba(237, 145, 100, .8) 59%,
+                                 rgba(169, 81, 47, 1) 100%
+                              ),
+                              url(./src/images/mountain-g4a441ef95_1280.png);
+                        "
+                     >
+                        <div class="grid grid-rows-2 grid-cols-4">
+                           <div class="row-span-2 relative col-span-3">
+                              <img
+                                 class="absolute pt-10"
+                                 src="./src/images/Fear-of-God-Heavy-Canvas-Work-Jacket-Rust-removebg-preview.png"
+                                 alt=""
+                              />
+                              <div class="add float-right w-1/2 p-5 h-1/4 text-white">
+                                 <h3 class="">1.000.000</h3>
+                                 <h1 class="text-3xl uppercase font-extrabold w-72">
+                                    Fear of God Heavy Canvas Work Jacket
+                                 </h1>
+                                 <p class="">
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    Aperiam, doloribus dolor inventore voluptas iure ab similique
+                                    enim labore quod ipsam, sunt corporis fuga, eius hic eos nulla
+                                    quisquam harum sit?
+                                 </p>
+                                 <div class="grid grid-cols-6 gap-6">
+                                    <div class="col-span-6 sm:col-span-3">
+                                       <label
+                                          for="first-name"
+                                          class="block text-sm font-medium text-gray-700"
+                                          >Size</label
+                                       >
+                                       <select class="mt-1 h-10 bg-transparent focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-white border  "
+                                       > 
+                                       <option>
+                                          xl
+                                       </option>
+                                       </select>
+                                    </div>
+
+                                    <div class="col-span-6 sm:col-span-3">
+                                       <label
+                                          for="last-name"
+                                          class="block text-sm font-medium text-gray-700"
+                                          >Color</label
+                                       >
+                                       <select class="mt-1 h-10 bg-transparent focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-white border  "
+                                       > 
+                                       <option>
+                                          xl
+                                       </option>
+                                       </select>
+                                    </div>
+                                 </div>
+                                 <button class="w-full p-3 bg-white text-black mt-3">
+                                    Mua ngay
+                                 </button>
+                              </div>
+                           </div>
+                           <div class="row-span-3">
+                              <img
+                                 src="https://assets.vogue.com/photos/5b8fa78aaf28261cba2e4bdb/master/w_1920,c_limit/00022-FEAR-OF-GOD-VOGUE-SS19-PR.jpg"
+                                 alt=""
+                              />
+                           </div>
+                           <div class="col-span-3 bg-white flex justify-evenly items-center">
+                              <div class="content text-center ml-[60px]">
+                                 <h2 class="text-4xl uppercase space-x-2 font-bold text-black">
+                                    fear of god
+                                 </h2>
+                                 <h3 class="uppercase">sixth collection</h3>
+                                 <h4>2018 - 2019</h4>
+                              </div>
+                              <img
+                                 class="max-w-full"
+                                 src="https://images.stockx.com/images/Fear-of-God-Heavy-Canvas-Work-Jacket-Rust.jpg?fit=fill&bg=FFFFFF&w=480&h=320&auto=compress&q=90&dpr=1&trim=color&updated_at=1623267464&fm=webp"
+                                 alt=""
+                              />
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                  <div class="">
-                     <a href="#"><img  src="https://cdn.shopify.com/s/files/1/1003/3354/products/Front_ab983f58-ae61-4509-abc8-fd462bc40e91_360x.jpg?v=1634754354" alt="img"></a>
-                        <h5 class="mt-3 text-xl text-zinc-600"> <span class="uppercase">Outerwear -
-                        </span>Áo khoác ngoài </h5>
-                  </div>
-                  <div class="">
-                     <a href="#"><img  src="https://cdn.shopify.com/s/files/1/1003/3354/products/Front_bbb90343-a91c-4cc0-8a48-6b8a8a3a1a41_360x.jpg?v=1618542629" alt="img"></a>
-                        <h5 class="mt-3 text-xl text-zinc-600"> <span class="uppercase">Knitwear  -
-                        </span>Vải dệt kim </h5>
-                  </div>
-                  <div class="">
-                     <a href="#"><img  src="https://cdn.shopify.com/s/files/1/1003/3354/products/Front_b2e70ebb-a95e-49a7-bdd2-8cbd7f5c5228_360x.jpg?v=1634754435" alt="img"></a>
-                        <h5 class="mt-3 text-xl text-zinc-600"> <span class="uppercase">Top -
-                        </span>Đồ mặc trên </h5>
-                  </div>
-                  <div class="">
-                     <a href="#"><img  src="https://cdn.shopify.com/s/files/1/1003/3354/products/Front_6bd5df32-044d-4e3f-b291-7b2cf75da172_360x.jpg?v=1618542536" alt="img"></a>
-                        <h5 class="mt-3 text-xl text-zinc-600"> <span class="uppercase">Bottoms -
-                        </span>Quần </h5>
-                  </div>
-                  <div class="">
-                     <a href="#"><img  src="https://cdn.shopify.com/s/files/1/1003/3354/products/3_49cfab17-a644-4df4-9372-64a590332ba1_360x.jpg?v=1634857184" alt="img"></a>
-                        <h5 class="mt-3 text-xl text-zinc-600"> <span class="uppercase">Footerwear -
-                        </span>Giày, dép </h5>
-                  </div>
-                  <div class="">
-                     <a href="#"><img  src="https://cdn.shopify.com/s/files/1/1003/3354/products/gpTBiIKg_360x.jpg?v=1634857018" alt="img"></a>
-                        <h5 class="mt-3 text-xl text-zinc-600"> <span class="uppercase">Accessory -
-                        </span>Phụ kiện </h5>
-                  </div>
-                  <div class="">
-                     <a href="#"><img  src="https://cdn.shopify.com/s/files/1/0456/8825/8724/files/FOG_7_069.jpg" alt="img"></a>
-                        <h5 class="mt-3 text-xl text-zinc-600"> <span class="uppercase">Collection -
-                        </span>Bộ sưu tập </h5>
-                  </div>
-                  </div>
-            </div>
+               </div>
 
                <div class="container mx-auto mt-10">
                <div class="abouts flex gap-3">
