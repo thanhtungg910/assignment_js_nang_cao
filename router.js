@@ -2,7 +2,9 @@
 import Navigo from "navigo";
 import { slideShow, menuActive } from ".";
 // Components
-import { HeaderDashboard, MenuDashboard, Header } from "./src/components/index";
+import {
+    HeaderDashboard, MenuDashboard, Header, Footer,
+} from "./src/components/index";
 // Pages
 import {
     Dashboard, ProductList, OrderList, HomePage, Products,
@@ -11,7 +13,7 @@ import {
 const router = new Navigo("/", { linksSelector: "a" });
 
 const render = (page) => {
-    const layout = `${Header.render()} ${page.render()}`;
+    const layout = `${Header.render()} ${page.render()} ${Footer.render()}`;
     document.getElementById("root").innerHTML = layout;
 };
 

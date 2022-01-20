@@ -4,7 +4,7 @@ const Header = {
     render() {
         return /* html */ `
       <header class="relative ">
-            <div id="menu" class="fixed top-0 left-0 right-0  text-white  py-4 transition-all hover:bg-white hover:text-black  z-50">
+            <div id="menu" class="fixed top-0 left-0 right-0  text-white  py-4 transition-all delay-300 hover:bg-white hover:text-black  z-50">
             <div class="flex justify-around items-center header-top">
             <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" class="w-40" fill="currentColor"   viewBox="0 0 170.445 21.625">
   <g id="Layer_1"  data-name="Layer 1">
