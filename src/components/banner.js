@@ -7,14 +7,14 @@ const Banner = {
         <div class="swiper banner w-full">
 			<div class="swiper-wrapper">
          <div class="swiper-slide w-full h-screen relative">
-         <video style="width:100%" autoplay muted>
+         <video style="width:100%" preload="auto" autoplay="true" loop="loop" muted="muted">
             <source
-               src="https://cdn.shopify.com/s/files/1/1003/3354/files/20211022_seveth_homepage_hero_com.mp4?v=1634322572"
+               src="https://cdn.shopify.com/s/files/1/1003/3354/files/20211022_seveth_homepage_hero_com.mp4?v=1634322572" type="video/mp4"
             />
             </video>
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  text-center">
             <h2 class="text-white uppercase text-8xl font-medium  font-mono leading-tight">Seventh Collection <br> Fall/Winter</h2>
-            <a href="" class="text-white uppercase text-2xl underline ">MUA</a>
+            <a href="" class="text-white uppercase p-96 text-2xl underline ">shop</a>
             </div>
 
             </div>
@@ -25,7 +25,7 @@ const Banner = {
 					/>
                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  text-center">
                      <h2 class="text-white uppercase text-8xl font-medium  font-mono leading-tight">seafoam</h2>
-                     <a href="" class="text-white uppercase text-2xl underline ">MUA</a>
+                     <a href="" class="text-white uppercase text-2xl underline ">shop</a>
                </div>
 				</div>
 				<div class="swiper-slide h-screen relative" >
@@ -35,7 +35,7 @@ const Banner = {
 					/>
                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  text-center">
                <h2 class="text-white uppercase text-8xl font-medium  font-mono leading-tight">fear of god longewear</h2>
-               <a href="" class="text-white uppercase text-2xl underline ">MUA</a>
+               <a href="" class="text-white uppercase text-2xl underline ">shop</a>
          </div>
 				</div>
 			</div>

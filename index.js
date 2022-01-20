@@ -20,7 +20,7 @@ function slideShow() {
 function menuActive() {
     window.addEventListener("scroll", () => {
         const activeMenu = document.querySelector("#menu");
-        if (window.scrollY >= 200) {
+        if (window.scrollY >= 100) {
             activeMenu.classList.add("bg-white", "shadow-lg", "transition-all", "text-black");
         } else {
             activeMenu.classList.remove("bg-white", "shadow-lg", "transition-all", "text-black");
