@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Navigo from "navigo";
-import { slideShow, menuActive } from ".";
+import {
+    slideShow, menuActive, menuBgWhite, dropDowns,
+} from ".";
 // Components
 import {
     HeaderDashboard, MenuDashboard, Header, Footer,
@@ -38,6 +40,8 @@ const Router = () => {
         },
         "/products": () => {
             render(Products);
+            menuBgWhite();
+            dropDowns();
         },
         "/admin": () => {
             renderAdmin(Dashboard);
