@@ -9,7 +9,7 @@ import {
 } from "./src/components/index";
 // Pages
 import {
-    Dashboard, ProductList, OrderList, HomePage, Products,
+    Dashboard, ProductList, OrderList, HomePage, Products, Author,
 } from "./src/pages/index";
 
 const router = new Navigo("/", { linksSelector: "a" });
@@ -20,15 +20,13 @@ const render = (page) => {
 };
 
 const renderAdmin = (page) => {
-    const layout = `${HeaderDashboard.render()}
-   <div class="flex overflow-hidden bg-white pt-16">
-            ${MenuDashboard.render()}
-   <div class="bg-gray-900 opacity-50 hidden fixed inset-0 z-10" id="sidebarBackdrop"></div>
-   <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">
-      ${page.render()}
-   </div>
-   </div>`;
+    const layout = ` <div class="flex h-screen bg-gray-50">
+    ${MenuDashboard.render()}
+    <div class="flex flex-col flex-1 w-full">
+    ${HeaderDashboard.render()}
+    ${page.render()}</div></div>`;
     document.getElementById("root").innerHTML = layout;
+    MenuDashboard.afterRender();
 };
 
 const Router = () => {
@@ -46,11 +44,14 @@ const Router = () => {
         "/admin": () => {
             renderAdmin(Dashboard);
         },
-        "/admin/product": () => {
+        "/admin/products": () => {
             renderAdmin(ProductList);
         },
-        "/admin/order": () => {
+        "/admin/orders": () => {
             renderAdmin(OrderList);
+        },
+        "/admin/account": () => {
+            renderAdmin(Author);
         },
     });
     router.resolve();
