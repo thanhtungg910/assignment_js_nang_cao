@@ -9,7 +9,7 @@ const Banner = {
          <div class="swiper-slide w-full h-screen relative">
          <video style="width:100%" preload="auto" autoplay="true" loop="loop" muted="muted">
             <source
-               src="https://cdn.shopify.com/s/files/1/1003/3354/files/20211022_seveth_homepage_hero_com.mp4?v=1634322572" type="video/mp4"
+               src="https://res.cloudinary.com/dhfndew6y/video/upload/v1642922409/js-nang-cao/20211022_seveth_homepage_hero_com_omaxz9.mp4" type="video/mp4"
             />
             </video>
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  text-center">

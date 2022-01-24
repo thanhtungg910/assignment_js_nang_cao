@@ -14,12 +14,12 @@ const HomePage = {
                           rgba(237, 145, 100, 0.8) 59%,
                           rgba(169, 81, 47, 1) 100%
                        ),
-                       url(./src/images/mountain-g4a441ef95_1280.png);
+                       url(https://res.cloudinary.com/dhfndew6y/image/upload/v1642922404/js-nang-cao/mountain-g4a441ef95_1280_tg5r0d.png);
                  ">
                  <div class="grid grid-rows-2 grid-cols-4">
                     <div class="row-span-2 relative col-span-3">
                        <img class="absolute pt-10"
-                          src="./src/images/Fear-of-God-Heavy-Canvas-Work-Jacket-Rust-removebg-preview.png" alt="" />
+                          src="https://res.cloudinary.com/dhfndew6y/image/upload/v1642922403/js-nang-cao/Fear-of-God-Heavy-Canvas-Work-Jacket-Rust-removebg-preview_ytp0n5.png" alt="" />
                        <div class="add float-right w-1/2 p-5 h-1/4 text-white">
                           <h3 class="">1.000.000</h3>
                           <h1 class="text-3xl uppercase font-extrabold w-72">

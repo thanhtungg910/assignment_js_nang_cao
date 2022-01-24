@@ -1,9 +1,5 @@
 {
-   "routes": [ 
-      {
-         "src": "/(.*)", 
-         "dest": "/ "
-      },
+   "routes": [  
       {
          "src": "/products", 
          "dest": "/ "
