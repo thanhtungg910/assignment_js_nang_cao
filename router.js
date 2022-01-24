@@ -9,7 +9,7 @@ import {
 } from "./src/components/index";
 // Pages
 import {
-    Dashboard, ProductList, OrderList, HomePage, Products, Author,
+    Dashboard, ProductList, OrderList, HomePage, Products, Author, Details,
 } from "./src/pages/index";
 
 const router = new Navigo("/", { linksSelector: "a" });
@@ -40,6 +40,10 @@ const Router = () => {
             render(Products);
             menuBgWhite();
             dropDowns();
+        },
+        "/details": () => {
+            render(Details);
+            menuBgWhite();
         },
         "/admin": () => {
             renderAdmin(Dashboard);

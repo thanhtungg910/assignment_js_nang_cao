@@ -67,15 +67,13 @@ const productList = [
 const Product = {
     render() {
         const result = productList.map(({
-            id,
             image,
             subimage,
             title,
             color,
             price,
         }) => /* html */`<div class="group relative">
-        <div
-           class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
+        <div class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
            <div class="relative w-full h-full">
               <img
                  src="${image}"
@@ -105,7 +103,7 @@ const Product = {
         <div class="mt-4 flex justify-between">
            <div>
               <h3 class="text-sm text-gray-700">
-                 <a href="/detail/${id}">
+                 <a href="/details">
                     <span aria-hidden="true" class="absolute inset-0"></span>
                     ${title}
                  </a>

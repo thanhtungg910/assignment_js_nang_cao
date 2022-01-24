@@ -1,6 +1,6 @@
 import Category from "../components/category";
 import FilterProduct from "../components/filter";
-import Product from "../components/products";
+import Product from "../components/product";
 
 const Products = {
     render() {
@@ -15,7 +15,7 @@ const Products = {
                      ${FilterProduct.render()}
                  </div>
 
-                 <div class=" mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-4">
+                 <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-4">
                     ${Product.render()}                    
                  </div>
               </div>
