@@ -1,0 +1,78 @@
+{
+   "categories": [{
+         "id": "1",
+         "title": "suit"
+      },
+      {
+         "id": "2",
+         "title": "giày"
+      },
+      {
+         "id": "3",
+         "title": "áo khoác ngoài"
+      },
+      {
+         "id": "4",
+         "title": "quần"
+      },
+      {
+         "id": "5",
+         "title": "phụ kiện"
+      }
+   ],
+   "products": [{
+         "id": "1",
+         "id_categories": "3",
+         "title": "Áo choàng ngoài ",
+         "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008501/js-nang-cao/Front_390821ce-0947-4b91-be0b-0257bdbbe97c_1920x_sptbml.jpg",
+         "images": [
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008501/js-nang-cao/Front_390821ce-0947-4b91-be0b-0257bdbbe97c_1920x_sptbml.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008502/js-nang-cao/suit-1_numhvk.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008501/js-nang-cao/onbody3_01efdaa1-b5d0-40d5-ac2c-cf5eb3b6b2d8_1920x_hsd0h3.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008502/js-nang-cao/onbody2_7adb2eff-67fa-4b76-8d8f-d6f275da4916_1920x_dluj6n.jpg"
+         ],
+         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur non aliquam facilis voluptatem possimus! Nulla consequuntur cumque inventore nihil eligendi saepe, impedit deleniti et minima mollitia rerum est, tenetur quod.",
+         "created_at": "2022-01-15T01:54:24.955Z",
+         "price": "1000000",
+         "sale_off": "0",
+         "options": [{
+               "id": "1",
+               "name": "color",
+               "value": ["red", "green", "gray"]
+            },
+            {
+               "id": "2",
+               "name": "size",
+               "value": ["x", "xl", "xs", "xxl"]
+            }
+         ]
+      },
+      {
+         "id": "2",
+         "id_categories": "2",
+         "title": "Giày seafoam ",
+         "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_1_900x_uxa3nv.jpg",
+         "images": [
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_1_900x_uxa3nv.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_2_900x_nubp0n.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_4_900x_en3zml.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_5_900x_elktnm.jpg"
+         ],
+         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur non aliquam facilis voluptatem possimus! Nulla consequuntur cumque inventore nihil eligendi saepe, impedit deleniti et minima mollitia rerum est, tenetur quod.",
+         "created_at": "2022-01-15T01:54:24.955Z",
+         "price": "1000000",
+         "sale_off": "0",
+         "options": [{
+               "id": "1",
+               "name": "color",
+               "value": ["red", "green", "gray"]
+            },
+            {
+               "id": "2",
+               "name": "size",
+               "value": ["30", "31", "32", "35", "38", "39", "40"]
+            }
+         ]
+      }
+   ]
+}
