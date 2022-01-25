@@ -2,17 +2,18 @@
 import Navigo from "navigo";
 import {
     HeaderDashboard, MenuDashboard, Header, Footer,
-} from "./src/components/index";
+} from "./src/components";
 // Pages
 import {
     Dashboard, ProductList, OrderList, HomePage, Products, Author, Details,
-} from "./src/pages/index";
+} from "./src/pages";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
 const render = (page) => {
-    const layout = `${Header.render()} ${page.render()} ${Footer.render()}`;
+    const layout = `${Header.render()} ${page.render()} ${Footer.render()} `;
     document.getElementById("root").innerHTML = layout;
+
     if (page.afterRender) {
         page.afterRender();
     }
