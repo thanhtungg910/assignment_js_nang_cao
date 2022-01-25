@@ -26,7 +26,6 @@ const renderAdmin = (page) => {
     ${HeaderDashboard.render()}
     ${page.render()}</div></div>`;
     document.getElementById("root").innerHTML = layout;
-    MenuDashboard.afterRender();
 };
 
 const Router = () => {

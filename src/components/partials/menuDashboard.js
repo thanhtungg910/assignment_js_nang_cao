@@ -7,8 +7,6 @@ const MenuDashboard = {
            </a>
            <ul class="mt-6">
               <li class="relative px-6 py-3"> 
-                 <span class="absolute inset-y-0 hidden left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                    aria-hidden="true"></span>
                  <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
                     href="index.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -21,12 +19,10 @@ const MenuDashboard = {
                  </a>
               </li>
 
-              <li class="relative px-6 py-3">
-                 <span class="absolute inset-y-0  left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                    aria-hidden="true"></span>
-                 <button
+              <li x-data="{isPagesMenuOpen: false}" class="relative px-6 py-3">
+                 <button @click="isPagesMenuOpen = !isPagesMenuOpen"
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    id="togglePagesMenu">
+                   >
                     <span class="inline-flex items-center">
                        <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                           stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -42,25 +38,25 @@ const MenuDashboard = {
                           clip-rule="evenodd"></path>
                     </svg>
                  </button>
-                 <ul id="isPagesMenuOpen"
-                    class="transition-all hidden ease-in-out duration-300  opacity-100 max-h-xl   p-2 mt-2 space-y-2  text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
-                    aria-label="submenu">
-                    <li
-                       class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                 <template x-if="isPagesMenuOpen">
+                        <ul x-transition:enter="transition-all ease-in-out duration-300"
+                           x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+                           x-transition:leave="transition-all ease-in-out duration-300"
+                           x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+                           class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+                           aria-label="submenu">
+                           <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                        <a class="w-full" href="/admin/category">Danh mục sản phẩm</a>
                     </li>
-                    <li
-                       class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                        <a class="w-full" href="/admin/products">
                           Tất cả sản phẩm
                        </a>
-                    </li>                         
-                 </ul>
-
+                    </li>     
+                        </ul>
+                     </template> 
               </li>
-              <li class="relative px-6 py-3">
-                 <span class="absolute inset-y-0 hidden left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                    aria-hidden="true"></span>
+              <li class="relative px-6 py-3"> 
                  <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                     href="/admin/orders">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -72,9 +68,7 @@ const MenuDashboard = {
                     <span class="ml-4">Orders</span>
                  </a>
               </li>
-              <li class="relative px-6 py-3">
-                 <span class="absolute inset-y-0 hidden left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                    aria-hidden="true"></span>
+              <li class="relative px-6 py-3"> 
                  <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                     href="/admin/account">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -85,9 +79,7 @@ const MenuDashboard = {
                     <span class="ml-4">Tài khoản</span>
                  </a>
               </li>
-              <li class="relative px-6 py-3">
-                 <span class="absolute inset-y-0 hidden left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                    aria-hidden="true"></span>
+              <li class="relative px-6 py-3"> 
                  <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                     href="#">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -115,18 +107,6 @@ const MenuDashboard = {
            </div>
         </div>
      </aside>`;
-    },
-
-    afterRender() {
-        const togglePagesMenu = document.querySelector("#togglePagesMenu");
-        const isPagesMenuOpen = document.querySelector("#isPagesMenuOpen");
-        togglePagesMenu.addEventListener("click", () => {
-            if (isPagesMenuOpen.classList.value.includes("hidden")) {
-                isPagesMenuOpen.classList.remove("hidden");
-            } else {
-                isPagesMenuOpen.classList.add("hidden");
-            }
-        });
     },
 };
 export default MenuDashboard;

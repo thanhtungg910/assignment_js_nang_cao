@@ -4,7 +4,7 @@ import Nav from "./partials/nav";
 const Header = {
     render() {
         return /* html */ `
-      <header x-data="{ cartOpen: true}" class="relative ">
+      <header x-data="{ cartOpen: false}" class="relative ">
             <div id="menu" class="fixed top-0 left-0 right-0   py-4 transition-all delay-1500 hover:bg-white hover:text-black  z-50">
             <div class="flex justify-around items-center header-top">
             <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" class="w-40" fill="currentColor"   viewBox="0 0 170.445 21.625">
