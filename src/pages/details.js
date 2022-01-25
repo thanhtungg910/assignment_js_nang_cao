@@ -158,5 +158,26 @@ const Details = {
         </div>
       </main>`;
     },
+    afterRender() {
+        const activeMenu = document.querySelector("#menu");
+        activeMenu.classList.toggle("text-black");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY >= 100) {
+                activeMenu.classList.add(
+                    "bg-white",
+                    "shadow-lg",
+                    "transition-all",
+                    "text-black",
+                );
+            } else {
+                activeMenu.classList.remove(
+                    "bg-white",
+                    "shadow-lg",
+                    "transition-all",
+                    "text-black",
+                );
+            }
+        });
+    },
 };
 export default Details;

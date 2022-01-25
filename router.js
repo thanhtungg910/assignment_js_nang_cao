@@ -1,10 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Navigo from "navigo";
 import {
-    slideShow, menuActive, menuBgWhite, dropDowns,
-} from ".";
-// Components
-import {
     HeaderDashboard, MenuDashboard, Header, Footer,
 } from "./src/components/index";
 // Pages
@@ -12,11 +8,14 @@ import {
     Dashboard, ProductList, OrderList, HomePage, Products, Author, Details,
 } from "./src/pages/index";
 
-const router = new Navigo("/", { linksSelector: "a" });
+const router = new Navigo("/", { linksSelector: "a", hash: true });
 
 const render = (page) => {
     const layout = `${Header.render()} ${page.render()} ${Footer.render()}`;
     document.getElementById("root").innerHTML = layout;
+    if (page.afterRender) {
+        page.afterRender();
+    }
 };
 
 const renderAdmin = (page) => {
@@ -31,32 +30,13 @@ const renderAdmin = (page) => {
 
 const Router = () => {
     router.on({
-        "/": () => {
-            render(HomePage);
-            menuActive();
-            slideShow();
-        },
-        "/products": () => {
-            render(Products);
-            menuBgWhite();
-            dropDowns();
-        },
-        "/details": () => {
-            render(Details);
-            menuBgWhite();
-        },
-        "/admin": () => {
-            renderAdmin(Dashboard);
-        },
-        "/admin/products": () => {
-            renderAdmin(ProductList);
-        },
-        "/admin/orders": () => {
-            renderAdmin(OrderList);
-        },
-        "/admin/account": () => {
-            renderAdmin(Author);
-        },
+        "/": () => { render(HomePage); },
+        "/products": () => { render(Products); },
+        "/details": () => { render(Details); },
+        "/admin": () => { renderAdmin(Dashboard); },
+        "/admin/products": () => { renderAdmin(ProductList); },
+        "/admin/orders": () => { renderAdmin(OrderList); },
+        "/admin/account": () => { renderAdmin(Author); },
     });
     router.resolve();
 };
