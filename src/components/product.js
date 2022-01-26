@@ -1,86 +1,18 @@
-const productList = [
-    {
-        id: 1,
-        image: "https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png",
-        subimage: "https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png",
-        title: "Basic Tee",
-        color: "Black",
-        price: "35",
-    },
-    {
-        id: 2,
-        image: "https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png",
-        subimage: "https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png",
-        title: "Basic Tee",
-        color: "Black",
-        price: "35",
-    },
-    {
-        id: 3,
-        image: "https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png",
-        subimage: "https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png",
-        title: "Basic Tee",
-        color: "Black",
-        price: "35",
-    },
-    {
-        id: 4,
-        image: "https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png",
-        subimage: "https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png",
-        title: "Basic Tee",
-        color: "Black",
-        price: "35",
-    },
-    {
-        id: 5,
-        image: "https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png",
-        subimage: "https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png",
-        title: "Basic Tee",
-        color: "Black",
-        price: "35",
-    },
-    {
-        id: 6,
-        image: "https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png",
-        subimage: "https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png",
-        title: "Basic Tee",
-        color: "Black",
-        price: "35",
-    },
-    {
-        id: 7,
-        image: "https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png",
-        subimage: "https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png",
-        title: "Basic Tee",
-        color: "Black",
-        price: "35",
-    },
-    {
-        id: 8,
-        image: "https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png",
-        subimage: "https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png",
-        title: "Basic Tee",
-        color: "Black",
-        price: "35",
-    },
-];
+import { getAllProduct } from "../api/products";
+
 const Product = {
-    render() {
-        const result = productList.map(({
-            image,
-            subimage,
-            title,
-            color,
-            price,
-        }) => /* html */`<div class="group relative">
+    async render() {
+        const { data } = await getAllProduct();
+        console.log(data);
+        const result = data.map((item) => /* html */`<div class="group relative">
         <div class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
            <div class="relative w-full h-full">
               <img
-                 src="${image}"
+                 src="${item.featured_image}"
                  alt="Front of men&#039;s Basic Tee in black."
                  class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full" />
               <img
-                 src="${subimage}"
+                 src="${item.sub_image}"
                  alt="Front of men&#039;s Basic Tee in black."
                  class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
            </div>
@@ -105,12 +37,12 @@ const Product = {
               <h3 class="text-sm text-gray-700">
                  <a href="/details">
                     <span aria-hidden="true" class="absolute inset-0"></span>
-                    ${title}
+                    ${item.title}
                  </a>
               </h3>
-              <p class="mt-1 text-sm text-gray-500">${color}</p>
+              <p class="mt-1 text-sm text-gray-500">${item.options[0].name}</p>
            </div>
-           <p class="text-sm font-medium text-gray-900">${price}</p>
+           <p class="text-sm font-medium text-gray-900">${item.price}</p>
         </div>
      </div>`).join(" ");
         return result;

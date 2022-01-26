@@ -10,8 +10,8 @@ import {
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
-const render = (page) => {
-    const layout = `${Header.render()} ${page.render()} ${Footer.render()} `;
+const render = async (page) => {
+    const layout = `${Header.render()} ${await page.render()} ${Footer.render()} `;
     document.getElementById("root").innerHTML = layout;
 
     if (page.afterRender) {

@@ -1,7 +1,7 @@
 {
    "categories": [{
          "id": "1",
-         "title": "suit"
+         "title": "áo"
       },
       {
          "id": "2",
@@ -9,22 +9,19 @@
       },
       {
          "id": "3",
-         "title": "áo khoác ngoài"
-      },
-      {
-         "id": "4",
          "title": "quần"
       },
       {
-         "id": "5",
+         "id": "4",
          "title": "phụ kiện"
       }
    ],
    "products": [{
          "id": "1",
-         "id_categories": "3",
+         "id_categories": "1",
          "title": "Áo choàng ngoài ",
          "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008501/js-nang-cao/Front_390821ce-0947-4b91-be0b-0257bdbbe97c_1920x_sptbml.jpg",
+         "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008502/js-nang-cao/suit-1_numhvk.jpg",
          "images": [
             "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008501/js-nang-cao/Front_390821ce-0947-4b91-be0b-0257bdbbe97c_1920x_sptbml.jpg",
             "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008502/js-nang-cao/suit-1_numhvk.jpg",
@@ -36,12 +33,10 @@
          "price": "1000000",
          "sale_off": "0",
          "options": [{
-               "id": "1",
                "name": "color",
                "value": ["red", "green", "gray"]
             },
             {
-               "id": "2",
                "name": "size",
                "value": ["x", "xl", "xs", "xxl"]
             }
@@ -52,6 +47,7 @@
          "id_categories": "2",
          "title": "Giày seafoam ",
          "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_1_900x_uxa3nv.jpg",
+         "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_2_900x_nubp0n.jpg",
          "images": [
             "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_1_900x_uxa3nv.jpg",
             "https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_2_900x_nubp0n.jpg",
@@ -63,14 +59,89 @@
          "price": "1000000",
          "sale_off": "0",
          "options": [{
-               "id": "1",
                "name": "color",
                "value": ["red", "green", "gray"]
             },
             {
-               "id": "2",
                "name": "size",
                "value": ["30", "31", "32", "35", "38", "39", "40"]
+            }
+         ]
+      },
+      {
+         "id": "3",
+         "id_categories": "1",
+         "title": "ÁO KHOÁC DA",
+         "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1643211102/js-nang-cao/Front_e649c4a7-1918-4d07-a70c-4d7c62e974ec_900x_ztocbl.webp",
+         "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1643211102/js-nang-cao/onbody4_490a13f8-c0d9-4399-b9b2-f2052271167e_900x_oldrt8.jpg",
+         "images": [
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643211102/js-nang-cao/Front_e649c4a7-1918-4d07-a70c-4d7c62e974ec_900x_ztocbl.webp",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643211102/js-nang-cao/onbody4_490a13f8-c0d9-4399-b9b2-f2052271167e_900x_oldrt8.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643211102/js-nang-cao/Detail1_cde227ca-9f19-4d97-8dc5-31eaf9ef3ff2_900x_dktxec.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643211102/js-nang-cao/detail2_b9beef37-d91d-45e1-87bf-535c91333a71_900x_z6650i.jpg"
+         ],
+         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur non aliquam facilis voluptatem possimus! Nulla consequuntur cumque inventore nihil eligendi saepe, impedit deleniti et minima mollitia rerum est, tenetur quod.",
+         "created_at": "2022-01-15T01:54:24.955Z",
+         "price": "1000000",
+         "sale_off": "0",
+         "options": [{
+               "name": "color",
+               "value": ["red", "green", "gray"]
+            },
+            {
+               "name": "size",
+               "value": ["x", "xl", "xs", "xxl"]
+            }
+         ]
+      },
+      {
+         "id": "4",
+         "id_categories": "3",
+         "title": "Quần trouser",
+         "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1643212442/js-nang-cao/Front_95d3bbd8-af1c-414f-a55d-04d1edc5f599_900x_a7bhkn.jpg",
+         "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1643212442/js-nang-cao/Back_3cc5f803-35d6-4bc4-b1b4-28edd51523e1_900x_r2311g.jpg",
+         "images": [
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643212442/js-nang-cao/Front_95d3bbd8-af1c-414f-a55d-04d1edc5f599_900x_a7bhkn.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643212442/js-nang-cao/Back_3cc5f803-35d6-4bc4-b1b4-28edd51523e1_900x_r2311g.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643212443/js-nang-cao/lookbook-12_900x_vaos4g.jpg"
+         ],
+         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur non aliquam facilis voluptatem possimus! Nulla consequuntur cumque inventore nihil eligendi saepe, impedit deleniti et minima mollitia rerum est, tenetur quod.",
+         "created_at": "2022-01-15T01:54:24.955Z",
+         "price": "1000000",
+         "sale_off": "0",
+         "options": [{
+               "name": "color",
+               "value": ["red", "green", "gray"]
+            },
+            {
+               "name": "size",
+               "value": ["x", "xl", "xs", "xxl"]
+            }
+         ]
+      },
+      {
+         "id": "5",
+         "id_categories": "2",
+         "title": "Giày da lộn",
+         "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1643213161/js-nang-cao/2_05bbf120-b8f7-4b8b-8035-ae864abcb3f1_900x_x2gct4.jpg",
+         "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1643213161/js-nang-cao/3_a7ce609a-ff3a-43a3-80e2-4176baf9476f_900x_vb6po6.jpg",
+         "images": [
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643213161/js-nang-cao/2_05bbf120-b8f7-4b8b-8035-ae864abcb3f1_900x_x2gct4.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643213161/js-nang-cao/3_a7ce609a-ff3a-43a3-80e2-4176baf9476f_900x_vb6po6.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643213161/js-nang-cao/4_197afd90-7054-42fa-a46f-49a0ed246c69_900x_p6gj0k.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1643213161/js-nang-cao/1_ff748dfe-6170-4846-82df-e013b5694f84_900x_wvv0ad.jpg"
+         ],
+         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur non aliquam facilis voluptatem possimus! Nulla consequuntur cumque inventore nihil eligendi saepe, impedit deleniti et minima mollitia rerum est, tenetur quod.",
+         "created_at": "2022-01-15T01:54:24.955Z",
+         "price": "1000000",
+         "sale_off": "0",
+         "options": [{
+               "name": "color",
+               "value": ["red", "green", "gray"]
+            },
+            {
+               "name": "size",
+               "value": ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44"]
             }
          ]
       }

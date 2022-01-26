@@ -3,7 +3,7 @@ import FilterProduct from "../components/filter";
 import Product from "../components/product";
 
 const Products = {
-    render() {
+    async render() {
         document.title = "Sản phẩm";
         return /* html */ `
         <main>
@@ -16,7 +16,7 @@ const Products = {
                  </div>
 
                  <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-4">
-                    ${Product.render()}                    
+                    ${await Product.render()}                    
                  </div>
               </div>
            </div>
