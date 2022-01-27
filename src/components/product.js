@@ -3,7 +3,6 @@ import { getAllProduct } from "../api/products";
 const Product = {
     async render() {
         const { data } = await getAllProduct();
-        console.log(data);
         const result = data.map((item) => /* html */`<div class="group relative">
         <div class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
            <div class="relative w-full h-full">

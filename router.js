@@ -19,12 +19,12 @@ const render = async (page) => {
     }
 };
 
-const renderAdmin = (page) => {
+const renderAdmin = async (page) => {
     const layout = ` <div class="flex h-screen bg-gray-50">
     ${MenuDashboard.render()}
     <div class="flex flex-col flex-1 w-full">
     ${HeaderDashboard.render()}
-    ${page.render()}</div></div>`;
+    ${await page.render()}</div></div>`;
     document.getElementById("root").innerHTML = layout;
 };
 
