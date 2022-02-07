@@ -3,7 +3,6 @@ import { getAllProduct } from "../../../api/products";
 const Products = {
     async render() {
         const { data } = await getAllProduct();
-        console.log(data);
         return /* html */`
       <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
               <div class="w-full overflow-x-auto">

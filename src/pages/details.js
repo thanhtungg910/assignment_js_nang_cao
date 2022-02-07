@@ -1,7 +1,8 @@
 import { Product } from "../components";
 
 const Details = {
-    render() {
+    async  render() {
+        document.title = "Chi tiết sản phẩm";
         return /* html */`
       <main>
          <div class="max-w-2xl mt-9 mx-auto pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pb-24 lg:px-8 lg:grid lg:grid-cols-2 grid-flow-col-dense lg:gap-x-8 ">
@@ -151,7 +152,7 @@ const Details = {
                  </div>
 
                  <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-4">
-                    ${Product.render()}                    
+                    ${await Product.render()}                    
                  </div>
               </div>
            </div>
