@@ -11,7 +11,7 @@ const Products = {
            <div class="bg-white p-6">
               <div class="max-w-4xl mx-auto py-16 px-5 sm:py-20 sm:px-6 lg:max-w-full lg:px-4 ">
                  <div class="flex justify-between">
-                     ${Category.render()}
+                     ${await Category.render()}
                      ${FilterProduct.render()}
                  </div>
 

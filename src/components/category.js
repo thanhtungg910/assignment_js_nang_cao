@@ -1,10 +1,12 @@
+import { getAll } from "../api/categories";
+
 const Category = {
-    render() {
+    async render() {
+        const { data } = await getAll();
         return /* html */ `
       <select class="focus:outline-none ">
-      <option>All</option>
-      <option>No</option>
-      <option>Maybe</option>
+      ${data.map((item) => `<option>${item.title.charAt(0).toUpperCase()}${item.title.slice(1)
+    }</option>`).join("")} 
    </select>`;
     },
 };

@@ -8,3 +8,4 @@ export { default as Categories } from "./admin/categories/categories";
 export { default as HomePage } from "./home";
 export { default as Products } from "./products";
 export { default as Details } from "./details";
+export { default as Contacts } from "./contacts";

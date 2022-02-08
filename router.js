@@ -5,7 +5,7 @@ import {
 } from "./src/components";
 // Pages
 import {
-    Dashboard, ProductList, OrderList, HomePage, Products, Author, Details, Categories,
+    Dashboard, ProductList, OrderList, HomePage, Products, Author, Details, Categories, Contacts,
 } from "./src/pages";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
@@ -13,14 +13,13 @@ const router = new Navigo("/", { linksSelector: "a", hash: true });
 const render = async (page) => {
     const layout = `${Header.render()} ${await page.render()} ${Footer.render()} `;
     document.getElementById("root").innerHTML = layout;
-
     if (page.afterRender) {
         page.afterRender();
     }
 };
 
 const renderAdmin = async (page) => {
-    const layout = ` <div class="flex h-screen bg-gray-50">
+    const layout = `<div class="flex h-screen bg-gray-50">
     ${MenuDashboard.render()}
     <div class="flex flex-col flex-1 w-full">
     ${HeaderDashboard.render()}
@@ -33,6 +32,7 @@ const Router = () => {
         "/": () => { render(HomePage); },
         "/products": () => { render(Products); },
         "/details": () => { render(Details); },
+        "/contact": () => { render(Contacts); },
         "/admin": () => { renderAdmin(Dashboard); },
         "/admin/products": () => { renderAdmin(ProductList); },
         "/admin/category": () => { renderAdmin(Categories); },
