@@ -1,4 +1,3 @@
-import { Signin, Signup } from "../pages";
 import Cart from "./cart";
 import Nav from "./partials/nav";
 

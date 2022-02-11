@@ -5,7 +5,7 @@ import {
 } from "./src/components";
 // Pages
 import {
-    Dashboard, ProductList, OrderList, HomePage, Products, Author, Details, Categories, Contacts, Signin, Signup,
+    Dashboard, ProductList, OrderList, HomePage, Products, Author, Details, Categories, Contacts, Signin, Signup, AddProduct,
 } from "./src/pages";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
@@ -57,6 +57,7 @@ const Router = () => {
         "/contact": () => { render(Contacts); },
         "/admin": () => { renderAdmin(Dashboard); },
         "/admin/products": () => { renderAdmin(ProductList); },
+        "/admin/products/add": () => { renderAdmin(AddProduct); },
         "/admin/category": () => { renderAdmin(Categories); },
         "/admin/orders": () => { renderAdmin(OrderList); },
         "/admin/account": () => { renderAdmin(Author); },

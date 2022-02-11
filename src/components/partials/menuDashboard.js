@@ -46,10 +46,10 @@ const MenuDashboard = {
                            class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
                            aria-label="submenu">
                            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                       <a class="w-full" href="/admin/category">Danh mục sản phẩm</a>
+                       <a class="w-full" href="/#/admin/category">Danh mục sản phẩm</a>
                     </li>
                     <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                       <a class="w-full" href="/admin/products">
+                       <a class="w-full" href="/#/admin/products">
                           Tất cả sản phẩm
                        </a>
                     </li>     
@@ -58,7 +58,7 @@ const MenuDashboard = {
               </li>
               <li class="relative px-6 py-3"> 
                  <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="/admin/orders">
+                    href="/#/admin/orders">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                        <path
@@ -70,7 +70,7 @@ const MenuDashboard = {
               </li>
               <li class="relative px-6 py-3"> 
                  <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="/admin/account">
+                    href="/#/admin/account">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                        <path

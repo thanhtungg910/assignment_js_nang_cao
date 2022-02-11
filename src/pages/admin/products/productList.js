@@ -34,51 +34,17 @@ const ProductList = {
                     </span>
   
                  </div>
-                 <span x-data="{ open: false }">
-                    <!-- Trigger -->
-                    <span x-on:click="open = true">
-                       <button
-                          class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                          <!-- Heroicon name: solid/check -->
-                          <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" viewBox="0 0 20 20"
-                             fill="currentColor">
-                             <path fill-rule="evenodd"
-                                d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                                clip-rule="evenodd" />
-                          </svg>
-                          Thêm sản phẩm
-                       </button>
-                    </span>
-                    <!-- Modal -->
-                    <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog"
-                       aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')"
-                       class="fixed inset-0 overflow-y-auto">
-                       <!-- Overlay -->
-                       <div x-show="open" x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
-                       <!-- Panel -->
-                       <div x-show="open" x-transition x-on:click="open = false"
-                          class="relative min-h-screen flex items-center justify-center p-4">
-                          <div x-on:click.stop x-trap.noscroll.inert="open"
-                             class="relative max-w-2xl w-full bg-white border border-black p-8 overflow-y-auto">
-                             <!-- Title -->
-                             <h2 class="text-3xl font-medium" :id="$id('modal-title')">Confirm</h2>
-                             <!-- Content -->
-                             <p class="mt-2 text-gray-600">Are you sure you want to learn how to create an awesome modal?
-                             </p>
-                             <!-- Buttons -->
-                             <div class="mt-8 flex space-x-2">
-                                <button type="button" x-on:click="open = false"
-                                   class="bg-white border border-black px-4 py-2">
-                                   Confirm
-                                </button>
-                                <button type="button" x-on:click="open = false"
-                                   class="bg-white border border-black px-4 py-2">
-                                   Cancel
-                                </button>
-                             </div>
-                          </div>
-                       </div>
-                    </div>
+                 <span x-data="{ open: false }"><a href="/#/admin/products/add"
+                 class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                 <!-- Heroicon name: solid/check -->
+                 <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" viewBox="0 0 20 20"
+                    fill="currentColor">
+                    <path fill-rule="evenodd"
+                       d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                       clip-rule="evenodd" />
+                 </svg>
+                 Thêm sản phẩm
+              </a>
                  </span>
               </div>
   
