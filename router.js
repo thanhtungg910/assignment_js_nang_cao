@@ -5,16 +5,22 @@ import {
 } from "./src/components";
 // Pages
 import {
-    Dashboard, ProductList, OrderList, HomePage, Products, Author, Details, Categories, Contacts,
+    Dashboard, ProductList, OrderList, HomePage, Products, Author, Details, Categories, Contacts, Signin, Signup,
 } from "./src/pages";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
 const render = async (page) => {
-    const layout = `${Header.render()} ${await page.render()} ${Footer.render()} `;
-    document.getElementById("root").innerHTML = layout;
-    if (page.afterRender) {
-        page.afterRender();
+    if (!page.afterLogin) {
+        const layout = `${Header.render()} ${await page.render()} ${Footer.render()} `;
+        document.getElementById("root").innerHTML = layout;
+        if (page.afterRender) {
+            page.afterRender();
+        }
+    } else {
+        const layout = `${await page.render()}`;
+        document.getElementById("root").innerHTML = layout;
+        page.afterLogin();
     }
 };
 
@@ -28,8 +34,24 @@ const renderAdmin = async (page) => {
 };
 
 const Router = () => {
+    router.on("/admin/*", () => {}, {
+        before(done) {
+            if (JSON.parse(localStorage.getItem("user"))) {
+                const { id } = JSON.parse(localStorage.getItem("user"));
+                if (id === 1) {
+                    done();
+                } else {
+                    document.location.href = "/";
+                }
+            } else {
+                document.location.href = "/";
+            }
+        },
+    });
     router.on({
         "/": () => { render(HomePage); },
+        "/login": () => { render(Signin); },
+        "/signup": () => { render(Signup); },
         "/products": () => { render(Products); },
         "/details": () => { render(Details); },
         "/contact": () => { render(Contacts); },

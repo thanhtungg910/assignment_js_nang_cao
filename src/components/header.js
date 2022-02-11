@@ -1,10 +1,11 @@
+import { Signin, Signup } from "../pages";
 import Cart from "./cart";
 import Nav from "./partials/nav";
 
 const Header = {
     render() {
         return /* html */ `
-      <header x-data="{ cartOpen: false}" class="relative ">
+      <header x-data="{ cartOpen: false, login: false, signup: false}" class="relative ">
             <div id="menu" class="fixed top-0 left-0 right-0   py-4 transition-all delay-1500 hover:bg-white hover:text-black  z-50">
             <div class="flex justify-around items-center header-top">
             <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" class="w-40" fill="currentColor"   viewBox="0 0 170.445 21.625">
@@ -29,10 +30,12 @@ const Header = {
                   </div>
                   <svg @click="cartOpen = !cartOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
+                  </svg> 
+                  <a href="/login">
+                     <svg  xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                     </svg>
+                  </a>
                </div>
             </div>
          </div>
