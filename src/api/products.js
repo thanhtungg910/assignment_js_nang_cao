@@ -20,6 +20,10 @@ const deleteProduct = (id) => {
     const url = `/products/${id}`;
     return instance.delete(url);
 };
+const limitPageProduct = (min, max) => {
+    const url = `products?_page=${min}&_limit=${max}`;
+    return instance.get(url);
+};
 export {
-    getAllProduct, getProduct, addProduct, editProduct, deleteProduct,
+    getAllProduct, getProduct, addProduct, editProduct, deleteProduct, limitPageProduct,
 };

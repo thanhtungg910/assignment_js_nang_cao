@@ -1,16 +1,19 @@
 import instance from "./instance";
 
 const getAll = () => {
-    const url = "/categories";
+    const url = "/productCates";
     return instance.get(url);
 };
 const getCategories = (id) => {
-    const url = `/categories/${id}`;
+    const url = `/productCates/${id}`;
     return instance.get(url);
 };
 const addCategories = (data) => {
-    const url = `/categories`;
-    return instance.get(url, data);
+    const url = `/productCates`;
+    return instance.post(url, data);
 };
+const getRelationships = (url) => instance.get(url);
 
-export { getAll, getCategories, addCategories };
+export {
+    getAll, getCategories, addCategories, getRelationships,
+};

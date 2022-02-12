@@ -11,9 +11,9 @@ import {
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
-const render = async (page) => {
+const render = async (page, id) => {
     if (!page.afterLogin) {
-        const layout = `${Header.render()} ${await page.render()} ${Footer.render()} `;
+        const layout = `${Header.render()} ${await page.render(id)} ${Footer.render()} `;
         document.getElementById("root").innerHTML = layout;
         if (page.afterRender) {
             page.afterRender();
@@ -57,7 +57,8 @@ const Router = () => {
         "/login": () => { render(Signin); },
         "/signup": () => { render(Signup); },
         "/products": () => { render(Products); },
-        "/details": () => { render(Details); },
+        "/productCates/*": () => { render(Products); },
+        "/details/:id": ({ data: { id } }) => { render(Details, id); },
         "/contact": () => { render(Contacts); },
         "/admin": () => { renderAdmin(Dashboard); },
         "/admin/products": () => { renderAdmin(ProductList); },

@@ -170,51 +170,51 @@ const AddProduct = {
                     <div class="grid grid-cols-4 gap-4">
                        <div class="flex items-end space-x-1">
                           <div class="bg-black w-5 h-5"></div>
-                          <input type="checkbox" value="black" data-name="Màu sản phẩm" class="check-input color[]">
+                          <input type="checkbox" value="#17202a" data-name="Màu sản phẩm" class="check-input color[]">
                        </div>
                        <div class="flex items-end space-x-1">
                           <div class="bg-red-500 w-5 h-5"></div>
-                          <input type="checkbox" value="red" class="color[]">
+                          <input type="checkbox" value="#922b21" class="color[]">
                        </div>
                        <div class="flex items-end space-x-1">
                           <div class="bg-gray-500 w-5 h-5"></div>
-                          <input type="checkbox" value="gray" class="color[]">
+                          <input type="checkbox" value="#909497" class="color[]">
                        </div>
                        <div class="flex items-end space-x-1">
                           <div class="bg-orange-400 w-5 h-5"></div>
-                          <input type="checkbox" value="orange" class="color[]">
+                          <input type="checkbox" value="#d35400" class="color[]">
                        </div>
                        <div class="flex items-end space-x-1">
                           <div class="bg-yellow-300 w-5 h-5"></div>
-                          <input type="checkbox" value="yellow" class="color[]">
+                          <input type="checkbox" value="#f4d03f" class="color[]">
                        </div>
                        <div class="flex items-end space-x-1">
                           <div class="bg-lime-600 w-5 h-5"></div>
-                          <input type="checkbox" value="lime" class="color[]">
+                          <input type="checkbox" value="#229954" class="color[]">
                        </div>
                        <div class="flex items-end space-x-1">
                           <div class="bg-green-600 w-5 h-5"></div>
-                          <input type="checkbox" value="green" class="color[]">
+                          <input type="checkbox" value="#196f3d" class="color[]">
                        </div>
                        <div class="flex items-end space-x-1">
                           <div class="bg-cyan-600 w-5 h-5"></div>
-                          <input type="checkbox" value="cyan" class="color[]">
+                          <input type="checkbox" value="#2471a3" class="color[]">
                        </div>
                        <div class="flex items-end space-x-1">
                           <div class="bg-sky-600 w-5 h-5"></div>
-                          <input type="checkbox" value="sky" class="color[]">
+                          <input type="checkbox" value="#85c1e9" class="color[]">
                        </div>
                        <div class="flex items-end space-x-1">
                           <div class="bg-blue-700 w-5 h-5"></div>
-                          <input type="checkbox" value="blue" class="color[]">
+                          <input type="checkbox" value="#0099ff" class="color[]">
                        </div>
                        <div class="flex items-end space-x-1">
                           <div class="bg-violet-700 w-5 h-5"></div>
-                          <input type="checkbox" value="violet" class="color[]">
+                          <input type="checkbox" value="#7d3c98" class="color[]">
                        </div>
                        <div class="flex items-end space-x-1">
                           <div class="bg-white w-5 h-5"></div>
-                          <input type="checkbox" value="white" class="color[]">
+                          <input type="checkbox" value="#ffffff" class="color[]">
                        </div>
 
                     </div>
@@ -402,7 +402,7 @@ const AddProduct = {
 
                 const data = {
                     title: titleProduct.value,
-                    id_categories: category.value,
+                    productCateId: category.value,
                     featured_image: imgFeatured,
                     sub_image: imgSub,
                     images: [...images],
