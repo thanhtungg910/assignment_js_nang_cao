@@ -119,7 +119,7 @@ const MenuDashboard = {
                 const notifier = new AWN();
                 const onOk = () => {
                     localStorage.removeItem("user");
-                    document.location.href("/");
+                    document.location.href = "/";
                 };
                 const onCancel = () => "";
                 notifier.confirm(
