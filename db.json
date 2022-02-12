@@ -205,6 +205,40 @@
           ]
         }
       ]
+    },
+    {
+      "title": "adc",
+      "id_categories": "1",
+      "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1644653598/js-nang-cao/ewi58ytq4gkfbhnynkiy.webp",
+      "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1644653620/js-nang-cao/wofjdzqlgalclcipu05p.jpg",
+      "images": [
+        "https://res.cloudinary.com/dhfndew6y/image/upload/v1644653623/js-nang-cao/jhbules5edijjumuupwa.jpg",
+        "https://res.cloudinary.com/dhfndew6y/image/upload/v1644653623/js-nang-cao/n1y2dgvqz47vvstvrtrd.webp",
+        "https://res.cloudinary.com/dhfndew6y/image/upload/v1644653625/js-nang-cao/tqw2mcg6wznneqb62u09.jpg"
+      ],
+      "description": "ádsadsad",
+      "created_at": "2022-01-15T01:54:24.955Z",
+      "price": "8000000",
+      "sale_off": "0",
+      "options": [
+        {
+          "name": "color",
+          "value": [
+            "black",
+            "white"
+          ]
+        },
+        {
+          "name": "size",
+          "value": [
+            "S",
+            "M",
+            "XXL",
+            "2XL"
+          ]
+        }
+      ],
+      "id": "6nzCXVT"
     }
   ],
   "users": [
@@ -239,6 +273,13 @@
       "username": "tthnhung.dhqt14a15hn@sv.uneti.edu.vn",
       "phone": "0353370505",
       "id": 5
+    },
+    {
+      "email": "adssmin@gmail.com",
+      "password": "$2a$10$Tuv8xDr5AY1StdBf7.zPYOFcdYIVGCR5Fhygt41HnDt7m5XtF528q",
+      "username": "tthnhunádsadg.dhqt14a15hn@sv.uneti.edu.vn",
+      "phone": "11111111",
+      "id": 6
     }
   ]
 }

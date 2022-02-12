@@ -5,7 +5,8 @@ import {
 } from "./src/components";
 // Pages
 import {
-    Dashboard, ProductList, OrderList, HomePage, Products, Author, Details, Categories, Contacts, Signin, Signup, AddProduct,
+    Dashboard, ProductList, OrderList, HomePage, Products,
+    Author, Details, Categories, Contacts, Signin, Signup, AddProduct,
 } from "./src/pages";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
@@ -31,6 +32,9 @@ const renderAdmin = async (page) => {
     ${HeaderDashboard.render()}
     ${await page.render()}</div></div>`;
     document.getElementById("root").innerHTML = layout;
+    if (page.afterRender) {
+        page.afterRender();
+    }
 };
 
 const Router = () => {

@@ -1,7 +1,10 @@
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
 import { signup } from "../api/users";
 
 const Signup = {
     render() {
+        document.title = "Đăng ký";
         return /* html */ `<div class="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
         <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
            <div class="md:flex w-full">
@@ -161,20 +164,40 @@ const Signup = {
             const email = document.querySelector("#email-name");
             const password = document.querySelector("#password-name");
             const phone = document.querySelector("#phone");
-            if (username.value && email.value && password.value) {
-                const res = await signup({
-                    username: username.value,
-                    phone: phone.value,
-                    email: email.value,
-                    password: password.value,
-                });
-                if (res) {
-                    document.location.href = "/login";
+            /* if (username.value && email.value && password.value) {
+                  const res = await signup({
+                     username: username.value,
+                     phone: phone.value,
+                     email: email.value,
+                     password: password.value,
+                  });
+                  if (res) {
+                     document.location.href = "/login";
+                  }
+               } else {
+                  username.classList.add("border-red-600");
+                  email.classList.add("border-red-600");
+                  password.classList.add("border-red-600");
+               } */
+            try {
+                if (username.value && email.value && password.value) {
+                    const res = await signup({
+                        username: username.value,
+                        phone: phone.value,
+                        email: email.value,
+                        password: password.value,
+                    });
+                    if (res) {
+                        toastr.success("Đăng ký thành công");
+                        setTimeout(() => {
+                            document.location.href = "/login";
+                        }, 1000);
+                    }
+                } else {
+                    toastr.warning("Vui lòng không để trống các trường!");
                 }
-            } else {
-                username.classList.add("border-red-600");
-                email.classList.add("border-red-600");
-                password.classList.add("border-red-600");
+            } catch (error) {
+                toastr.error(error.response.data);
             }
         });
     },

@@ -1,7 +1,9 @@
+import "toastr/build/toastr.min.css";
 import { Products } from "../../../components/admin";
 
 const ProductList = {
     async render() {
+        document.title = "Sản phẩm";
         return /* html */ `
         <main class="h-full pb-16 overflow-y-auto">
            <div class="container grid px-5 mx-auto">
@@ -47,9 +49,25 @@ const ProductList = {
               </a>
                  </span>
               </div>
-  
               <!-- With avatar -->
-              ${await Products.render()}
+              <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+                      <div class="w-full overflow-x-auto">
+                         <table class="w-full whitespace-no-wrap">
+                            <thead>
+                               <tr
+                                  class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                  <th class="px-4 py-3">Ảnh</th>
+                                  <th class="px-4 py-3">Tiêu đề</th>
+                                  <th class="px-4 py-3">Giá sản phẩm</th>
+                                  <th class="px-4 py-3">Giảm giá (%)</th>
+                                  <th class="px-4 py-3">Ngày đăng sp</th>
+                               </tr>
+                            </thead>
+                            <tbody  id="product-table"  class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                            ${await Products.render()}
+                            </tbody>
+                         </table>
+                      </div>
               <div
                  class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
                  <span class="flex items-center col-span-3">
@@ -122,6 +140,9 @@ const ProductList = {
               </div>
            </div>
         </main>`;
+    },
+    afterRender() {
+        Products.afterRender();
     },
 };
 export default ProductList;

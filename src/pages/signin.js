@@ -1,7 +1,10 @@
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
 import { signin } from "../api/users";
 
 const Signin = {
     render() {
+        document.title = "Đăng nhập";
         return /* html */ `<div class="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
         <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
            <div class="md:flex w-full">
@@ -118,7 +121,7 @@ const Signin = {
                        <div class="w-full px-3 mb-5">
                           <button
                              class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">Đăng
-                             ký</button>
+                             nhập</button>
                        </div>
                     </div>
                     <div class="mt-4 text-center">
@@ -135,12 +138,21 @@ const Signin = {
         const formSignin = document.querySelector("#form-signin");
         formSignin.addEventListener("submit", async (e) => {
             e.preventDefault();
-            const { data: { user } } = await signin({
-                email: document.querySelector("#email").value,
-                password: document.querySelector("#password").value,
-            });
-            localStorage.setItem("user", JSON.stringify(user));
-            document.location.href = "/";
+            try {
+                const { data: { user } } = await signin({
+                    email: document.querySelector("#email").value,
+                    password: document.querySelector("#password").value,
+                });
+                if (user) {
+                    localStorage.setItem("user", JSON.stringify(user));
+                    toastr.success("Đăng nhập thành công!");
+                    setTimeout(() => {
+                        document.location.href = "/";
+                    }, 1000);
+                }
+            } catch (error) {
+                toastr.error(error.response.data);
+            }
         });
     },
 };
