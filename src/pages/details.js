@@ -6,7 +6,6 @@ const Details = {
         document.title = "Chi tiết sản phẩm";
         const { data } = await getProduct(id);
         const { options } = data;
-        console.log(options[0].value);
         return /* html */`
       <main>
          <div class="max-w-2xl mt-9 mx-auto pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pb-24 lg:px-8 lg:grid lg:grid-cols-2 grid-flow-col-dense lg:gap-x-8 ">

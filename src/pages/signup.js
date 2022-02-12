@@ -194,7 +194,7 @@ const Signup = {
                         }, 1000);
                     }
                 } else {
-                    toastr.warning("Vui lòng không để trống các trường!");
+                    toastr.error("Vui lòng không để trống các trường!");
                 }
             } catch (error) {
                 toastr.error(error.response.data);

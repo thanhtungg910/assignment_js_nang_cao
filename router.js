@@ -6,7 +6,7 @@ import {
 // Pages
 import {
     Dashboard, ProductList, OrderList, HomePage, Products,
-    Author, Details, Categories, Contacts, Signin, Signup, AddProduct,
+    Author, Details, Categories, Contacts, Signin, Signup, AddProduct, EditProduct,
 } from "./src/pages";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
@@ -15,6 +15,7 @@ const render = async (page, id) => {
     if (!page.afterLogin) {
         const layout = `${Header.render()} ${await page.render(id)} ${Footer.render()} `;
         document.getElementById("root").innerHTML = layout;
+        Header.afterRender();
         if (page.afterRender) {
             page.afterRender();
         }
@@ -25,15 +26,16 @@ const render = async (page, id) => {
     }
 };
 
-const renderAdmin = async (page) => {
+const renderAdmin = async (page, id) => {
     const layout = `<div class="flex h-screen bg-gray-50">
     ${MenuDashboard.render()}
     <div class="flex flex-col flex-1 w-full">
     ${HeaderDashboard.render()}
-    ${await page.render()}</div></div>`;
+    ${await page.render(id)}</div></div>`;
     document.getElementById("root").innerHTML = layout;
+    MenuDashboard.afterRender();
     if (page.afterRender) {
-        page.afterRender();
+        page.afterRender(id);
     }
 };
 
@@ -63,6 +65,7 @@ const Router = () => {
         "/admin": () => { renderAdmin(Dashboard); },
         "/admin/products": () => { renderAdmin(ProductList); },
         "/admin/products/add": () => { renderAdmin(AddProduct); },
+        "/admin/products/edit/:id": ({ data: { id } }) => { renderAdmin(EditProduct, id); },
         "/admin/category": () => { renderAdmin(Categories); },
         "/admin/orders": () => { renderAdmin(OrderList); },
         "/admin/account": () => { renderAdmin(Author); },

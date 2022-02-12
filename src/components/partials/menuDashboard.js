@@ -1,3 +1,6 @@
+import AWN from "awesome-notifications";
+import "awesome-notifications/dist/style.css";
+
 const MenuDashboard = {
     render() {
         return /* html */ `<aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
@@ -95,7 +98,7 @@ const MenuDashboard = {
            <div class="px-6 my-6">
 
               <button
-                 class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                 class="logout flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                  Đăng xuất
                  <span class="ml-2" aria-hidden="true"> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
                        viewBox="0 0 20 20" fill="currentColor">
@@ -107,6 +110,30 @@ const MenuDashboard = {
            </div>
         </div>
      </aside>`;
+    },
+    afterRender() {
+        const logout = document.querySelector(".logout");
+        if (logout) {
+            logout.addEventListener("click", (e) => {
+                e.preventDefault();
+                const notifier = new AWN();
+                const onOk = () => {
+                    localStorage.removeItem("user");
+                    document.location.href("/");
+                };
+                const onCancel = () => "";
+                notifier.confirm(
+                    " ",
+                    onOk,
+                    onCancel,
+                    {
+                        labels: {
+                            confirm: "Bạn có muốn đăng xuất?",
+                        },
+                    },
+                );
+            });
+        }
     },
 };
 export default MenuDashboard;

@@ -125,7 +125,7 @@ const Signin = {
                        </div>
                     </div>
                     <div class="mt-4 text-center">
-                       <p class="text-sm">Bạn chưa có tài khoản? <a href="/signup" class="text-blue-600 hover:underline">
+                       <p class="text-sm">Bạn chưa có tài khoản? <a href="/#/signup" class="text-blue-600 hover:underline">
                              Đăng ký.</a></p>
                     </div>
                  </form>

@@ -1,15 +1,18 @@
-import toastr from "toastr";
+/* eslint-disable no-plusplus */
 import axios from "axios";
+import toastr from "toastr";
 import "toastr/build/toastr.min.css";
-import { addProduct } from "../../../api/products";
+import { getProduct, editProduct } from "../../../api/products";
 import { getAll as getCategories } from "../../../api/categories";
 import uploadFile from "../../../utils/upload";
-/* eslint-disable no-plusplus */
-const AddProduct = {
-    async render() {
-        document.title = "Thêm sản phẩm";
-        const { data } = await getCategories();
-        return /* html */`<main class="h-full pb-16 overflow-y-auto">
+
+const EditProduct = {
+    async render(id) {
+        document.title = "Chỉnh sửa sản phẩm";
+        const { data } = await getProduct(id);
+
+        const { data: dataCategories } = await getCategories();
+        return /* html */ `<main class="h-full pb-16 overflow-y-auto">
         <div class="container grid px-5 mx-auto">
         <a href="/#/admin/products"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-5" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
@@ -24,7 +27,7 @@ const AddProduct = {
                     <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tên sản phẩm</h2>
                  </div>
                  <div>
-                    <input type="text" id="title-product" data-name="Tên sản phẩm"
+                    <input type="text" value="${data.title}" id="title-product" data-name="Tên sản phẩm"
                        class="check-input shadow-sm w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">
                  </div>
               </div>
@@ -53,7 +56,7 @@ const AddProduct = {
                            m-0
                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                              aria-label="Default select example">
-                             ${data.map((item) => `<option value="${item.id}">${item.title}</option>`).join("")}
+                             ${dataCategories.map((item) => `<option value="${item.id}">${item.title}</option>`).join("")}
                           </select>
                        </div>
                     </div>
@@ -74,12 +77,12 @@ const AddProduct = {
                              d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                        </svg>
-                       <img src="" class="w-[300px]" id="preview_image_featured" alt="" />
+                       <img src="${data.featured_image}" class="w-[300px]" id="preview_image_featured" alt="" />
                        <div class="flex text-sm text-gray-600">
                           <label for="featured_image"
                              class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                              <span>Upload a file</span>
-                             <input id="featured_image" type="file" class="sr-only  file-upload[]">
+                             <input id="featured_image" value="${data.featured_image}" type="file" class="sr-only  file-upload[]">
                           </label>
                           <p class="pl-1">or drag and drop</p>
                        </div>
@@ -102,12 +105,12 @@ const AddProduct = {
                              d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                        </svg>
-                       <img src=""  class="w-[300px]" id="preview_image_sub" alt="" />
+                       <img src="${data.sub_image}"  class="w-[300px]" id="preview_image_sub" alt="" />
                        <div class="flex text-sm text-gray-600">
                           <label for="sub_image"
                              class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                              <span>Upload a file</span>
-                             <input id="sub_image" type="file" class="sr-only file-upload[]">
+                             <input value="${data.sub_image}" id="sub_image" type="file" class="sr-only file-upload[]">
                           </label>
                           <p class="pl-1">or drag and drop</p>
                        </div>
@@ -149,7 +152,7 @@ const AddProduct = {
                        Giá sản phẩm</h2>
                  </div>
                  <div>
-                    <input type="number" id="price" data-name="Giá sản phẩm"
+                    <input type="number" value="${data.price}" id="price" data-name="Giá sản phẩm"
                        class="check-input shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">
                  </div>
               </div>
@@ -160,7 +163,7 @@ const AddProduct = {
                        Giá giảm</h2>
                  </div>
                  <div>
-                    <input type="number" id="price_sale" value="0"
+                    <input type="number" value="${data.sale_off}" id="price_sale" value="0"
                        class="check-input shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">
                  </div>
               </div>
@@ -336,7 +339,7 @@ const AddProduct = {
                              ease-in-out
                              m-0
                              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-                           " id="desc" rows="3" placeholder="Your message"></textarea>
+                           " id="desc" rows="3" placeholder="Your message">${data.description}</textarea>
                        </div>
                     </div>
                  </div>
@@ -344,12 +347,12 @@ const AddProduct = {
 
               <button
                  class="text-white  bg-indigo-600 hover:bg-indigo-700  focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">
-                 Thêm</button>
+                 Cập nhật</button>
            </form>
         </div>
      </main>`;
     },
-    afterRender() {
+    afterRender(id) {
         const API_CLOUDDINARY = "https://api.cloudinary.com/v1_1/dhfndew6y/image/upload";
         const UPLOAD_PRESET = "njlgbczl";
 
@@ -431,34 +434,38 @@ const AddProduct = {
             const priceSale = document.querySelector("#price_sale");
 
             if (titleProduct.value
-             && desc.value
-             && price.value
-             && priceSale.value) {
+           && desc.value
+           && price.value
+           && priceSale.value) {
                 //  Upload feature img
-                const resFeaturedImage = await axios.post(
-                    API_CLOUDDINARY,
-                    uploadFile(featuredImage.files[0], UPLOAD_PRESET),
-                    {
-                        headers: {
-                            "Content-Type": "application/form-data",
+                if (featuredImage.files[0]) {
+                    const resFeaturedImage = await axios.post(
+                        API_CLOUDDINARY,
+                        uploadFile(featuredImage.files[0], UPLOAD_PRESET),
+                        {
+                            headers: {
+                                "Content-Type": "application/form-data",
+                            },
                         },
-                    },
-                );
-                previewImageFeatured.src = resFeaturedImage.data.secure_url;
-                imgFeatured = resFeaturedImage.data.secure_url;
+                    );
+                    previewImageFeatured.src = resFeaturedImage.data.secure_url;
+                    imgFeatured = resFeaturedImage.data.secure_url;
+                }
                 //  Upload sub_img
-                const resSubImage = await axios.post(
-                    API_CLOUDDINARY,
-                    uploadFile(subImage.files[0], UPLOAD_PRESET),
-                    {
-                        headers: {
-                            "Content-Type": "application/form-data",
+                if (subImage.files[0]) {
+                    const resSubImage = await axios.post(
+                        API_CLOUDDINARY,
+                        uploadFile(subImage.files[0], UPLOAD_PRESET),
+                        {
+                            headers: {
+                                "Content-Type": "application/form-data",
+                            },
                         },
-                    },
-                );
+                    );
 
-                previewImageSub.src = resSubImage.data.secure_url;
-                imgSub = resSubImage.data.secure_url;
+                    previewImageSub.src = resSubImage.data.secure_url;
+                    imgSub = resSubImage.data.secure_url;
+                }
 
                 for (let i = 0; i < colorEl.length; i++) {
                     if (colorEl[i].checked) {
@@ -472,6 +479,7 @@ const AddProduct = {
                 }
 
                 const data = {
+                    id,
                     title: titleProduct.value,
                     productCateId: category.value,
                     featured_image: imgFeatured,
@@ -492,13 +500,15 @@ const AddProduct = {
                         },
                     ],
                 };
-                addProduct(data)
+                editProduct(id, data)
                     .then(() => {
-                        document.location.href = "/#/admin/products/add";
-                        toastr.success("Thêm thành công!");
+                        toastr.success("Sửa thành công!");
+                        setTimeout(() => {
+                            document.location.href = "/#/admin/products";
+                        }, 1000);
                     });
             }
         });
     },
 };
-export default AddProduct;
+export default EditProduct;
