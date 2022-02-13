@@ -1,6 +1,6 @@
 const Nav = {
     render() {
-        return /* html */` <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" class="w-40" fill="currentColor"
+        return /* html */`<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" class="w-40" fill="currentColor"
         viewBox="0 0 170.445 21.625">
         <g id="Layer_1" data-name="Layer 1">
            <path id="Path_12" data-name="Path 12"
@@ -49,11 +49,17 @@ const Nav = {
                  clip-rule="evenodd" />
            </svg>
         </div>
-        <svg @click="cartOpen = !cartOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer"
-           fill="none" viewBox="0 0 24 24" stroke="currentColor">
-           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-        </svg>
+        <button class="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
+           @click="cartOpen = !cartOpen" aria-label="Notifications" aria-haspopup="true">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                 d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+           </svg>
+           <!-- Notification badge -->
+           <span aria-hidden="true"
+              class="absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full dark:border-gray-800"></span>
+        </button>
         ${localStorage.getItem("user") ? `Hello! ${JSON.parse(localStorage.getItem("user")).username} <svg
            xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cursor-pointer logout" viewBox="0 0 20 20"
            fill="currentColor">
