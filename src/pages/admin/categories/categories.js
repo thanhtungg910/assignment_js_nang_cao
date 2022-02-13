@@ -1,7 +1,14 @@
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
+import AWN from "awesome-notifications";
+import "awesome-notifications/dist/style.css";
 import { Category } from "../../../components/admin";
+import { addCategories } from "../../../api/categories";
+import reRender from "../../../utils/rerender";
 
 const Categories = {
     async render() {
+        document.title = "Danh mục sản phẩm";
         return /* html */`<main class="h-full pb-16 overflow-y-auto">
       <div class="container grid px-5 mx-auto">
          <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
@@ -35,7 +42,7 @@ const Categories = {
             </div>
             <span>
                <button
-                  class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  class="add-cate inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <!-- Heroicon name: solid/check -->
                   <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" viewBox="0 0 20 20"
                      fill="currentColor">
@@ -43,13 +50,25 @@ const Categories = {
                         d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
                         clip-rule="evenodd" />
                   </svg>
-                  Thêm sản phẩm
+                  Thêm danh mục
                </button>
             </span>
          </div>
-   
+         <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+        <div class="w-full overflow-x-auto">
+           <table class="w-full whitespace-no-wrap">
+              <thead>
+                 <tr
+                    class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                    <th class="px-4 py-3">Tiêu đề</th>
+                 </tr>
+              </thead>
+              <tbody id="cate-list" class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+              ${await Category.render()}
+              </tbody>
+           </table>
+        </div>
          <!-- With avatar -->
-         ${await Category.render()}
          <div
             class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
             <span class="flex items-center col-span-3">
@@ -120,6 +139,47 @@ const Categories = {
          </div>
       </div>
    </main>`;
+    },
+    afterRender() {
+        const addCate = document.querySelector(".add-cate");
+        addCate.addEventListener("click", (e) => {
+            e.preventDefault();
+            const options = {
+                replacements: {
+                    modal: {
+                        "Class name": "DOM Class",
+                    },
+                },
+            };
+            new AWN().modal(
+                `<div class="mb-6 flex space-x-2 w-full">
+                <input type="text" id="cate-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <button id="btn-add-cate" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                   d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                   clip-rule="evenodd" />
+             </svg></button></div>`,
+                "modal-tiny",
+                options,
+            );
+            const btnAdd = document.querySelector("#btn-add-cate");
+            const cateInput = document.querySelector("#cate-input");
+            if (btnAdd) {
+                btnAdd.addEventListener("click", () => {
+                    try {
+                        addCategories({ title: cateInput.value })
+                            .then(() => {
+                                reRender("#cate-list", Category);
+                                toastr.success("Thêm thành công");
+                            });
+                    } catch (error) {
+                        toastr.error(error.data.response);
+                    }
+                });
+            }
+        });
+        Category.afterRender();
     },
 };
 export default Categories;

@@ -12,8 +12,12 @@ const addCategories = (data) => {
     const url = `/productCates`;
     return instance.post(url, data);
 };
+const deleteCate = (id) => {
+    const url = `/productCates/${id}`;
+    return instance.delete(url);
+};
 const getRelationships = (url) => instance.get(url);
 
 export {
-    getAll, getCategories, addCategories, getRelationships,
+    getAll, getCategories, addCategories, getRelationships, deleteCate,
 };

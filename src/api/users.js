@@ -8,4 +8,14 @@ const signin = (user) => {
     const url = `/signin`;
     return instance.post(url, user);
 };
-export { signin, signup };
+const getUsers = () => {
+    const url = `/users`;
+    return instance.get(url);
+};
+const deleteUser = (id) => {
+    const url = `/users/${id}`;
+    return instance.delete(url);
+};
+export {
+    signin, signup, getUsers, deleteUser,
+};

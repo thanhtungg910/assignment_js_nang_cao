@@ -60,7 +60,6 @@ const Category = {
                </div>
                </div>`).join(" ");
                 }
-                //  reRender("#product-list", Products);
             } else {
                 document.location.href = `/#/products`;
             }

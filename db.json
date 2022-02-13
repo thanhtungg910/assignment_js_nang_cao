@@ -15,6 +15,18 @@
     {
       "id": "4",
       "title": "phụ kiện"
+    },
+    {
+      "title": "ád",
+      "id": "lPZ7bzc"
+    },
+    {
+      "title": "adf",
+      "id": "XqU9y3f"
+    },
+    {
+      "title": "sdsd",
+      "id": "vdo-CkT"
     }
   ],
   "products": [
@@ -366,18 +378,21 @@
     {
       "email": "admin@gmail.com",
       "password": "$2a$10$vwwc0QWegcfxBshmCKB/b.jigMfF8cxuosTGmLwT66/g.lhxE1TfW",
+      "phone": "0234256323",
       "username": "Admin",
       "id": 1
     },
     {
       "email": "abascd@gmail.com",
       "password": "$2a$10$frqahEXSCzfro2B89jRoI.zHZKBJVn.UEi8E2VUu4KNnRjvb9rXBK",
+      "phone": "0234256323",
       "username": "adad",
       "id": 2
     },
     {
       "email": "abcasdsad@gmail.com",
       "password": "$2a$10$xQrQ.tLap4P9YGlzJNn2J.IQvs4vI0XIwPbErKj2q15Fh9TeC374q",
+      "phone": "0234256323",
       "username": "adad",
       "id": 3
     },
@@ -387,13 +402,6 @@
       "username": "iphone4s.0910@gmail.com",
       "phone": "0353370512",
       "id": 4
-    },
-    {
-      "email": "tthnhung.dhqt14a15hn@sv.uneti.edu.vn",
-      "password": "$2a$10$fgCBjPls8NQVxRxRtS/LqOWVHvhvk/8u3wpFPlZxO2VDEZKhNMAie",
-      "username": "tthnhung.dhqt14a15hn@sv.uneti.edu.vn",
-      "phone": "0353370505",
-      "id": 5
     },
     {
       "email": "adssmin@gmail.com",
@@ -408,13 +416,6 @@
       "username": "Thanh Tung",
       "phone": "0234256323",
       "id": 7
-    },
-    {
-      "email": "adsadsacd@gmail.com",
-      "password": "$2a$10$4Iq8CJOfiO2Ds5VxIq6Kfeb/ErNC9ouJrG8cIAWGKgV3brHZOtgOa",
-      "username": "1212",
-      "phone": "12345678",
-      "id": 8
     }
   ]
 }

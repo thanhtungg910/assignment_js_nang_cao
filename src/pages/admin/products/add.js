@@ -1,3 +1,5 @@
+import AWN from "awesome-notifications";
+import "awesome-notifications/dist/style.css";
 import toastr from "toastr";
 import axios from "axios";
 import "toastr/build/toastr.min.css";
@@ -417,6 +419,7 @@ const AddProduct = {
 
         formProduct.addEventListener("submit", async (e) => {
             e.preventDefault();
+            const notifier = new AWN();
             try {
                 const checkInput = document.querySelectorAll(".check-input");
                 checkInput.forEach((val) => {
@@ -435,17 +438,21 @@ const AddProduct = {
              && price.value
              && priceSale.value) {
                 //  Upload feature img
-                    const resFeaturedImage = await axios.post(
-                        API_CLOUDDINARY,
-                        uploadFile(featuredImage.files[0], UPLOAD_PRESET),
-                        {
-                            headers: {
-                                "Content-Type": "application/form-data",
+                    notifier.async(
+                        axios.post(
+                            API_CLOUDDINARY,
+                            uploadFile(featuredImage.files[0], UPLOAD_PRESET),
+                            {
+                                headers: {
+                                    "Content-Type": "application/form-data",
+                                },
                             },
+                        ),
+                        (resFeaturedImage) => {
+                            previewImageFeatured.src = resFeaturedImage.data.secure_url;
+                            imgFeatured = resFeaturedImage.data.secure_url;
                         },
                     );
-                    previewImageFeatured.src = resFeaturedImage.data.secure_url;
-                    imgFeatured = resFeaturedImage.data.secure_url;
                     //  Upload sub_img
                     const resSubImage = await axios.post(
                         API_CLOUDDINARY,
@@ -492,11 +499,13 @@ const AddProduct = {
                             },
                         ],
                     };
-                    addProduct(data)
-                        .then(() => {
+                    notifier.async(
+                        addProduct(data),
+                        () => {
                             document.location.href = "/#/admin/products/add";
                             toastr.success("Thêm thành công!");
-                        });
+                        },
+                    );
                 }
             } catch (error) {
                 toastr.error(error.data.response);

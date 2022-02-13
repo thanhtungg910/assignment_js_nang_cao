@@ -1,8 +1,8 @@
 import AWN from "awesome-notifications";
 import "awesome-notifications/dist/style.css";
 import toastr from "toastr";
-import { deleteProduct, getAllProduct } from "../../../api/products";
-import reRender from "../../../utils/rerender";
+import { deleteProduct, getAllProduct } from "../../api/products";
+import reRender from "../../utils/rerender";
 
 const Products = {
     async render() {
