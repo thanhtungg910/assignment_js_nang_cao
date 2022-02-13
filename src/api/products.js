@@ -21,9 +21,15 @@ const deleteProduct = (id) => {
     return instance.delete(url);
 };
 const limitPageProduct = (min, max) => {
-    const url = `products?_page=${min}&_limit=${max}`;
+    const url = `/products?_page=${min}&_limit=${max}`;
+    return instance.get(url);
+};
+const searchProduct = (internet) => {
+    const url = internet ? `/products?q=${internet}` : `/products?_page=${1}&_limit=${3}`;
     return instance.get(url);
 };
 export {
-    getAllProduct, getProduct, addProduct, editProduct, deleteProduct, limitPageProduct,
+    getAllProduct, getProduct, addProduct,
+    editProduct, deleteProduct, limitPageProduct,
+    searchProduct,
 };
