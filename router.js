@@ -58,7 +58,7 @@ const Router = () => {
         "/": () => { render(HomePage); },
         "/login": () => { render(Signin); },
         "/signup": () => { render(Signup); },
-        "/products": () => { render(Products); },
+        "/products/*": () => { render(Products); },
         "/productCates/*": () => { render(Products); },
         "/details/:id": ({ data: { id } }) => { render(Details, id); },
         "/contact": () => { render(Contacts); },

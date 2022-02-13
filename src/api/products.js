@@ -28,8 +28,12 @@ const searchProduct = (internet) => {
     const url = internet ? `/products?q=${internet}` : `/products?_page=${1}&_limit=${3}`;
     return instance.get(url);
 };
+const limitPageProducts = (inter) => {
+    const url = `/products${inter}`;
+    return instance.get(url);
+};
 export {
     getAllProduct, getProduct, addProduct,
     editProduct, deleteProduct, limitPageProduct,
-    searchProduct,
+    searchProduct, limitPageProducts,
 };

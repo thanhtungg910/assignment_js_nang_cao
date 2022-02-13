@@ -1,5 +1,6 @@
 import Category from "../components/category";
 import FilterProduct from "../components/filter";
+import Pagination from "../components/pagination";
 import Product from "../components/product";
 
 const Products = {
@@ -18,7 +19,21 @@ const Products = {
                  <div id="product-list" class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-4">
                     ${await Product.render()}                    
                  </div>
-              </div>
+                 
+                 <div class="flex justify-center items-center space-x-1">
+                     <a href="/#/products" class="flex items-center px-4 py-2 text-gray-500 bg-gray-300 hover:bg-black hover:text-white rounded-md">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                     <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                  </svg>
+                     </a>
+                     ${await Pagination.render()}
+                     <a href="#" class="px-4 py-2 font-bold text-gray-500 bg-gray-300 rounded-md hover:bg-black hover:text-white">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                     <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                     </a>
+               </div>
+            </div>
            </div>
         </div>
      </main>`;
