@@ -14,7 +14,7 @@ const addProduct = (data) => {
 };
 const editProduct = (id, data) => {
     const url = `/products/${id}`;
-    return instance.patch(url, data);
+    return instance.put(url, data);
 };
 const deleteProduct = (id) => {
     const url = `/products/${id}`;

@@ -417,86 +417,89 @@ const AddProduct = {
 
         formProduct.addEventListener("submit", async (e) => {
             e.preventDefault();
+            try {
+                const checkInput = document.querySelectorAll(".check-input");
+                checkInput.forEach((val) => {
+                    if (val.value === "") {
+                        toastr.error(`Vui lòng không để trống ${val.dataset.name}`);
+                    }
+                });
+                const colorVal = [];
+                const sizeVal = [];
+                const desc = document.querySelector("#desc");
+                const price = document.querySelector("#price");
+                const priceSale = document.querySelector("#price_sale");
 
-            const checkInput = document.querySelectorAll(".check-input");
-            checkInput.forEach((val) => {
-                if (val.value === "") {
-                    toastr.error(`Vui lòng không để trống ${val.dataset.name}`);
-                }
-            });
-            const colorVal = [];
-            const sizeVal = [];
-            const desc = document.querySelector("#desc");
-            const price = document.querySelector("#price");
-            const priceSale = document.querySelector("#price_sale");
-
-            if (titleProduct.value
+                if (titleProduct.value
              && desc.value
              && price.value
              && priceSale.value) {
                 //  Upload feature img
-                const resFeaturedImage = await axios.post(
-                    API_CLOUDDINARY,
-                    uploadFile(featuredImage.files[0], UPLOAD_PRESET),
-                    {
-                        headers: {
-                            "Content-Type": "application/form-data",
-                        },
-                    },
-                );
-                previewImageFeatured.src = resFeaturedImage.data.secure_url;
-                imgFeatured = resFeaturedImage.data.secure_url;
-                //  Upload sub_img
-                const resSubImage = await axios.post(
-                    API_CLOUDDINARY,
-                    uploadFile(subImage.files[0], UPLOAD_PRESET),
-                    {
-                        headers: {
-                            "Content-Type": "application/form-data",
-                        },
-                    },
-                );
-
-                previewImageSub.src = resSubImage.data.secure_url;
-                imgSub = resSubImage.data.secure_url;
-
-                for (let i = 0; i < colorEl.length; i++) {
-                    if (colorEl[i].checked) {
-                        colorVal.push(colorEl[i].value);
-                    }
-                }
-                for (let i = 0; i < sizeEl.length; i++) {
-                    if (sizeEl[i].checked) {
-                        sizeVal.push(sizeEl[i].value);
-                    }
-                }
-
-                const data = {
-                    title: titleProduct.value,
-                    productCateId: category.value,
-                    featured_image: imgFeatured,
-                    sub_image: imgSub,
-                    images: [...images],
-                    description: desc.value,
-                    created_at: new Date(),
-                    price: price.value,
-                    sale_off: priceSale.value,
-                    options: [
+                    const resFeaturedImage = await axios.post(
+                        API_CLOUDDINARY,
+                        uploadFile(featuredImage.files[0], UPLOAD_PRESET),
                         {
-                            name: "color",
-                            value: [...colorVal],
+                            headers: {
+                                "Content-Type": "application/form-data",
+                            },
                         },
+                    );
+                    previewImageFeatured.src = resFeaturedImage.data.secure_url;
+                    imgFeatured = resFeaturedImage.data.secure_url;
+                    //  Upload sub_img
+                    const resSubImage = await axios.post(
+                        API_CLOUDDINARY,
+                        uploadFile(subImage.files[0], UPLOAD_PRESET),
                         {
-                            name: "size",
-                            value: [...sizeVal],
+                            headers: {
+                                "Content-Type": "application/form-data",
+                            },
                         },
-                    ],
-                };
-                addProduct(data)
-                    .then(() => {
-                        document.location.href = "/#/admin/products/add";
-                        toastr.success("Thêm thành công!");
-                    });
+                    );
+
+                    previewImageSub.src = resSubImage.data.secure_url;
+                    imgSub = resSubImage.data.secure_url;
+
+                    for (let i = 0; i < colorEl.length; i++) {
+                        if (colorEl[i].checked) {
+                            colorVal.push(colorEl[i].value);
+                        }
+                    }
+                    for (let i = 0; i < sizeEl.length; i++) {
+                        if (sizeEl[i].checked) {
+                            sizeVal.push(sizeEl[i].value);
+                        }
+                    }
+
+                    const data = {
+                        title: titleProduct.value,
+                        productCateId: category.value,
+                        featured_image: imgFeatured,
+                        sub_image: imgSub,
+                        images: [...images],
+                        description: desc.value,
+                        created_at: new Date(),
+                        price: price.value,
+                        sale_off: priceSale.value,
+                        options: [
+                            {
+                                name: "color",
+                                value: [...colorVal],
+                            },
+                            {
+                                name: "size",
+                                value: [...sizeVal],
+                            },
+                        ],
+                    };
+                    addProduct(data)
+                        .then(() => {
+                            document.location.href = "/#/admin/products/add";
+                            toastr.success("Thêm thành công!");
+                        });
+                }
+            } catch (error) {
+                toastr.error(error.data.response);
             }
         });
     },

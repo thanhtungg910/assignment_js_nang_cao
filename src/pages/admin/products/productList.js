@@ -1,4 +1,5 @@
 import "toastr/build/toastr.min.css";
+import { searchProduct } from "../../../api/products";
 import { Products } from "../../../components/admin";
 
 const ProductList = {
@@ -15,9 +16,9 @@ const ProductList = {
                  class="flex items-center justify-between p-4  text-sm font-semibold focus:outline-none focus:shadow-outline-purple">
                  <div class="flex items-center">
                     <div class="relative text-gray-600">
-                       <input type="search" name="serch" placeholder="Tìm kiếm sản phẩm"
+                       <input type="search" id="search-input" name="serch" placeholder="Tìm kiếm sản phẩm"
                           class="bg-white h-10 px-5 pr-10 text-sm focus:outline-none">
-                       <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                       <button id="btn-search" type="submit" class="absolute right-0 top-0 mt-3 mr-4">
                           <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
                              viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
@@ -143,6 +144,61 @@ const ProductList = {
     },
     afterRender() {
         Products.afterRender();
+        const searchInput = document.querySelector("#search-input");
+        const productList = document.querySelector("#product-table");
+        const btnSearch = document.querySelector("#btn-search");
+        const handerSearch = async (e) => {
+            e.preventDefault();
+            const { data } = await searchProduct(searchInput.value);
+            productList.innerHTML = data.map((item) => `<tr class="text-gray-700 dark:text-gray-400">
+            <td class="px-4 py-3">
+            <!-- Avatar with inset shadow -->
+            <div class="hidden w-28  md:block">
+            <img class="object-cover w-full h-full "
+               src="${item.featured_image}"
+               alt="" loading="lazy" /> 
+             </div>
+            </td>
+            <td class="px-4 py-3 text-sm">
+            ${item.title}
+            </td>
+            <td class="px-4 py-3 text-xs">
+            ${item.price}
+            </td>
+            <td class="px-4 py-3 text-sm">
+            ${item.sale_off}%
+            </td>
+            <td class="px-4 py-3 text-sm">
+            ${item.created_at}
+            </td>
+            <td class="px-4 py-3 text-sm">
+                <div class="flex items-center space-x-4 text-sm">
+                <a href="/#/admin/products/edit/${item.id}"
+                   class="edit-product flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                   aria-label="Edit">
+                   <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
+                      viewBox="0 0 20 20">
+                      <path
+                         d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
+                      </path>
+                   </svg>
+                </a>
+                <button data-id="${item.id}"
+                   class="delete-product flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                   aria-label="Delete">
+                   <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
+                      viewBox="0 0 20 20">
+                      <path fill-rule="evenodd"
+                         d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                         clip-rule="evenodd"></path>
+                   </svg>
+                </button>
+             </div>
+            </td>
+         </tr>`).join(" ");
+        };
+        searchInput.addEventListener("change", handerSearch);
+        btnSearch.addEventListener("change", handerSearch);
     },
 };
 export default ProductList;

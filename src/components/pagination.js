@@ -13,7 +13,7 @@ const Pagination = {
         //   console.log(page);
         for (let i = 1; i <= page; i++) {
             arr.push(`
-            <a href="/#/products?_page=${i}&_limit=8" class="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-black hover:text-white">
+            <a href="/#/products?_page=${i}&_limit=8" class="px-4 py-2 text-gray-700 rounded-md hover:underline">
                ${i}
             </a>`);
         }
