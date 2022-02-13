@@ -13,7 +13,6 @@ const Category = {
     afterRender() {
         const selectCategories = document.querySelector(".select-categories");
         const productList = document.querySelector("#product-list");
-        // eslint-disable-next-line consistent-return
         selectCategories.addEventListener("change", async (e) => {
             e.preventDefault();
             if (selectCategories.value) {
