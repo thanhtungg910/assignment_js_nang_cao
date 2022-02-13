@@ -48,10 +48,7 @@ const Details = {
             </div>
             <button class="mt-10 w-full bg-black border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="submit">Add to bag</button>
             <div class="w-[283px] mt-2 text-sm">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-               Adipisci incidunt possimus nostrum neque quas iusto iste, 
-               labore maxime laboriosam doloremque odio nulla repellat reiciendis,
-                omnis rem rerum facere aut? Aperiam.     
+               ${data.description}     
             </div>
          </div>
          </div>
