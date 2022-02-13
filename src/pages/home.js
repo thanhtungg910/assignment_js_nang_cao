@@ -1,16 +1,16 @@
 // eslint-disable-next-line import/no-unresolved
 import Swiper from "swiper/bundle";
-
+import { getAllProduct } from "../api/products";
 // import styles bundle
 // eslint-disable-next-line import/no-unresolved
 import "swiper/css/bundle";
 import Banner from "../components/banner";
 
 const HomePage = {
-    render() {
+    async render() {
+        const { data } = await getAllProduct();
         document.title = "Trang chủ";
-        return /* html */ `
-        <main>
+        return /* html */ `<main>
         ${Banner.render()}
         <div class="container mx-auto">
            <div class="mt-4">
@@ -25,7 +25,8 @@ const HomePage = {
                  <div class="grid grid-rows-2 grid-cols-4">
                     <div class="row-span-2 relative col-span-3">
                        <img class="absolute pt-10"
-                          src="https://res.cloudinary.com/dhfndew6y/image/upload/v1642922403/js-nang-cao/Fear-of-God-Heavy-Canvas-Work-Jacket-Rust-removebg-preview_ytp0n5.png" alt="" />
+                          src="https://res.cloudinary.com/dhfndew6y/image/upload/v1642922403/js-nang-cao/Fear-of-God-Heavy-Canvas-Work-Jacket-Rust-removebg-preview_ytp0n5.png"
+                          alt="" />
                        <div class="add float-right w-1/2 p-5 h-1/4 text-white">
                           <h3 class="">1.000.000</h3>
                           <h1 class="text-3xl uppercase font-extrabold w-72">
@@ -110,347 +111,57 @@ const HomePage = {
                  <div
                     class="swiper-wrapper mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-4">
 
-                    <div class="group relative swiper-slide">
-                       <div
-                          class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
-                          <div class="relative w-full h-full">
+                    ${data.map((item) => `<div class="group relative swiper-slide">
+                    <div
+                       class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
+                       <div class="relative w-full h-full">
+                          <a href="/#/details/${item.id}">
                              <img
-                                src="https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png"
+                                src="${item.featured_image}"
                                 alt="Front of men&#039;s Basic Tee in black."
                                 class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full" />
+                          </a>
+                          <a href="/#/details/${item.id}">
                              <img
-                                src="https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png"
+                                src="${item.sub_image}"
                                 alt="Front of men&#039;s Basic Tee in black."
                                 class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
-                          </div>
+                          </a></div>
 
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                          </svg>
-                       </div>
-                       <div class="mt-4 flex justify-between">
-                          <div>
-                             <h3 class="text-sm text-gray-700">
-                                <a href="#">
-                                   <span aria-hidden="true" class="absolute inset-0"></span>
-                                   Basic Tee
-                                </a>
-                             </h3>
-                             <p class="mt-1 text-sm text-gray-500">Black</p>
-                          </div>
-                          <p class="text-sm font-medium text-gray-900">$35</p>
-                       </div>
+                       <svg xmlns="http://www.w3.org/2000/svg"
+                          class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-50 group-hover:opacity-100 text-black"
+                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                             d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                       </svg>
+                       <svg xmlns="http://www.w3.org/2000/svg"
+                          class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-50 group-hover:opacity-100 text-black"
+                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                             d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                       </svg>
                     </div>
-
-                    <div class="group relative swiper-slide">
-                       <div
-                          class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
-                          <div class="relative w-full h-full">
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full" />
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
-                          </div>
-
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                          </svg>
+                    <div class="mt-4 flex justify-between">
+                       <div>
+                          <h3 class="text-sm text-gray-700">
+                             <a href="/#/details/${item.id}">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                ${item.title}
+                             </a>
+                          </h3>
+                          <p class="mt-1 text-sm text-gray-500">Black</p>
                        </div>
-                       <div class="mt-4 flex justify-between">
-                          <div>
-                             <h3 class="text-sm text-gray-700">
-                                <a href="#">
-                                   <span aria-hidden="true" class="absolute inset-0"></span>
-                                   Basic Tee
-                                </a>
-                             </h3>
-                             <p class="mt-1 text-sm text-gray-500">Black</p>
-                          </div>
-                          <p class="text-sm font-medium text-gray-900">$35</p>
-                       </div>
+                       <p class="text-sm font-medium text-gray-900">${item.price}</p>
                     </div>
-                    <div class="group relative swiper-slide">
-                       <div
-                          class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
-                          <div class="relative w-full h-full">
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full" />
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
-                          </div>
+                 </div>`).join("")}
 
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                          </svg>
-                       </div>
-                       <div class="mt-4 flex justify-between">
-                          <div>
-                             <h3 class="text-sm text-gray-700">
-                                <a href="#">
-                                   <span aria-hidden="true" class="absolute inset-0"></span>
-                                   Basic Tee
-                                </a>
-                             </h3>
-                             <p class="mt-1 text-sm text-gray-500">Black</p>
-                          </div>
-                          <p class="text-sm font-medium text-gray-900">$35</p>
-                       </div>
-                    </div>
-                    <div class="group relative swiper-slide">
-                       <div
-                          class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
-                          <div class="relative w-full h-full">
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full" />
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
-                          </div>
-
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                          </svg>
-                       </div>
-                       <div class="mt-4 flex justify-between">
-                          <div>
-                             <h3 class="text-sm text-gray-700">
-                                <a href="#">
-                                   <span aria-hidden="true" class="absolute inset-0"></span>
-                                   Basic Tee
-                                </a>
-                             </h3>
-                             <p class="mt-1 text-sm text-gray-500">Black</p>
-                          </div>
-                          <p class="text-sm font-medium text-gray-900">$35</p>
-                       </div>
-                    </div>
-                    <div class="group relative swiper-slide">
-                       <div
-                          class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
-                          <div class="relative w-full h-full">
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full" />
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
-                          </div>
-
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                          </svg>
-                       </div>
-                       <div class="mt-4 flex justify-between">
-                          <div>
-                             <h3 class="text-sm text-gray-700">
-                                <a href="#">
-                                   <span aria-hidden="true" class="absolute inset-0"></span>
-                                   Basic Tee
-                                </a>
-                             </h3>
-                             <p class="mt-1 text-sm text-gray-500">Black</p>
-                          </div>
-                          <p class="text-sm font-medium text-gray-900">$35</p>
-                       </div>
-                    </div>
-                    <div class="group relative swiper-slide">
-                       <div
-                          class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
-                          <div class="relative w-full h-full">
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full" />
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
-                          </div>
-
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                          </svg>
-                       </div>
-                       <div class="mt-4 flex justify-between">
-                          <div>
-                             <h3 class="text-sm text-gray-700">
-                                <a href="#">
-                                   <span aria-hidden="true" class="absolute inset-0"></span>
-                                   Basic Tee
-                                </a>
-                             </h3>
-                             <p class="mt-1 text-sm text-gray-500">Black</p>
-                          </div>
-                          <p class="text-sm font-medium text-gray-900">$35</p>
-                       </div>
-                    </div>
-                    <div class="group relative swiper-slide">
-                       <div
-                          class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
-                          <div class="relative w-full h-full">
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full" />
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
-                          </div>
-
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                          </svg>
-                       </div>
-                       <div class="mt-4 flex justify-between">
-                          <div>
-                             <h3 class="text-sm text-gray-700">
-                                <a href="#">
-                                   <span aria-hidden="true" class="absolute inset-0"></span>
-                                   Basic Tee
-                                </a>
-                             </h3>
-                             <p class="mt-1 text-sm text-gray-500">Black</p>
-                          </div>
-                          <p class="text-sm font-medium text-gray-900">$35</p>
-                       </div>
-                    </div>
-                    <div class="group relative swiper-slide">
-                       <div
-                          class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
-                          <div class="relative w-full h-full">
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/1_6e483b11ff55442c88236e9d65b765d4_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full" />
-                             <img
-                                src="https://product.hstatic.net/1000280685/product/chin_s_den_a10e71f4aa32494385259566831d877b_large.png"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
-                          </div>
-
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-50 group-hover:opacity-100 text-black"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                          </svg>
-                       </div>
-                       <div class="mt-4 flex justify-between">
-                          <div>
-                             <h3 class="text-sm text-gray-700">
-                                <a href="#">
-                                   <span aria-hidden="true" class="absolute inset-0"></span>
-                                   Basic Tee
-                                </a>
-                             </h3>
-                             <p class="mt-1 text-sm text-gray-500">Black</p>
-                          </div>
-                          <p class="text-sm font-medium text-gray-900">$35</p>
-                       </div>
-                    </div>
                  </div>
               </div>
            </div>
         </div>
+
         <div class="container mx-auto">
            <div class="bg-gray-100">
               <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
