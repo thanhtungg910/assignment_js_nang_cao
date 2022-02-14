@@ -43,7 +43,6 @@ const Details = {
 
                   <div class="absolute -inset-px rounded-md pointer-events-none" aria-hidden="true"></div>
                </label>`).join("")}
-                  
                </div>
                </fieldset>
             </div>
