@@ -187,6 +187,9 @@ const Product = {
 </div>`).join(" ");
     },
     afterRender() {
+        /**
+        * Thêm sản phẩm
+        */
         AddToCart(".add-to-cart");
     },
 };

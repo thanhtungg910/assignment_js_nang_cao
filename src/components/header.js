@@ -52,6 +52,7 @@ const Header = {
             });
         }
         Search.afterRender();
+        Nav.afterRender();
     },
 };
 export default Header;
