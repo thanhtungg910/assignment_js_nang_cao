@@ -6,7 +6,7 @@ import {
 // Pages
 import {
     Dashboard, ProductList, OrderList, HomePage, Products,
-    Author, Details, Categories, Contacts, Signin, Signup, AddProduct, EditProduct,
+    Author, Details, Categories, Contacts, Signin, Signup, AddProduct, EditProduct, Checkout,
 } from "./src/pages";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
@@ -59,6 +59,7 @@ const Router = () => {
         "/login": () => { render(Signin); },
         "/signup": () => { render(Signup); },
         "/products/*": () => { render(Products); },
+        "/checkout": () => { render(Checkout); },
         "/productCates/*": () => { render(Products); },
         "/details/:id": ({ data: { id } }) => { render(Details, id); },
         "/contact": () => { render(Contacts); },
