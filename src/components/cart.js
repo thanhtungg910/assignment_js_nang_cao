@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { getCarts } from "../api/cart";
+import { deleteItemCart, getCarts } from "../api/cart";
 
 const Cart = {
     render() {
@@ -18,7 +18,7 @@ const Cart = {
         <div class="flex">
            <img class="h-20 w-20 object-cover rounded" src="${item.featured_image}" alt="">
            <div class="mx-3">
-              <h3 class="text-sm text-gray-600">Mac Book Pro</h3>
+              <h3 class="text-sm text-gray-600">${item.title}</h3>
               <div class="flex items-center mt-2">
                  <button class="text-gray-500 focus:outline-none focus:text-gray-600">
                     <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -66,6 +66,9 @@ const Cart = {
            <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
         </svg>
      </a>` : ""}`;
+    },
+    afterRender() {
+        deleteItemCart(".delete-item-cart", ".cart-modal", Cart);
     },
 };
 export default Cart;

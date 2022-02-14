@@ -1,4 +1,4 @@
-import { deleteItemCart } from "../../api/cart";
+// eslint-disable-next-line import/no-cycle
 import Cart from "../cart";
 
 const Nav = {
@@ -83,7 +83,7 @@ const Nav = {
      >${Cart.render()}</div>`;
     },
     afterRender() {
-        deleteItemCart(".delete-item-cart", ".cart-modal", Cart);
+        Cart.afterRender();
     },
 };
 export default Nav;
