@@ -1,6 +1,8 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable consistent-return */
 import { limitPageProduct, limitPageProducts } from "../api/products";
 import { getRelationships } from "../api/categories";
+import { AddToCart } from "../api/cart";
 
 const Product = {
     async render() {
@@ -28,8 +30,8 @@ const Product = {
                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                </svg>
-               <svg xmlns="http://www.w3.org/2000/svg"
-               class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-10 group-hover:opacity-100 text-black"
+               <svg data-id="${item.id}" xmlns="http://www.w3.org/2000/svg"
+               class="add-to-cart h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-10 group-hover:opacity-100 text-black"
                fill="none" viewBox="0 0 24 24" stroke="currentColor">
                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -72,12 +74,12 @@ const Product = {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
          </svg>
-         <svg xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-10 group-hover:opacity-100 text-black"
-            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+         <svg data-id="${item.id}" xmlns="http://www.w3.org/2000/svg"
+               class="add-to-cart h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-10 group-hover:opacity-100 text-black"
+               fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-         </svg>
+               </svg>
       </div>
       <div class="mt-4 flex justify-between">
          <div>
@@ -115,12 +117,12 @@ const Product = {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
          </svg>
-         <svg xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-10 group-hover:opacity-100 text-black"
-            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+         <svg data-id="${item.id}" xmlns="http://www.w3.org/2000/svg"
+               class="add-to-cart h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-10 group-hover:opacity-100 text-black"
+               fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-         </svg>
+               </svg>
       </div>
       <div class="mt-4 flex justify-between">
          <div>
@@ -160,12 +162,12 @@ const Product = {
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
    </svg>
-   <svg xmlns="http://www.w3.org/2000/svg"
-      class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-10 group-hover:opacity-100 text-black"
-      fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-         d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-   </svg>
+   <svg data-id="${item.id}" xmlns="http://www.w3.org/2000/svg"
+               class="add-to-cart h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-10 group-hover:opacity-100 text-black"
+               fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+               d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+               </svg>
 </div>
 <div class="mt-4 flex justify-between">
    <div>
@@ -180,6 +182,9 @@ const Product = {
    <p class="text-sm font-medium text-gray-900">${item.price}</p>
 </div>
 </div>`).join(" ");
+    },
+    afterRender() {
+        AddToCart(".add-to-cart");
     },
 };
 export default Product;

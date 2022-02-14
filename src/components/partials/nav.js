@@ -57,10 +57,10 @@ const Nav = {
                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
            </svg>
            <!-- Notification badge -->
-           <span aria-hidden="true"
-              class="absolute top-0 right-0 text-white inline-block w-4 h-4
-               transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white
-                rounded-full  dark:border-gray-800 text-center text-[10px]">1</span>
+           ${localStorage.getItem("cart") ? `<span aria-hidden="true"
+           class="absolute top-0 right-0 text-white inline-block w-4 h-4
+            transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white
+             rounded-full  dark:border-gray-800 text-center text-[10px]">${JSON.parse(localStorage.getItem("cart")).length}</span>` : ""}
         </button>
         ${localStorage.getItem("user") ? `Hello! ${JSON.parse(localStorage.getItem("user")).username} <svg
            xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cursor-pointer logout" viewBox="0 0 20 20"
