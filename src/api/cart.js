@@ -25,7 +25,7 @@ const AddToCart = (dom) => {
                 };
                 // eslint-disable-next-line no-restricted-syntax
                 for (const key in cart) {
-                    if (+cart[key].id === +id) {
+                    if (cart[key].id === id) {
                         cart[key].amount += 1;
                         localStorage.setItem("cart", JSON.stringify(cart));
                         reRender("#authen", Nav);
@@ -40,7 +40,25 @@ const AddToCart = (dom) => {
     });
 };
 const getCarts = () => JSON.parse(localStorage.getItem("cart"));
+const deleteItemCart = (dom) => {
+    const btnDelete = document.querySelectorAll(dom);
+    btnDelete.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const { id } = btn.dataset;
+            const data = getCarts();
+            // eslint-disable-next-line no-restricted-syntax
+            for (const key in data) {
+                if (data[key].id === id) {
+                    //   const cart = data.splice(data[key], 1);
+                    //   console.log(cart);
+                    //   localStorage.setItem("cart", JSON.stringify(cart));
+                }
+            }
+        });
+    });
+};
 export {
     AddToCart,
     getCarts,
+    deleteItemCart,
 };
