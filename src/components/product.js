@@ -47,7 +47,7 @@ const Product = {
                </h3>
                <p class="mt-1 text-sm text-gray-500">${item.options[0].name}</p>
                </div>
-               <p class="text-sm font-medium text-gray-900">${item.price}</p>
+               <p class="text-sm font-medium text-gray-900">${item.price.toLocaleString("vi", { style: "currency", currency: "VND" })}</p>
                </div>
                </div>`).join(" ");
             }
@@ -91,7 +91,7 @@ const Product = {
             </h3>
             <p class="mt-1 text-sm text-gray-500">${item.options[0].name}</p>
          </div>
-         <p class="text-sm font-medium text-gray-900">${item.price}</p>
+         <p class="text-sm font-medium text-gray-900">${item.price.toLocaleString("vi", { style: "currency", currency: "VND" })}</p>
       </div>
    </div>`).join(" ");
         } else {
@@ -134,7 +134,7 @@ const Product = {
             </h3>
             <p class="mt-1 text-sm text-gray-500">${item.options[0].name}</p>
          </div>
-         <p class="text-sm font-medium text-gray-900">${item.price}</p>
+         <p class="text-sm font-medium text-gray-900">${item.price.toLocaleString("vi", { style: "currency", currency: "VND" })}</p>
       </div>
    </div>`).join(" ");
         }
@@ -179,7 +179,10 @@ const Product = {
       </h3>
       <p class="mt-1 text-sm text-gray-500">${item.options[0].name}</p>
    </div>
-   <p class="text-sm font-medium text-gray-900">${item.price}</p>
+   <p class="text-sm font-medium text-gray-900">${item.price.toLocaleString("vi-VN", {
+        style: "currency",
+        currency: "VND",
+    })}</p>
 </div>
 </div>`).join(" ");
     },

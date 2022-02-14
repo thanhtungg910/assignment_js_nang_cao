@@ -1,5 +1,9 @@
+import { getCarts } from "../api/cart";
+
 const Checkout = {
     render() {
+        document.title = "Thanh toán";
+        const data = getCarts();
         return /* html */ `<main class="max-w-4xl container mx-auto my-32">
         <div class="container mx-auto px-6 bg-white border-2 pb-6">
            <div class="flex flex-col lg:flex-row mt-8">
@@ -92,7 +96,7 @@ const Checkout = {
                        </a>
                        <button
                           class="flex items-center px-3 py-2 bg-black text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                          <span>Payment</span>
+                          <span>Thanh toán</span>
                           <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
                              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                              <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -105,39 +109,42 @@ const Checkout = {
                  <div class="flex justify-center items-center lg:justify-end">
                     <div class="border rounded-md max-w-md w-full px-4 py-3">
                        <div class="flex items-center justify-between">
-                          <h3 class="text-gray-700 font-medium">Order total (2)</h3>
+                          <h3 class="text-gray-700 font-medium">Số lượng (${data.length})</h3>
                           <span class="text-gray-600 text-sm">Edit</span>
                        </div>
-                       <div class="flex justify-between mt-6">
-                          <div class="flex">
-                             <img class="h-20 w-20 object-cover rounded"
-                                src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"
-                                alt="">
-                             <div class="mx-3">
-                                <h3 class="text-sm text-gray-600">Mac Book Pro</h3>
-                                <div class="flex items-center mt-2">
-                                   <button class="text-gray-500 focus:outline-none focus:text-gray-600">
-                                      <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                         <path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z">
-                                         </path>
-                                      </svg>
-                                   </button>
-                                   <span class="text-gray-700 mx-2">2</span>
-                                   <button class="text-gray-500 focus:outline-none focus:text-gray-600">
-                                      <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                         <path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                      </svg>
-                                   </button>
-                                </div>
+                       ${data.map((item) => `<div class="flex justify-between mt-6">
+                       <div class="flex">
+                          <img class="h-20 w-20 object-cover rounded"
+                             src="${item.featured_image}"
+                             alt="">
+                          <div class="mx-3">
+                             <h3 class="text-sm text-gray-600">Mac Book Pro</h3>
+                             <div class="flex items-center mt-2">
+                                <button class="text-gray-500 focus:outline-none focus:text-gray-600">
+                                   <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z">
+                                      </path>
+                                   </svg>
+                                </button>
+                                <span class="text-gray-700 mx-2">${item.amount}</span>
+                                <button class="text-gray-500 focus:outline-none focus:text-gray-600">
+                                   <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                   </svg>
+                                </button>
                              </div>
                           </div>
-                          <span class="text-gray-600">20$</span>
                        </div>
+                       <span class="text-gray-600">${+item.price.toLocaleString("vi-VN", {
+        style: "currency",
+        currency: "VND",
+    })}</span>
+                    </div>`).join("")}
                        <div class="flex items-center justify-between mt-5 text-xl font-mono"">
                           <h3>Tổng tiền</h3>
-                          <span>0$</span>
+                          <span>${data.reduce(((cur, item) => cur + +item.price), 0).toLocaleString("it-IT", { style: "currency", currency: "VND" })}</span>
                        </div>
                     </div>
                  </div>

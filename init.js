@@ -19,4 +19,7 @@ const menuActive = () => {
         }
     });
 };
-export default menuActive;
+function formatPrice(n, currency) {
+    return n.toFixed(3).replace(/(\d)(?=(\d{3})+\.)/g, ".") + currency;
+}
+export { formatPrice, menuActive };

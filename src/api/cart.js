@@ -1,4 +1,5 @@
 import { getProduct } from "./products";
+// eslint-disable-next-line import/no-cycle
 import Nav from "../components/partials/nav";
 import reRender from "../utils/rerender";
 

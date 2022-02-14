@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { getCarts } from "../api/cart";
 
 const Cart = {
