@@ -1,3 +1,4 @@
+import { AddToCart } from "../api/cart";
 import { getProduct } from "../api/products";
 import { Product } from "../components";
 
@@ -46,7 +47,7 @@ const Details = {
                </div>
                </fieldset>
             </div>
-            <button class="mt-10 w-full bg-black border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="submit">Add to bag</button>
+            <button data-id=${data.id} class="add-to-cart mt-10 w-full bg-black border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="submit">Mua ngay</button>
             <div class="w-[283px] mt-2 text-sm">
                ${data.description}     
             </div>
@@ -78,7 +79,7 @@ const Details = {
         const activeMenu = document.querySelector("#menu");
         activeMenu.classList.toggle("text-black");
         window.addEventListener("scroll", () => {
-            if (window.scrollY >= 100) {
+            if (window.scrollY >= 50) {
                 activeMenu.classList.add(
                     "bg-white",
                     "shadow-lg",
@@ -94,6 +95,7 @@ const Details = {
                 );
             }
         });
+        AddToCart(".add-to-cart");
     },
 };
 export default Details;
