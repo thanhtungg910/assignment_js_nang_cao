@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import Cart from "../cart";
+import reRender from "../../utils/rerender";
 
 const Nav = {
     render() {
@@ -84,6 +85,15 @@ const Nav = {
     },
     afterRender() {
         Cart.afterRender();
+        const logout = document.querySelector(".logout");
+
+        if (logout) {
+            logout.addEventListener("click", (e) => {
+                e.preventDefault();
+                localStorage.removeItem("user");
+                reRender("#authen", Nav);
+            });
+        }
     },
 };
 export default Nav;

@@ -1,6 +1,5 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-use-before-define */
-import reRender from "../utils/rerender";
 import Nav from "./partials/nav";
 import Search from "./search";
 import "./style.css";
@@ -21,7 +20,6 @@ const Header = {
         </header>`;
     },
     async afterRender() {
-        const logout = document.querySelector(".logout");
         const openmodal = document.querySelectorAll(".modal-open");
         for (let i = 0; i < openmodal.length; i++) {
             openmodal[i].addEventListener("click", (event) => {
@@ -43,13 +41,6 @@ const Header = {
             modal.classList.toggle("opacity-0");
             modal.classList.toggle("pointer-events-none");
             body.classList.toggle("modal-active");
-        }
-        if (logout) {
-            logout.addEventListener("click", (e) => {
-                e.preventDefault();
-                localStorage.removeItem("user");
-                reRender("#authen", Nav);
-            });
         }
         Search.afterRender();
         Nav.afterRender();

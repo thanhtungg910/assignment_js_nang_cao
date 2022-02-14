@@ -144,6 +144,14 @@ const Signin = {
                     password: document.querySelector("#password").value,
                 });
                 if (user) {
+                    if (user.id === 1) {
+                        toastr.success("Đăng nhập thành công!");
+                        localStorage.setItem("user", JSON.stringify(user));
+                        setTimeout(() => {
+                            document.location.href = "/#/admin";
+                        }, 1000);
+                        return;
+                    }
                     localStorage.setItem("user", JSON.stringify(user));
                     toastr.success("Đăng nhập thành công!");
                     setTimeout(() => {
