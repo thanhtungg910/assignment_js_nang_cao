@@ -1,3 +1,5 @@
+import Cart from "../cart";
+
 const Nav = {
     render() {
         return /* html */`<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" class="w-40" fill="currentColor"
@@ -75,7 +77,7 @@ const Nav = {
                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
            </svg>
         </a>`}
-     </div>`;
+     </div> ${Cart.render()}`;
     },
 };
 export default Nav;

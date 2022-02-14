@@ -38,9 +38,7 @@ const AddToCart = (dom) => {
         });
     });
 };
-const getCarts = () => {
-    console.log("get cart");
-};
+const getCarts = () => JSON.parse(localStorage.getItem("cart"));
 export {
     AddToCart,
     getCarts,
