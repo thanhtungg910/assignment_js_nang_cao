@@ -5,8 +5,9 @@ import {
 } from "./src/components";
 // Pages
 import {
-    Dashboard, ProductList, OrderList, HomePage, Products,
-    Author, Details, Categories, Contacts, Signin, Signup, AddProduct, EditProduct, Checkout,
+    Dashboard, ProductList, OrderList, HomePage, ProductsPage,
+    Author, DetailsPage, Categories, ContactsPage, SigninPage,
+    SignupPage, AddProduct, EditProduct, CheckoutPage,
 } from "./src/pages";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
@@ -56,13 +57,13 @@ const Router = () => {
     });
     router.on({
         "/": () => { render(HomePage); },
-        "/login": () => { render(Signin); },
-        "/signup": () => { render(Signup); },
-        "/products/*": () => { render(Products); },
-        "/checkout": () => { render(Checkout); },
-        "/productCates/*": () => { render(Products); },
-        "/details/:id": ({ data: { id } }) => { render(Details, id); },
-        "/contact": () => { render(Contacts); },
+        "/login": () => { render(SigninPage); },
+        "/signup": () => { render(SignupPage); },
+        "/products/*": () => { render(ProductsPage); },
+        "/checkout": () => { render(CheckoutPage); },
+        "/productCates/*": () => { render(ProductsPage); },
+        "/details/:id": ({ data: { id } }) => { render(DetailsPage, id); },
+        "/contact": () => { render(ContactsPage); },
         "/admin": () => { renderAdmin(Dashboard); },
         "/admin/products": () => { renderAdmin(ProductList); },
         "/admin/products/add": () => { renderAdmin(AddProduct); },

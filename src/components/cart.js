@@ -1,5 +1,8 @@
 // eslint-disable-next-line import/no-cycle
-import { deleteItemCart, getCarts } from "../api/cart";
+import {
+    decreaseItemInCart, deleteItemCart, getCarts, increaseItemInCart,
+} from "../api/cart";
+import $ from "../utils/dom";
 
 const Cart = {
     render() {
@@ -20,14 +23,14 @@ const Cart = {
            <div class="mx-3">
               <h3 class="text-sm text-gray-600">${item.title}</h3>
               <div class="flex items-center mt-2">
-                 <button class="text-gray-500 focus:outline-none focus:text-gray-600">
+                 <button data-id=${item.id} class="text-gray-500 focus:outline-none focus:text-gray-600 increase" >
                     <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                        viewBox="0 0 24 24" stroke="currentColor">
                        <path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                  </button>
                  <span class="text-gray-700 mx-2">${item.amount}</span>
-                 <button class="text-gray-500 focus:outline-none focus:text-gray-600">
+                 <button data-id="${item.id}"  class="text-gray-500 focus:outline-none focus:text-gray-600 decrease">
                     <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                        viewBox="0 0 24 24" stroke="currentColor">
                        <path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -36,7 +39,7 @@ const Cart = {
               </div>
            </div>
         </div>
-        <span class="text-gray-600 text-center">${item.price}
+        <span class="text-gray-600 text-center">${(item.price * item.amount).toLocaleString("it-IT", { style: "currency", currency: "VND" })}
            <svg data-id="${item.id}" xmlns="http://www.w3.org/2000/svg"
               class="delete-item-cart h-4 w-4 mx-auto cursor-pointer text-red-700" viewBox="0 0 20 20"
               fill="currentColor">
@@ -68,6 +71,30 @@ const Cart = {
      </a>` : ""}`;
     },
     afterRender() {
+        const btns = $(".increase");
+        const btnsDecrease = $(".decrease");
+        if (btns.length >= 0) {
+            btns.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    increaseItemInCart(btn.dataset.id);
+                });
+            });
+        } else {
+            btns.addEventListener("click", () => {
+                increaseItemInCart(btns.dataset.id);
+            });
+        }
+        if (btnsDecrease.length >= 0) {
+            btnsDecrease.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    decreaseItemInCart(btn.dataset.id);
+                });
+            });
+        } else {
+            btnsDecrease.addEventListener("click", () => {
+                decreaseItemInCart(btnsDecrease.dataset.id);
+            });
+        }
         deleteItemCart(".delete-item-cart", ".cart-modal", Cart);
     },
 };

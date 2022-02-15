@@ -1,6 +1,6 @@
 import CheckoutList from "../components/checkout";
 
-const Checkout = {
+const CheckoutPage = {
     render() {
         document.title = "Thanh toán";
         //   (JSON.parse(localStorage.getItem("cart")).length !== 0)
@@ -34,4 +34,4 @@ const Checkout = {
         CheckoutList.afterRender();
     },
 };
-export default Checkout;
+export default CheckoutPage;

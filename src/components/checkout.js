@@ -1,6 +1,9 @@
 /* eslint-disable import/no-cycle */
-import { deleteItemCart, getCarts } from "../api/cart";
+import {
+    deleteItemCart, getCarts, increaseItemInCart, decreaseItemInCart,
+} from "../api/cart";
 import { getUser } from "../api/users";
+import $ from "../utils/dom";
 
 const CheckoutList = {
     render() {
@@ -120,7 +123,7 @@ const CheckoutList = {
                  <div class="mx-3">
                     <h3 class="text-sm text-gray-600">${item.title}</h3>
                     <div class="flex items-center mt-2">
-                       <button class="text-gray-500 focus:outline-none focus:text-gray-600">
+                       <button data-id=${item.id} class="text-gray-500 focus:outline-none focus:text-gray-600 increase-checkout">
                           <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
                              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                              <path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z">
@@ -128,7 +131,7 @@ const CheckoutList = {
                           </svg>
                        </button>
                        <span class="text-gray-700 mx-2">${item.amount}</span>
-                       <button class="text-gray-500 focus:outline-none focus:text-gray-600">
+                       <button data-id=${item.id} class="text-gray-500 focus:outline-none focus:text-gray-600 decrease-checkout">
                           <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
                              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                              <path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -148,7 +151,7 @@ const CheckoutList = {
            </div>
               <div class="flex items-center justify-between mt-5 text-xl font-mono"">
                  <h3>Tổng tiền</h3>
-                 <span>${data.reduce(((cur, item) => cur + +item.price), 0).toLocaleString("it-IT", { style: "currency", currency: "VND" })}</span>
+                 <span>${data.reduce(((cur, item) => cur + +item.price * +item.amount), 0).toLocaleString("it-IT", { style: "currency", currency: "VND" })}</span>
               </div>`}
                  
               </div>
@@ -167,6 +170,30 @@ const CheckoutList = {
   </a>`}`;
     },
     afterRender() {
+        const btns = $(".increase-checkout");
+        const btnsDecrease = $(".decrease-checkout");
+        if (btns.length >= 0) {
+            btns.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    increaseItemInCart(btn.dataset.id, "#checkout-table", CheckoutList);
+                });
+            });
+        } else {
+            btns.addEventListener("click", () => {
+                increaseItemInCart(btns.dataset.id, "#checkout-table", CheckoutList);
+            });
+        }
+        if (btnsDecrease.length >= 0) {
+            btnsDecrease.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    decreaseItemInCart(btn.dataset.id, "#checkout-table", CheckoutList);
+                });
+            });
+        } else {
+            btnsDecrease.addEventListener("click", () => {
+                decreaseItemInCart(btnsDecrease.dataset.id, "#checkout-table", CheckoutList);
+            });
+        }
         deleteItemCart(".delete-item-cart", "#checkout-table", CheckoutList);
     },
 };

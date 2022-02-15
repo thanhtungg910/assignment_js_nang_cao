@@ -8,9 +8,9 @@ export { default as Author } from "./admin/author/authorList";
 export { default as Categories } from "./admin/categories/categories";
 //
 export { default as HomePage } from "./home";
-export { default as Products } from "./products";
-export { default as Details } from "./details";
-export { default as Contacts } from "./contacts";
-export { default as Signup } from "./signup";
-export { default as Signin } from "./signin";
-export { default as Checkout } from "./checkout";
+export { default as ProductsPage } from "./products";
+export { default as DetailsPage } from "./details";
+export { default as ContactsPage } from "./contacts";
+export { default as SignupPage } from "./signup";
+export { default as SigninPage } from "./signin";
+export { default as CheckoutPage } from "./checkout";
