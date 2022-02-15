@@ -61,7 +61,7 @@ const Nav = {
                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
            </svg>
            <!-- Notification badge -->
-           ${(JSON.parse(localStorage.getItem("cart")).length !== 0) ? `<span aria-hidden="true"
+           ${(JSON.parse(localStorage.getItem("cart")) && JSON.parse(localStorage.getItem("cart")).length !== 0) ? `<span aria-hidden="true"
            class="absolute top-0 right-0 text-white inline-block w-4 h-4
             transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white
              rounded-full  dark:border-gray-800 text-center text-[10px]">${JSON.parse(localStorage.getItem("cart")).length}</span>` : ""}
@@ -79,13 +79,9 @@ const Nav = {
                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
            </svg>
         </a>`}
-     </div>
-     <div :class="cartOpen ? 'translate-x-0 ease-out' : 'translate-x-full ease-in'"
-     class="fixed cart-modal right-0 top-0 max-w-xs w-full h-full
-      px-6 py-4 transition duration-300 transform overflow-y-auto
-       bg-white border-l-2 border-gray-300 z-50">
-         ${Cart.render()}
-     </div>`;
+     </div><div :class="cartOpen ? 'translate-x-0 ease-out' : 'translate-x-full ease-in'"
+     class="fixed cart-modal right-0 top-0 max-w-xs w-full h-full px-6 py-4 transition duration-300 transform overflow-y-auto bg-white border-l-2 border-gray-300 z-50">
+     ${Cart.render()}</div>`;
     },
     afterRender() {
         Cart.afterRender();

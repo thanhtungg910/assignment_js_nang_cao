@@ -16,6 +16,7 @@ const deleteUser = (id) => {
     const url = `/users/${id}`;
     return instance.delete(url);
 };
+const getUser = () => JSON.parse(localStorage.getItem("user"));
 export {
-    signin, signup, getUsers, deleteUser,
+    signin, signup, getUsers, deleteUser, getUser,
 };
