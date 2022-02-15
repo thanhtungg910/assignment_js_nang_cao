@@ -6,7 +6,6 @@ const CheckoutList = {
     render() {
         const data = getCarts();
         const user = getUser() || {};
-        console.log(user.email);
         return /* html */`${(JSON.parse(localStorage.getItem("cart")).length !== 0) ? ` <div class="flex flex-col lg:flex-row mt-8">
         <div class="w-full lg:w-1/2 order-1">
            <div class="flex items-center">
