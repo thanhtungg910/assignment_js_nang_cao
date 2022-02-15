@@ -1,3 +1,5 @@
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
 import { getProduct } from "./products";
 // eslint-disable-next-line import/no-cycle
 import Nav from "../components/partials/nav";
@@ -34,12 +36,14 @@ const AddToCart = (dom, color = false, size = false) => {
                         cart[key].amount += 1;
                         localStorage.setItem("cart", JSON.stringify(cart));
                         reRender("#authen", Nav);
+                        toastr.success("Thêm thành công");
                         return;
                     }
                 }
                 cart = [...cart, item];
                 localStorage.setItem("cart", JSON.stringify(cart));
                 reRender("#authen", Nav);
+                toastr.success("Thêm thành công");
             }
         });
     });
@@ -58,7 +62,7 @@ const deleteItemCart = (dom, dom2, component = Nav) => {
                 if (component) {
                     reRender(dom2, component);
                 }
-                return reRender("#authen", Nav);
+                reRender("#authen", Nav);
             }
         });
     });
