@@ -79,9 +79,13 @@ const Nav = {
                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
            </svg>
         </a>`}
-     </div><div :class="cartOpen ? 'translate-x-0 ease-out' : 'translate-x-full ease-in'"
-     class="fixed cart-modal right-0 top-0 max-w-xs w-full h-full px-6 py-4 transition duration-300 transform overflow-y-auto bg-white border-l-2 border-gray-300 z-50">
-     >${Cart.render()}</div>`;
+     </div>
+     <div :class="cartOpen ? 'translate-x-0 ease-out' : 'translate-x-full ease-in'"
+     class="fixed cart-modal right-0 top-0 max-w-xs w-full h-full
+      px-6 py-4 transition duration-300 transform overflow-y-auto
+       bg-white border-l-2 border-gray-300 z-50">
+         ${Cart.render()}
+     </div>`;
     },
     afterRender() {
         Cart.afterRender();
