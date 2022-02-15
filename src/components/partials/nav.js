@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-use-before-define */
 // eslint-disable-next-line import/no-cycle
 import Cart from "../cart";
 import reRender from "../../utils/rerender";
@@ -87,6 +89,28 @@ const Nav = {
         Cart.afterRender();
         const logout = document.querySelector(".logout");
 
+        const openmodal = document.querySelectorAll(".modal-open");
+        for (let i = 0; i < openmodal.length; i++) {
+            openmodal[i].addEventListener("click", (event) => {
+                event.preventDefault();
+                toggleModal();
+            });
+        }
+
+        const overlay = document.querySelector(".modal-overlay");
+        overlay.addEventListener("click", toggleModal);
+
+        const closemodal = document.querySelectorAll(".modal-close");
+        for (let i = 0; i < closemodal.length; i++) {
+            closemodal[i].addEventListener("click", toggleModal);
+        }
+        function toggleModal() {
+            const body = document.querySelector("body");
+            const modal = document.querySelector(".modal");
+            modal.classList.toggle("opacity-0");
+            modal.classList.toggle("pointer-events-none");
+            body.classList.toggle("modal-active");
+        }
         if (logout) {
             logout.addEventListener("click", (e) => {
                 e.preventDefault();
