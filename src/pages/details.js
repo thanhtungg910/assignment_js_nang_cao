@@ -14,7 +14,7 @@ const Details = {
       <main>
          <div class="max-w-2xl mt-9 mx-auto pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pb-24 lg:px-8 lg:grid lg:grid-cols-2 grid-flow-col-dense lg:gap-x-8 ">
          <div class="mt-4 lg:mt-0 p-2 lg:row-span-3 relative">
-         <div class="content-product sticky top-32">
+         <form class="content-product product-item sticky top-32">
             <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">${data.title}</h1>
             <h2 class="sr-only">Product information</h2>
             <p class="text-3xl text-gray-900">${data.price}</p>
@@ -25,14 +25,12 @@ const Details = {
                <fieldset class="mt-4">
                <legend class="sr-only">Choose a color</legend>
                <div class="flex items-center space-x-3">
-                  ${options[0].value.map((color) => `<label class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
-<input class="sr-only color-choice " type="radio" name="color-choice" value="${color}" aria-labelledby="color-choice-0-label">
-<p  class="sr-only input-active" id="color-choice-0-label">White</p>
-<span class="h-8 w-8 bg-[${color}] border rounded-full" aria-hidden="true"></span>
-<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute check hidden" viewBox="0 0 20 20" fill="currentColor">
-<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-</svg>
-</label>`).join("")}
+                  ${options[0].value.map((color) => `<div class="relative">
+                  <input class="sr-only peer" type="radio" checked value=${color} name="color" id="${color}">
+                  <label
+                     class="flex h-8 w-8 bg-[#${color}] border rounded-full border-gray-300  cursor-pointer focus:outline-none  peer-checked:ring-green-500 peer-checked:ring-2 peer-checked:border-transparent"
+                     for="${color}"></label>
+               </div>`).join("")}
                </div>
                </fieldset>
             </div>
@@ -44,23 +42,21 @@ const Details = {
                <fieldset class="mt-4">
                <legend class="sr-only">Choose a size</legend>
                <div class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
-                  ${options[1].value.map((size) => `<label class="group relative input-radio-checked border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase bg-white shadow-sm text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6">
-                  <input class="sr-only size-choice " type="radio" name="size-choice" value="${size}" aria-labelledby="size-choice-1-label">
-                  <p id="size-choice-1-label">${size}</p>
-                  <div class="absolute -inset-px rounded-md pointer-events-none input-active" aria-hidden="true"></div>
-
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute check hidden top-0 right-0" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                  </svg>
-               </label>`).join("")}
+                  ${options[1].value.map((size) => `<div class="relative">
+                  <input class="sr-only peer" type="radio" checked value=${size} name="size" id="${size}">
+                  <label
+                     class="flex py-3 px-4 border rounded-md items-center 
+                     justify-center text-sm font-medium uppercase bg-white shadow-sm text-gray-900 border-gray-300  cursor-pointer focus:outline-none  peer-checked:ring-green-500 peer-checked:ring-2 peer-checked:border-transparent"
+                     for="${size}">${size}</label>
+               </div>`).join("")}
                </div>
                </fieldset>
             </div>
-            <button data-id=${data.id} id="add-product" class="add-to-cart mt-10 w-full bg-black border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="submit">Mua ngay</button>
+            <button data-id=${data.id} id="add-product" class="mt-10 w-full bg-black border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="submit">Mua ngay</button>
             <div class="w-[283px] mt-2 text-sm">
                ${data.description}     
             </div>
-         </div>
+         </form>
          </div>
          <div class="lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
          <div class="content-image float-right snap-y snap-mandatory">
@@ -103,7 +99,19 @@ const Details = {
                 );
             }
         });
-
+        $(".product-item").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const color = $("input[name=\"color\"]:checked").value;
+            const size = $("input[name=\"size\"]:checked").value;
+            const data = {
+                color,
+                size,
+                id: $("#add-product").dataset.id,
+            };
+            if (data) {
+                AddToCart(false, data);
+            }
+        });
         AddToCart(".add-to-cart");
     },
 };

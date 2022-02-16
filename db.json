@@ -35,9 +35,9 @@
          "options": [{
                "name": "color",
                "value": [
-                  "red",
-                  "green",
-                  "gray"
+                  "#000001",
+                  "#ef4444",
+                  "#94a3b8"
                ]
             },
             {
