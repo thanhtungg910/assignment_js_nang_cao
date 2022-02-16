@@ -316,39 +316,69 @@
          "id": "LqzMJQn"
       },
       {
+         "id": "qLFbyOC",
          "title": "Giày thể thao",
-         "productCateId": "2",
-         "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1644742701/js-nang-cao/iisrp0yt2w1lrahvio4x.jpg",
-         "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1644742701/js-nang-cao/u5uovnvvcikr1fqu1y9f.jpg",
+         "productCateId": "1",
+         "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645015144/js-nang-cao/o4opmuyagjk5usdy1kok.jpg",
+         "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645015145/js-nang-cao/ipggygcw0ngoggpxqndo.jpg",
          "images": [
-            "https://res.cloudinary.com/dhfndew6y/image/upload/v1644742645/js-nang-cao/tnjywlrp8busygvzpgdh.jpg",
-            "https://res.cloudinary.com/dhfndew6y/image/upload/v1644742645/js-nang-cao/i2wecuqwk4dvtgks3jlh.jpg",
-            "https://res.cloudinary.com/dhfndew6y/image/upload/v1644742645/js-nang-cao/vd7ysxc37txtnjyy4p3n.jpg",
-            "https://res.cloudinary.com/dhfndew6y/image/upload/v1644742645/js-nang-cao/jezgbfoetinb7txo04wm.jpg"
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1645015957/js-nang-cao/r98pogawkwxaubfy1qw0.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1645015957/js-nang-cao/ioybjbmhn5zwre4e7zj0.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1645015957/js-nang-cao/whymnhgfystnwpa2pwpk.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1645015957/js-nang-cao/aykz3ofj2d1czihnur5a.jpg"
          ],
          "description": "Sản phẩm độc nhất vô nhị duy nhất tại thị trường Việt Nam",
-         "created_at": "2022-02-13T08:58:22.214Z",
+         "created_at": "2022-02-16T12:52:38.497Z",
          "price": "2000000",
          "sale_off": "20",
          "options": [{
                "name": "color",
+               "value": []
+            },
+            {
+               "name": "size",
+               "value": []
+            }
+         ]
+      },
+      {
+         "title": "Canvas Work Jacket",
+         "productCateId": "1",
+         "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645017295/js-nang-cao/pbbjmiijohwkm6x6jlir.jpg",
+         "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645017295/js-nang-cao/bxcceca5tomwffrmgmkw.jpg",
+         "images": [
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1645017262/js-nang-cao/zgj7urodewftgrx9vt4o.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1645017263/js-nang-cao/jtv99alrwaetynkigemi.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1645017263/js-nang-cao/ye5azoi0zhlzehkjiokq.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1645017263/js-nang-cao/aksrndsmvdkmg1weue5j.jpg",
+            "https://res.cloudinary.com/dhfndew6y/image/upload/v1645017263/js-nang-cao/ojlabdoxh888yfttlx9m.jpg"
+         ],
+         "description": "ÁO KHOÁC BẢO HỘ LAO ĐỘNG BẰNG VẢI TIẾP TỤC FEAR OF GOD ĐÁNH GIÁ CAO QUẦN ÁO BẢO HỘ LAO ĐỘNG MỘC MẠC CỦA MỸ. VỎ CỦA BỘ QUẦN ÁO ĐƯỢC GIẶT BẰNG ĐÁ NẶNG VÀ XỬ LÝ KHÔ BẰNG TAY ĐỂ MANG LẠI VẺ NGOÀI CỔ ĐIỂN ĐÍCH THỰC CỦA 7 NĂM. CỔ ÁO BẰNG DA TƯƠNG PHẢN VÀ LỚP LÓT CUPRO NHẬT BẢN LÀ NHỮNG ĐIỂM CẦN CÂN NHẮC THÊM VỀ SỰ SANG TRỌNG.",
+         "created_at": "2022-02-16T13:14:56.303Z",
+         "price": "8000000",
+         "sale_off": "0",
+         "options": [{
+               "name": "color",
                "value": [
                   "#17202a",
-                  "#909497",
                   "#ffffff"
                ]
             },
             {
                "name": "size",
                "value": [
-                  "38",
-                  "39",
-                  "40",
-                  "41"
+                  "S",
+                  "M",
+                  "L",
+                  "XL",
+                  "XXL",
+                  "2XL",
+                  "3XL",
+                  "4XL"
                ]
             }
          ],
-         "id": "qLFbyOC"
+         "id": "Vdw6m91"
       }
    ],
    "users": [{
@@ -393,5 +423,24 @@
          "phone": "0234256323",
          "id": 7
       }
-   ]
+   ],
+   "blogs": [{
+      "id": "1",
+      "title": "bai viet 1",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur non aliquam facilis voluptatem possimus! Nulla consequuntur cumque inventore nihil eligendi saepe, impedit deleniti et minima mollitia rerum est, tenetur quod.",
+      "create_at": "2022-02-16T13:14:56.303Z",
+      "thumbnail": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645017263/js-nang-cao/ojlabdoxh888yfttlx9m.jpg"
+   }, {
+      "id": "2",
+      "title": "bai viet 2",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur non aliquam facilis voluptatem possimus! Nulla consequuntur cumque inventore nihil eligendi saepe, impedit deleniti et minima mollitia rerum est, tenetur quod.",
+      "create_at": "2022-02-16T13:14:56.303Z",
+      "thumbnail": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645017263/js-nang-cao/ojlabdoxh888yfttlx9m.jpg"
+   }, {
+      "id": "3",
+      "title": "bai viet 3",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur non aliquam facilis voluptatem possimus! Nulla consequuntur cumque inventore nihil eligendi saepe, impedit deleniti et minima mollitia rerum est, tenetur quod.",
+      "create_at": "2022-02-16T13:14:56.303Z",
+      "thumbnail": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645017263/js-nang-cao/ojlabdoxh888yfttlx9m.jpg"
+   }]
 }

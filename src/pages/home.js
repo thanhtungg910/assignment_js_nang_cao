@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import Swiper from "swiper/bundle";
-import { getAllProduct } from "../api/products";
+import { getAllProduct, getProduct } from "../api/products";
 // import styles bundle
 // eslint-disable-next-line import/no-unresolved
 import "swiper/css/bundle";
@@ -10,6 +10,7 @@ import Product from "../components/product";
 const HomePage = {
     async render() {
         const { data } = await getAllProduct();
+        const { data: item } = await getProduct("Vdw6m91");
         document.title = "Trang chủ";
         return /* html */ `<main>
         ${Banner.render()}
@@ -42,21 +43,17 @@ const HomePage = {
                           <div class="grid grid-cols-6 gap-6">
                              <div class="col-span-6 sm:col-span-3">
                                 <label for="first-name" class="block text-sm font-medium">Size</label>
-                                <select
-                                   class="mt-1 h-10 bg-transparent focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-white border">
-                                   <option>xl</option>
-                                </select>
+                                <select class="mt-1 h-10 bg-transparent focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-white border">
+                                 ${item.options[1].value.map((size) => `<option class="text-black bg-[${size}]">${size}</option>`)}</select>
                              </div>
 
                              <div class="col-span-6 sm:col-span-3">
                                 <label for="last-name" class="block text-sm font-medium">Color</label>
-                                <select
-                                   class="mt-1 h-10 bg-transparent focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-white border">
-                                   <option>xl</option>
-                                </select>
+                                 <select class="mt-1 h-10 bg-transparent focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-white border">
+                                 ${item.options[0].value.map((color) => `<option class="text-black bg-[${color}]">${color}</option>`)}</select>
                              </div>
                           </div>
-                          <button class="w-full p-3 bg-white text-black mt-3">
+                          <button data-id="${item.id}" class="add-to-cart w-full p-3 bg-white text-black mt-3">
                              Mua ngay
                           </button>
                        </div>
@@ -66,7 +63,7 @@ const HomePage = {
                           src="https://assets.vogue.com/photos/5b8fa78aaf28261cba2e4bdb/master/w_1920,c_limit/00022-FEAR-OF-GOD-VOGUE-SS19-PR.jpg"
                           alt="" />
                     </div>
-                    <div class="col-span-3 bg-white flex justify-evenly items-center">
+                    <div class="col-span-3 bg-[#f7f7f7] flex justify-evenly items-center">
                        <div class="content text-center ml-[60px]">
                           <h2 class="text-4xl uppercase space-x-2 font-bold text-black">
                              fear of god
@@ -75,7 +72,7 @@ const HomePage = {
                           <h4>2018 - 2019</h4>
                        </div>
                        <img class="max-w-full"
-                          src="https://images.stockx.com/images/Fear-of-God-Heavy-Canvas-Work-Jacket-Rust.jpg?fit=fill&bg=FFFFFF&w=480&h=320&auto=compress&q=90&dpr=1&trim=color&updated_at=1623267464&fm=webp"
+                          src="https://res.cloudinary.com/dhfndew6y/image/upload/c_fill,h_292,x_129/v1645016829/233018-13949-fear-of-god-jacket-4_330x469_crop_center_2x_fmgsr4.jpg"
                           alt="" />
                     </div>
                  </div>
@@ -84,22 +81,20 @@ const HomePage = {
         </div>
 
         <div class="container mx-auto mt-10">
-           <div class="abouts flex gap-3">
-              <div class="abouts-content ml-[49px] basis-1/2">
-                 <h1 class="text-4xl font-bold text-zinc-600">Abouts</h1>
+           <div class="abouts flex ">
+              <div class="abouts-content mx-auto w-1/2 ml-[49px]">
+                 <h1 class="text-4xl font-bold text-zinc-600 font-mono">Fear of god</h1>
                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-                    tempore, accusamus similique nisi laudantium quisquam. Modi
-                    corporis nesciunt illum impedit voluptatibus inventore commodi
-                    dignissimos sed eius qui, dicta, pariatur dolor! Lorem ipsum dolor
-                    sit amet consectetur adipisicing elit. Ullam tempore, accusamus
-                    similique nisi laudantium quisquam. Modi corporis nesciunt illum
-                    impedit voluptatibus inventore commodi dignissimos sed eius qui,
-                    dicta, pariatur dolor!
+                 Fear of God là một thuơng hiệu thời trang đường phố do anh Jerry Lorenzo sáng lập năm 2013. Thương hiệu được định vị ở tầm cao của làng streetwear, với mức giá khởi điểm từ khoảng 100 đô-la Mỹ/sản phẩm. Các thiết kế được dựa trên văn hóa thể thao Mỹ, kết hợp cùng tính chất may đo thủ công thường thấy ở phân khúc thời trang cao cấp.
+
+                 Fear of God là một thuơng hiệu thời trang hoàn toàn độc lập. Dù không có nhà đầu tư rót vốn, doanh số của thương hiệu vẫn nhân đôi mỗi năm, tính từ 2013 đến 2019.
+                 
+                 Cái tên thương hiệu Fear of God (tạm dịch: kính sợ đức chúa trời), đến từ nguồn gốc tín ngưỡng của gia đình nhà sáng lập Jerry Lorenzo, cũng như hình ảnh về Đức chúa trong quyển sách My Utmost for His Highest của tác giả Oswald Chambers.
                  </p>
+                 <a href="">Đọc thêm</a>
               </div>
               <div class="about-image">
-                 <img src="https://theme.hstatic.net/1000280685/1000722794/14/img_Aboutus_title.jpg?v=458" alt="" />
+                 <img class="w-[60%] ml-auto" src="https://cdn.accentuate.io/70677266493/1608649750643/FGA_announcement_UPDATE.jpg?v=1640297646480" alt="" />
               </div>
            </div>
         </div>
@@ -111,20 +106,19 @@ const HomePage = {
                  </h2>
                  <div
                     class="swiper-wrapper mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-4">
-
-                    ${data.map((item) => `<div class="group relative swiper-slide">
+                    ${data.map((product) => `<div class="group relative swiper-slide">
                     <div
                        class="w-full min-h-[483px] bg-gray-200 aspect-w-1 aspect-h-1  overflow-hidden lg:h-80 lg:aspect-none">
                        <div class="relative w-full h-full">
-                          <a href="/#/details/${item.id}">
+                          <a href="/#/details/${product.id}">
                              <img
-                                src="${item.featured_image}"
+                                src="${product.featured_image}"
                                 alt="Front of men&#039;s Basic Tee in black."
                                 class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full" />
                           </a>
-                          <a href="/#/details/${item.id}">
+                          <a href="/#/details/${product.id}">
                              <img
-                                src="${item.sub_image}"
+                                src="${product.sub_image}"
                                 alt="Front of men&#039;s Basic Tee in black."
                                 class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
                           </a></div>
@@ -137,7 +131,7 @@ const HomePage = {
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                        </svg>
-                       <svg data-id="${item.id}" xmlns="http://www.w3.org/2000/svg"
+                       <svg data-id="${product.id}" xmlns="http://www.w3.org/2000/svg"
                           class="add-to-cart h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-250 top-1/3 z-50 group-hover:opacity-100 text-black"
                           fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
@@ -147,14 +141,14 @@ const HomePage = {
                     <div class="mt-4 flex justify-between">
                        <div>
                           <h3 class="text-sm text-gray-700">
-                             <a href="/#/details/${item.id}">
+                             <a href="/#/details/${product.id}">
                                 <span aria-hidden="true" class="absolute inset-0"></span>
-                                ${item.title}
+                                ${product.title}
                              </a>
                           </h3>
                           <p class="mt-1 text-sm text-gray-500">Black</p>
                        </div>
-                       <p class="text-sm font-medium text-gray-900">${item.price}</p>
+                       <p class="text-sm font-medium text-gray-900">${product.price}</p>
                     </div>
                  </div>`).join("")}
 

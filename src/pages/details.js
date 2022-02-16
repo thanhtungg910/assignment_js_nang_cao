@@ -28,7 +28,7 @@ const Details = {
                   ${options[0].value.map((color) => `<div class="relative">
                   <input class="sr-only peer" type="radio" checked value=${color} name="color" id="${color}">
                   <label
-                     class="flex h-8 w-8 bg-[#${color}] border rounded-full border-gray-300  cursor-pointer focus:outline-none  peer-checked:ring-green-500 peer-checked:ring-2 peer-checked:border-transparent"
+                     class="flex h-8 w-8 bg-[${color}] border rounded-full border-gray-300  cursor-pointer focus:outline-none  peer-checked:ring-green-500 peer-checked:ring-2 peer-checked:border-transparent"
                      for="${color}"></label>
                </div>`).join("")}
                </div>

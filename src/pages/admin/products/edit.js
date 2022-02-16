@@ -1,10 +1,12 @@
-/* eslint-disable no-plusplus */
+import AWN from "awesome-notifications";
+import "awesome-notifications/dist/style.css";/* eslint-disable no-plusplus */
 import axios from "axios";
 import toastr from "toastr";
 import "toastr/build/toastr.min.css";
 import { getProduct, editProduct } from "../../../api/products";
 import { getAll as getCategories } from "../../../api/categories";
 import uploadFile from "../../../utils/upload";
+import $ from "../../../utils/dom";
 
 const EditProduct = {
     async render(id) {
@@ -82,7 +84,7 @@ const EditProduct = {
                           <label for="featured_image"
                              class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                              <span>Upload a file</span>
-                             <input id="featured_image" value="${data.featured_image}" type="file" class="sr-only  file-upload[]">
+                             <input id="featured_image"  type="file" class="sr-only  file-upload[]">
                           </label>
                           <p class="pl-1">or drag and drop</p>
                        </div>
@@ -420,7 +422,7 @@ const EditProduct = {
 
         formProduct.addEventListener("submit", async (e) => {
             e.preventDefault();
-
+            const notifier = new AWN();
             const checkInput = document.querySelectorAll(".check-input");
             checkInput.forEach((val) => {
                 if (val.value === "") {
@@ -482,8 +484,8 @@ const EditProduct = {
                     id,
                     title: titleProduct.value,
                     productCateId: category.value,
-                    featured_image: imgFeatured,
-                    sub_image: imgSub,
+                    featured_image: imgFeatured || $("#preview_image_featured").src,
+                    sub_image: imgSub || $("#preview_image_sub").src,
                     images: [...images],
                     description: desc.value,
                     created_at: new Date(),
@@ -500,13 +502,15 @@ const EditProduct = {
                         },
                     ],
                 };
-                editProduct(id, data)
-                    .then(() => {
+                notifier.async(
+                    editProduct(id, data),
+                    () => {
                         toastr.success("Sửa thành công!");
                         setTimeout(() => {
                             document.location.href = "/#/admin/products";
                         }, 1000);
-                    });
+                    },
+                );
             }
         });
     },
