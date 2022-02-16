@@ -163,10 +163,7 @@ const CheckoutList = {
                     </div>
                  </div>
               </div>
-              <span class="text-gray-600 text-center">${+item.price.toLocaleString("vi-VN", {
-        style: "currency",
-        currency: "VND",
-    })}
+              <span class="text-gray-600 text-center">${(+item.amount * +item.price).toLocaleString("it-IT", { style: "currency", currency: "VND" })}
                  <svg data-id="${item.id}" xmlns="http://www.w3.org/2000/svg"
                     class="delete-item-cart h-4 w-4 mx-auto cursor-pointer text-red-700" viewBox="0 0 20 20"
                     fill="currentColor">

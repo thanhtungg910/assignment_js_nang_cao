@@ -102,7 +102,7 @@ const deleteItemCart = (dom, dom2, component = Nav) => {
                     onCancel,
                     {
                         labels: {
-                            confirm: "Bạn có muốn xóa không?",
+                            confirm: "Bạn có muốn xóa sản phẩm này không?",
                         },
                     },
                 );
@@ -121,17 +121,18 @@ const increaseItemInCart = (id, dom, component) => {
 };
 const decreaseItemInCart = (id, dom, component) => {
     const currentCart = cart.find((item) => item.id === id);
-    currentCart.amount -= 1;
-    const onCancel = () => "";
-    if (currentCart.amount <= 1) {
+    currentCart.amount = (currentCart.amount <= 0) ? 1 : currentCart.amount -= 1;
+    if (currentCart.amount <= 0) {
         const onOk = () => {
             cart = cart.filter((item) => item.id !== id);
             localStorage.setItem("cart", JSON.stringify(cart));
-            if (component) {
-                reRender(dom, component);
-            }
             reRender("#authen", Nav);
-            toastr.success("Xóa thành công");
+            return toastr.success("Xóa thành công");
+        };
+        const onCancel = () => {
+            currentCart.amount = 1;
+            localStorage.setItem("cart", JSON.stringify(cart));
+            return reRender("#authen", Nav);
         };
         notifier.confirm(
             " ",
@@ -139,10 +140,14 @@ const decreaseItemInCart = (id, dom, component) => {
             onCancel,
             {
                 labels: {
-                    confirm: "Bạn có muốn xóa không?",
+                    confirm: "Bạn có muốn xóa sản phẩm này không?",
                 },
             },
         );
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    if (component) {
+        reRender(dom, component);
     }
     return reRender("#authen", Nav);
 };
