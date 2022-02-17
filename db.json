@@ -393,56 +393,22 @@
       "id": "Vdw6m91"
     },
     {
-      "title": "sdsad",
+      "id": "C6QpL8A",
+      "title": "Áo khoác da",
       "productCateId": "1",
-      "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645085976/js-nang-cao/z0jampy2l4lpe0hmoedt.jpg",
-      "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645085995/js-nang-cao/glxotzdg5bg5nut061vk.jpg",
+      "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645101980/js-nang-cao/nfelcztt2qksciddsthk.jpg",
+      "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645101901/js-nang-cao/tt9fxufzi1ana13u8stk.jpg",
       "images": [],
-      "description": [
-        ".textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad",
-        ".textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad",
-        ".text<mark class=\"cdx-marker\"><i>asdsadsadsad.textasdsadsadsad.textasdsadsadsa</i></mark>d.textasdsadsadsad.textasdsadsadsad",
-        ".textasdsad<i>sadsad.tex</i>tasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad"
-      ],
-      "created_at": "2022-02-17T08:20:00.394Z",
-      "price": "8000000",
-      "sale_off": "0",
-      "options": [
-        {
-          "name": "color",
-          "value": [
-            "#85c1e9"
-          ]
-        },
-        {
-          "name": "size",
-          "value": [
-            "S",
-            "XXL"
-          ]
-        }
-      ],
-      "id": "BUnt1vC"
-    },
-    {
-      "title": "asdsad",
-      "productCateId": "1",
-      "featured_image": "",
-      "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086063/js-nang-cao/wqhxvrthjilke5myhkzl.jpg",
-      "images": [
-        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086041/js-nang-cao/vv01tslolqogaf99z1f3.jpg",
-        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086042/js-nang-cao/v6up1y5cwj0lbrqlxaoy.jpg",
-        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086043/js-nang-cao/z1vouhkupuspkjvic8sj.jpg"
-      ],
-      "description": "<div class='flex flex-wrap'>.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsad<a href=\"http://abc\">sadsad.textasdsads</a><a href=\"http://abc\"></a>adsad.tex<b>tasdsadsadsad.te</b>xtasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsa<mark class=\"cdx-marker\">d.textasdsadsadsad</mark></div>",
-      "created_at": "2022-02-17T08:21:02.478Z",
-      "price": "8000000",
-      "sale_off": "0",
+      "description": "avcassadsaasdasddaadasdsdsasdasd",
+      "created_at": "2022-02-17T12:46:20.519Z",
+      "price": "3000000",
+      "sale_off": "50",
       "options": [
         {
           "name": "color",
           "value": [
             "#17202a",
+            "#f4d03f",
             "#85c1e9"
           ]
         },
@@ -450,44 +416,12 @@
           "name": "size",
           "value": [
             "M",
-            "2XL"
+            "L",
+            "2XL",
+            "3XL"
           ]
         }
-      ],
-      "id": "evsaKLs"
-    },
-    {
-      "title": "sdsad",
-      "productCateId": "2",
-      "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086574/js-nang-cao/j09tg7nl63pnmcq8kfnb.jpg",
-      "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086574/js-nang-cao/w7wb0uj9odkzf2mpypwy.jpg",
-      "images": [
-        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086556/js-nang-cao/aedkmfwnzikhlkpsvxxd.jpg",
-        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086557/js-nang-cao/hqcd0apymrmk5nqnwtsa.jpg",
-        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086558/js-nang-cao/bjeeulyc4jiso3ls8947.jpg",
-        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086558/js-nang-cao/nedvyq4dk9ftw1alehn2.jpg"
-      ],
-      "description": "asdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusa",
-      "created_at": "2022-02-17T08:29:34.767Z",
-      "price": "8000000",
-      "sale_off": "0",
-      "options": [
-        {
-          "name": "color",
-          "value": [
-            "#17202a",
-            "#f4d03f"
-          ]
-        },
-        {
-          "name": "size",
-          "value": [
-            "38",
-            "42"
-          ]
-        }
-      ],
-      "id": "jh0nKuf"
+      ]
     }
   ],
   "users": [

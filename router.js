@@ -10,6 +10,7 @@ import {
     SignupPage, AddProduct, EditProduct, CheckoutPage, BlogsPage,
     ArticlePage, BlogsPageDashboard, AddBlogsPage, EditBlogPage,
 } from "./src/pages";
+import NotFoundPage from "./src/pages/notfound";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
@@ -77,7 +78,7 @@ const Router = () => {
         "/admin/blogs": () => { renderAdmin(BlogsPageDashboard); },
         "/admin/blogs/add": () => { renderAdmin(AddBlogsPage); },
         "/admin/blogs/edit/:id": ({ data: { id } }) => { renderAdmin(EditBlogPage, id); },
-    });
+    }).notFound(() => { NotFoundPage.render(); });
     router.resolve();
 };
 export default Router;

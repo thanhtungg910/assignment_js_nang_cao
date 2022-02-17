@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { AddToCart } from "../api/cart";
 import { getAll, getRelationships } from "../api/categories";
 
@@ -46,6 +47,9 @@ const Category = {
                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                </svg>
+               <div class="italic absolute top-2 right-4 font-mono text-xl">
+               ${(item.sale_off != 0) ? `${item.sale_off}%` : ""}
+               </div>
                </div>
                <div class="mt-4 flex justify-between">
                <div>
@@ -57,7 +61,7 @@ const Category = {
                </h3>
                <p class="mt-1 text-sm text-gray-500">${item.options[0].name}</p>
                </div>
-               <p class="text-sm font-medium text-gray-900">${item.price}</p>
+               <p class="text-sm font-sans text-gray-900">${(+item.sale_off !== 0) ? (item.price * (item.sale_off / 100)).toLocaleString("vi", { style: "currency", currency: "VND" }) : (item.price).toLocaleString("vi", { style: "currency", currency: "VND" })}</p>
                </div>
                </div>`).join(" ");
                 }
