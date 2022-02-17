@@ -1,5 +1,8 @@
 import AWN from "awesome-notifications";
 import "awesome-notifications/dist/style.css";
+import EditorJS from "@editorjs/editorjs";
+import Header from "@editorjs/header";
+import Marker from "@editorjs/marker";
 import toastr from "toastr";
 import axios from "axios";
 import "toastr/build/toastr.min.css";
@@ -22,7 +25,7 @@ const AddProduct = {
            <form id="add-product" class="bg-white px-3 pb-2">
 
               <div class="border-y-2 py-6 flex items-center">
-                 <div class="w-[40%]">
+                 <div class="w-[30%]">
                     <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tên sản phẩm</h2>
                  </div>
                  <div>
@@ -32,7 +35,7 @@ const AddProduct = {
               </div>
 
               <div class="border-y-2 py-6 flex items-center">
-                 <div class="w-[40%]">
+                 <div class="w-[30%]">
                     <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                        Loại sản phẩm</h2>
                  </div>
@@ -63,7 +66,7 @@ const AddProduct = {
               </div>
 
               <div class="border-y-2 py-6 flex items-center">
-                 <div class="w-[40%]">
+                 <div class="w-[30%]">
                     <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                        Hình ảnh nổi bật</h2>
                  </div>
@@ -91,7 +94,7 @@ const AddProduct = {
               </div>
 
               <div class="border-y-2 py-6 flex items-center">
-                 <div class="w-[40%]">
+                 <div class="w-[30%]">
                     <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                        Hình ảnh</h2>
                  </div>
@@ -119,7 +122,7 @@ const AddProduct = {
               </div>
 
               <div class="border-y-2 py-6 flex items-center">
-                 <div class="w-[40%]">
+                 <div class="w-[30%]">
                     <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                        Album</h2>
                  </div>
@@ -146,7 +149,7 @@ const AddProduct = {
               </div>
 
               <div class="border-y-2 py-6 flex items-center">
-                 <div class="w-[40%]">
+                 <div class="w-[30%]">
                     <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                        Giá sản phẩm</h2>
                  </div>
@@ -157,7 +160,7 @@ const AddProduct = {
               </div>
 
               <div class="border-y-2 py-6 flex items-center">
-                 <div class="w-[40%]">
+                 <div class="w-[30%]">
                     <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                        Giá giảm</h2>
                  </div>
@@ -168,7 +171,7 @@ const AddProduct = {
               </div>
 
               <div class="border-y-2 py-6 flex items-center">
-                 <div class="w-[40%]">
+                 <div class="w-[30%]">
                     <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                        Màu</h2>
                  </div>
@@ -228,7 +231,7 @@ const AddProduct = {
               </div>
 
               <div id="size-shirt" class=" border-y-2 py-6 flex items-center">
-                 <div class="w-[40%]">
+                 <div class="w-[30%]">
                     <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                        Size</h2>
                  </div>
@@ -271,7 +274,7 @@ const AddProduct = {
               </div>
 
               <div id="size-shoes" class="hidden border-y-2 py-6 flex items-center">
-              <div class="w-[40%]">
+              <div class="w-[30%]">
                  <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                     Size</h2>
               </div>
@@ -314,34 +317,16 @@ const AddProduct = {
            </div>
 
               <div class="border-y-2 py-6 flex items-center">
-                 <div class="w-[40%]">
+                 <div class="w-[30%]">
                     <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                        Mô tả</h2>
                  </div>
-                 <div>
-                    <div class="flex justify-center">
-                       <div class="mb-3 xl:w-96">
-                          <textarea data-name="Mô tả" class="
-                           check-input
-                             form-control
-                             block
-                             w-full
-                             px-3
-                             py-1.5
-                             text-base
-                             font-normal
-                             text-gray-700
-                             bg-white bg-clip-padding
-                             border border-solid border-gray-300
-                             rounded
-                             transition
-                             ease-in-out
-                             m-0
-                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-                           " id="desc" rows="3" placeholder="Your message"></textarea>
-                       </div>
+                    <div class="mb-3 xl:w-[80%]">
+                       <div class="block w-full  py-1.5 text-base  font-normal
+                       text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition
+                       ease-in-out  m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                     " id="editorjs"></div>
                     </div>
-                 </div>
               </div>
 
               <button
@@ -354,6 +339,20 @@ const AddProduct = {
     afterRender() {
         const API_CLOUDDINARY = "https://api.cloudinary.com/v1_1/dhfndew6y/image/upload";
         const UPLOAD_PRESET = "njlgbczl";
+
+        const editor = new EditorJS({
+            holder: "editorjs",
+            tools: {
+                header: {
+                    class: Header,
+                    inlineToolbar: ["link"],
+                },
+                Marker: {
+                    class: Marker,
+                    shortcut: "CMD+SHIFT+M",
+                },
+            },
+        });
 
         const colorEl = document.getElementsByClassName("color[]");
         const sizeEl = document.getElementsByClassName("size[]");
@@ -429,12 +428,10 @@ const AddProduct = {
                 });
                 const colorVal = [];
                 const sizeVal = [];
-                const desc = document.querySelector("#desc");
                 const price = document.querySelector("#price");
                 const priceSale = document.querySelector("#price_sale");
 
                 if (titleProduct.value
-             && desc.value
              && price.value
              && priceSale.value) {
                 //  Upload feature img
@@ -478,13 +475,15 @@ const AddProduct = {
                         }
                     }
 
+                    const blocksData = await editor.save();
+                    const content = blocksData.blocks.map((item) => `${item.data?.text}`).join("");
                     const data = {
                         title: titleProduct.value,
                         productCateId: category.value,
                         featured_image: imgFeatured,
                         sub_image: imgSub,
                         images: [...images],
-                        description: desc.value,
+                        description: content,
                         created_at: new Date(),
                         price: price.value,
                         sale_off: priceSale.value,
@@ -508,7 +507,7 @@ const AddProduct = {
                     );
                 }
             } catch (error) {
-                toastr.error(error.data.response);
+                toastr.error(error);
             }
         });
     },

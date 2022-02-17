@@ -391,6 +391,103 @@
         }
       ],
       "id": "Vdw6m91"
+    },
+    {
+      "title": "sdsad",
+      "productCateId": "1",
+      "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645085976/js-nang-cao/z0jampy2l4lpe0hmoedt.jpg",
+      "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645085995/js-nang-cao/glxotzdg5bg5nut061vk.jpg",
+      "images": [],
+      "description": [
+        ".textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad",
+        ".textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad",
+        ".text<mark class=\"cdx-marker\"><i>asdsadsadsad.textasdsadsadsad.textasdsadsadsa</i></mark>d.textasdsadsadsad.textasdsadsadsad",
+        ".textasdsad<i>sadsad.tex</i>tasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad"
+      ],
+      "created_at": "2022-02-17T08:20:00.394Z",
+      "price": "8000000",
+      "sale_off": "0",
+      "options": [
+        {
+          "name": "color",
+          "value": [
+            "#85c1e9"
+          ]
+        },
+        {
+          "name": "size",
+          "value": [
+            "S",
+            "XXL"
+          ]
+        }
+      ],
+      "id": "BUnt1vC"
+    },
+    {
+      "title": "asdsad",
+      "productCateId": "1",
+      "featured_image": "",
+      "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086063/js-nang-cao/wqhxvrthjilke5myhkzl.jpg",
+      "images": [
+        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086041/js-nang-cao/vv01tslolqogaf99z1f3.jpg",
+        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086042/js-nang-cao/v6up1y5cwj0lbrqlxaoy.jpg",
+        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086043/js-nang-cao/z1vouhkupuspkjvic8sj.jpg"
+      ],
+      "description": "<div class='flex flex-wrap'>.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsad<a href=\"http://abc\">sadsad.textasdsads</a><a href=\"http://abc\"></a>adsad.tex<b>tasdsadsadsad.te</b>xtasdsadsadsad.textasdsadsadsad.textasdsadsadsad.textasdsadsadsa<mark class=\"cdx-marker\">d.textasdsadsadsad</mark></div>",
+      "created_at": "2022-02-17T08:21:02.478Z",
+      "price": "8000000",
+      "sale_off": "0",
+      "options": [
+        {
+          "name": "color",
+          "value": [
+            "#17202a",
+            "#85c1e9"
+          ]
+        },
+        {
+          "name": "size",
+          "value": [
+            "M",
+            "2XL"
+          ]
+        }
+      ],
+      "id": "evsaKLs"
+    },
+    {
+      "title": "sdsad",
+      "productCateId": "2",
+      "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086574/js-nang-cao/j09tg7nl63pnmcq8kfnb.jpg",
+      "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086574/js-nang-cao/w7wb0uj9odkzf2mpypwy.jpg",
+      "images": [
+        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086556/js-nang-cao/aedkmfwnzikhlkpsvxxd.jpg",
+        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086557/js-nang-cao/hqcd0apymrmk5nqnwtsa.jpg",
+        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086558/js-nang-cao/bjeeulyc4jiso3ls8947.jpg",
+        "https://res.cloudinary.com/dhfndew6y/image/upload/v1645086558/js-nang-cao/nedvyq4dk9ftw1alehn2.jpg"
+      ],
+      "description": "asdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusaasdsadsdsadsadysadusa",
+      "created_at": "2022-02-17T08:29:34.767Z",
+      "price": "8000000",
+      "sale_off": "0",
+      "options": [
+        {
+          "name": "color",
+          "value": [
+            "#17202a",
+            "#f4d03f"
+          ]
+        },
+        {
+          "name": "size",
+          "value": [
+            "38",
+            "42"
+          ]
+        }
+      ],
+      "id": "jh0nKuf"
     }
   ],
   "users": [
@@ -472,6 +569,13 @@
       "thumbnail": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645078359/js-nang-cao/saw6l1saptraetcsxy0h.jpg",
       "content": "Fear of God là một thuơng hiệu thời trang đường phố do anh Jerry Lorenzo sáng lập năm 2013. Thương hiệu được định vị ở tầm cao của làng streetwear, với mức giá khởi điểm từ khoảng 100 đô-la Mỹ/sản phẩm.<img src=\"https://res.cloudinary.com/dhfndew6y/image/upload/v1645078278/js-nang-cao/bka7x0jhatikkktyc0mp.jpg\" alt=\"\"><span class=\"italic text-xs\">Jerry Lorenzo</span><br/>Con đường của Jerry Lorenzo đến với thời trang rất vòng vèo. Anh không theo học ngành thiết kế, đồ họa, hay thậm chí ngành mỹ thuật. Anh cũng không biết vẽ. Vì vậy, anh không tự nhận mình là một nhà thiết kế thời trang. Jerry Lorenzo tự gọi bản thân mình là curator – một người tìm ra những sản phẩm khác biệt và mai mối chúng với nhau trong một bộ sưu tập thuận mắt.Bố Jerry Lorenzo từng là một vận động viên bóng chày chuyên nghiệp, rồi khi nghỉ hưu chuyển sang làm công việc quản lý. Còn Jerry theo học ngành quản trị thời trang. Khi đang học MBA, anh từng là một nhân viên kiểm kho của một cửa hàng Diesel. Nhưng lúc ấy, anh chán ghét thời trang vì cho rằng mình không đủ cool ngầu để trở thành người bán hàng, nên cứ bị kẹt kiểm hàng trong kho.Vì vậy, sau khi tốt nghiệp, Lorenzo không tiếp tục làm thời trang mà trở về với cái gốc của mình là bóng chày. Năm 2008, anh trở thành quản lý của ngôi sao của đội bóng chày Dodgers, Matt Kemp. Một nhiệm vụ của anh là tìm trang phục cho những lần xuất hiện trước truyền thông của Kemp, nhưng gặp khó khăn trong khâu chọn lựa sản phẩm vừa ý. Lúc này, anh quyết định tự sản xuất vài sản phẩm theo đúng nhu cầu của mình.“Tôi làm điều này vì anh ấy, nhưng cũng chính tôi”, Lorenzo từng chia sẻ với Complex. Anh cho rằng nếu có điều gì đó thiếu vắng trong tủ đồ của anh Kemp, của chính bản thân mình, thì chắc chắn sẽ có ai khác có nhu cầu tương tự. Jerry Lorenzo bước vào làng thời trang như vậy, khởi nghiệp với những sản phẩm mình muốn sở hữu nhưng chẳng có ai thực hiện.Lúc ấy, Jerry Lorenzo chỉ có 14.000 đô-la Mỹ tiền tiết kiệm. Anh dùng toàn bộ số tiền đó để khởi nghiệp. Anh thậm chí mất gần chục nghìn đô-la Mỹ khi bị người ta lừa trong giai đoạn sản xuất. Nhưng điều này không khiến anh chùn bước.<img src=\"https://res.cloudinary.com/dhfndew6y/image/upload/v1645078339/js-nang-cao/rhfe9bcannvvw6gfmffe.jpg\" alt=\"\"><span class=\"italic text-xs\"></span><br/>Giới chơi hip hop và rap tìm được sự đồng cảm trong những mâu thuẫn của Fear of God. Vốn rap và hip hop là âm nhạc underground (không thị trường), không được chấp thuận trong quá khứ, nhưng bây giờ các rapper lại là những ngôi sao sáng giá nhất. Âm nhạc của họ kể câu chuyện riêng tư, nhưng lại chạm đến cảm xúc của đám đông. Có lẽ sự đồng cảm này là lý do giới rapper yêu thích thời trang Fear of God.",
       "id": "NFLDhpk"
+    },
+    {
+      "title": "sdsad",
+      "create_at": "2022-02-16T13:14:56.303Z",
+      "thumbnail": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645083616/js-nang-cao/h9m1d6ouzoxgc9ingnhn.jpg",
+      "content": "Abcsadsa<img src=\"https://res.cloudinary.com/dhfndew6y/image/upload/v1645083588/js-nang-cao/yoihfwpktetamix33x3r.jpg\" alt=\"\"><span class=\"italic text-xs\"></span><br/>You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use md:align-top to apply the align-top utility at only medium screen sizes and above.You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use md:align-top to apply the align-top utility at only medium screen sizes and above.You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use md:align-top to apply the align-top utility at only medium screen sizes and above.",
+      "id": "8jC7vn6"
     }
   ]
 }

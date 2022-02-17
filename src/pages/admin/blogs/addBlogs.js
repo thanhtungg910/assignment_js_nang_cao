@@ -1,9 +1,9 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/no-duplicates */
+/* eslint-disable import/no-extraneous-dependencies */
 import axios from "axios";
 import EditorJS from "@editorjs/editorjs";
-import Header from "@editorjs/editorjs";
-import List from "@editorjs/editorjs";
+import Header from "@editorjs/header";
+import List from "@editorjs/list";
 import Embed from "@editorjs/editorjs";
 import ImageTool from "@editorjs/image";
 import toastr from "toastr";
@@ -137,7 +137,9 @@ const AddBlogsPage = {
                 const img = await axios.post(API_CLOUDDINARY, uploadFile($("#featured_image").files[0], UPLOAD_PRESET));
 
                 const contents = await editor.save();
-                const data = contents.blocks.map((item) => `${(item.data?.file) ? `<img src="${item.data?.file.url}" alt=""><span class="italic text-xs">${item.data?.caption}</span><br/>` : `${item.data?.text}`}`).join("");
+                const data = contents.blocks.map((item) => `${(item.data?.file)
+                    ? `<img src="${item.data?.file.url}" alt=""><span class="italic text-xs">${item.data?.caption}</span><br/>`
+                    : `${item.data?.text}`}`).join("");
                 addBlog({
                     title: $("#title-product").value,
                     create_at: "2022-02-16T13:14:56.303Z",

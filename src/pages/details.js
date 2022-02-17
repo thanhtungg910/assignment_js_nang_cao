@@ -53,7 +53,7 @@ const Details = {
                </fieldset>
             </div>
             <button data-id=${data.id} id="add-product" class="mt-10 w-full bg-black border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="submit">Mua ngay</button>
-            <div class="w-[283px] mt-2 text-sm">
+            <div class="w-[283px] text-sm  overflow-hidden p-2">
                ${data.description}     
             </div>
          </form>
