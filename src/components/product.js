@@ -23,8 +23,8 @@ const Product = {
                   class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
             </div>
    
-            <svg xmlns="http://www.w3.org/2000/svg"
-               class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-10 group-hover:opacity-100 text-black"
+            <svg data-id="${item.id}" xmlns="http://www.w3.org/2000/svg"
+               class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] popup-product z-10 group-hover:opacity-100 text-black"
                fill="none" viewBox="0 0 24 24" stroke="currentColor">
                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -70,8 +70,8 @@ const Product = {
                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
          </div>
 
-         <svg xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-10 group-hover:opacity-100 text-black"
+         <svg data-id="${item.id}" xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] popup-product z-10 group-hover:opacity-100 text-black"
             fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -117,8 +117,8 @@ const Product = {
                class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
          </div>
 
-         <svg xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-10 group-hover:opacity-100 text-black"
+         <svg data-id="${item.id}" xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] popup-product z-10 group-hover:opacity-100 text-black"
             fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -167,8 +167,8 @@ const Product = {
          class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
    </div>
 
-   <svg xmlns="http://www.w3.org/2000/svg"
-      class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-10 group-hover:opacity-100 text-black"
+   <svg data-id="${item.id}" xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] popup-product z-10 group-hover:opacity-100 text-black"
       fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />

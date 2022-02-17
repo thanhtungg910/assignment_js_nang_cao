@@ -1,10 +1,12 @@
 import Nav from "./partials/nav";
+import Popup from "./popup";
 import Search from "./search";
 import "./style.css";
 
 const Header = {
     render() {
         return /* html */ `
+        ${Popup.render()}
         ${Search.render()}
         <header id="header_header" x-data="{ cartOpen: false, login: false, signup: false}" class="relative ">
            <div id="menu"
@@ -20,6 +22,7 @@ const Header = {
     async afterRender() {
         Search.afterRender();
         Nav.afterRender();
+        Popup.afterRender();
     },
 };
 export default Header;
