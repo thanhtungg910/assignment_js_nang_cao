@@ -17,7 +17,7 @@ const AddBlogsPage = {
         document.title = "Thêm blogs";
         return /* html */ `<main class="h-full pb-16 overflow-y-auto">
       <div class="container grid px-5 mx-auto">
-      <a href="/#/admin/products"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-5" viewBox="0 0 20 20" fill="currentColor">
+      <a href="/#/admin/blogs"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-5" viewBox="0 0 20 20" fill="currentColor">
       <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
     </svg></a>
       <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"></h2>
@@ -65,7 +65,7 @@ const AddBlogsPage = {
                      Mô tả</h2>
                </div>
                      <div class="mb-3 xl:w-[80%]">
-                        <div class="form-control block w-full  py-1.5 text-base  font-normal
+                        <div class="block w-full  py-1.5 text-base  font-normal
                            text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition
                            ease-in-out  m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
                          " id="editorjs"></div>

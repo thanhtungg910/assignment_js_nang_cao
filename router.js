@@ -8,7 +8,7 @@ import {
     Dashboard, ProductList, OrderList, HomePage, ProductsPage,
     Author, DetailsPage, Categories, ContactsPage, SigninPage,
     SignupPage, AddProduct, EditProduct, CheckoutPage, BlogsPage,
-    ArticlePage, BlogsPageDashboard, AddBlogsPage,
+    ArticlePage, BlogsPageDashboard, AddBlogsPage, EditBlogPage,
 } from "./src/pages";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
@@ -76,6 +76,7 @@ const Router = () => {
         "/admin/account": () => { renderAdmin(Author); },
         "/admin/blogs": () => { renderAdmin(BlogsPageDashboard); },
         "/admin/blogs/add": () => { renderAdmin(AddBlogsPage); },
+        "/admin/blogs/edit/:id": ({ data: { id } }) => { renderAdmin(EditBlogPage, id); },
     });
     router.resolve();
 };

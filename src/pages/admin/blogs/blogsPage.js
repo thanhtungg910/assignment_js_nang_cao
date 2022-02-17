@@ -1,3 +1,5 @@
+import blogs from "../../../components/admin/blogs";
+
 const BlogsPage = {
     async render() {
         return /* html */`
@@ -54,13 +56,11 @@ const BlogsPage = {
                                   class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                   <th class="px-4 py-3">Ảnh</th>
                                   <th class="px-4 py-3">Tiêu đề</th>
-                                  <th class="px-4 py-3">Giá sản phẩm</th>
-                                  <th class="px-4 py-3">Giảm giá (%)</th>
-                                  <th class="px-4 py-3">Ngày đăng sp</th>
+                                  <th class="px-4 py-3">Ngày xuất bản</th>
                                </tr>
                             </thead>
-                            <tbody  id="product-table"  class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                            ${``}
+                            <tbody  id="blogs-table"  class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                            ${await blogs.render()}
                             </tbody>
                          </table>
                       </div>
@@ -136,6 +136,9 @@ const BlogsPage = {
               </div>
            </div>
         </main>`;
+    },
+    afterRender() {
+        blogs.afterRender();
     },
 };
 export default BlogsPage;

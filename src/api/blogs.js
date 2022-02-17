@@ -16,6 +16,10 @@ const editBlog = (data, id) => {
     const url = `/blogs/${id}`;
     return instance.put(url, data);
 };
+const deleteBlog = (id) => {
+    const url = `/blogs/${id}`;
+    return instance.delete(url);
+};
 const limitBlog = (min, max) => {
     const url = `/blogs?_page=${min}&_limit=${max}`;
     return instance.get(url);
@@ -25,5 +29,6 @@ export {
     getBlog,
     addBlog,
     editBlog,
+    deleteBlog,
     limitBlog,
 };

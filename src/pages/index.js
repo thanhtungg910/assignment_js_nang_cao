@@ -8,6 +8,7 @@ export { default as Author } from "./admin/author/authorList";
 export { default as Categories } from "./admin/categories/categories";
 export { default as BlogsPageDashboard } from "./admin/blogs/blogsPage";
 export { default as AddBlogsPage } from "./admin/blogs/addBlogs";
+export { default as EditBlogPage } from "./admin/blogs/editBlogsPage";
 //
 export { default as HomePage } from "./home";
 export { default as ProductsPage } from "./products";
