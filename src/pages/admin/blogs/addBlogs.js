@@ -1,4 +1,16 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-duplicates */
+import axios from "axios";
 import EditorJS from "@editorjs/editorjs";
+import Header from "@editorjs/editorjs";
+import List from "@editorjs/editorjs";
+import Embed from "@editorjs/editorjs";
+import ImageTool from "@editorjs/image";
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
+import $ from "../../../utils/dom";
+import uploadFile from "../../../utils/upload";
+import { addBlog } from "../../../api/blogs";
 
 const AddBlogsPage = {
     render() {
@@ -61,7 +73,7 @@ const AddBlogsPage = {
             </div>
 
             <button
-               class="text-white  bg-indigo-600 hover:bg-indigo-700  focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">
+               class="add-blogs text-white  bg-indigo-600 hover:bg-indigo-700  focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">
                Thêm</button>
          </form>
       </div>
@@ -69,9 +81,72 @@ const AddBlogsPage = {
       `;
     },
     afterRender() {
-        // eslint-disable-next-line no-new
-        new EditorJS({
+        const API_CLOUDDINARY = "https://api.cloudinary.com/v1_1/dhfndew6y/image/upload";
+        const UPLOAD_PRESET = "njlgbczl";
+        const editor = new EditorJS({
             holder: "editorjs",
+            tools: {
+                header: {
+                    class: Header,
+                    inlineToolbar: ["link"],
+                },
+                list: {
+                    class: List,
+                    inlineToolbar: ["link", "bold"],
+                },
+                embed: {
+                    class: Embed,
+                    inlineToolbar: false,
+                    config: {
+                        services: {
+                            youtube: true,
+                            coub: true,
+                        },
+                    },
+                },
+                image: {
+                    class: ImageTool,
+                    config: {
+                        uploader: {
+                            uploadByFile(file) {
+                                const files = uploadFile(file, UPLOAD_PRESET);
+
+                                return axios.post(API_CLOUDDINARY, files).then((res) => ({
+                                    success: 1,
+                                    file: {
+                                        url: res.data.secure_url,
+                                    },
+                                }));
+                            },
+                        },
+                    },
+                },
+            },
+
+        });
+        $("#featured_image").addEventListener("change", () => {
+            // img = uploadFile($("#featured_image").files[0], UPLOAD_PRESET);
+            const file = $("#featured_image").files[0];
+            file.preview = URL.createObjectURL(file);
+            $("#preview_image_featured").src = file.preview;
+        });
+
+        $(".add-blogs").addEventListener("click", async (e) => {
+            e.preventDefault();
+            try {
+                const img = await axios.post(API_CLOUDDINARY, uploadFile($("#featured_image").files[0], UPLOAD_PRESET));
+
+                const contents = await editor.save();
+                const data = contents.blocks.map((item) => `${(item.data?.file) ? `<img src="${item.data?.file.url}" alt=""><span class="italic text-xs">${item.data?.caption}</span><br/>` : `${item.data?.text}`}`).join("");
+                addBlog({
+                    title: $("#title-product").value,
+                    create_at: "2022-02-16T13:14:56.303Z",
+                    thumbnail: img.data.secure_url,
+                    content: data,
+                }); toastr.success("Tạo bài viết thành công");
+            } catch (error) {
+                toastr.error(error);
+            }
         });
     },
 };
