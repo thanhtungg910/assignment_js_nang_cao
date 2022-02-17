@@ -2,8 +2,8 @@ import { getBlog } from "../api/blogs";
 
 const ArticlePage = {
     async render(id) {
-        document.title = "Bai viet 1";
         const { data } = await getBlog(id);
+        document.title = data.title;
         return /* html */`
         <main class="max-w-5xl mx-auto pb-10 pt-10 mt-6">
            <div class="flex flex-wrap overflow-hidden">

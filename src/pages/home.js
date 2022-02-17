@@ -6,11 +6,13 @@ import { getAllProduct, getProduct } from "../api/products";
 import "swiper/css/bundle";
 import Banner from "../components/banner";
 import Product from "../components/product";
+import { limitBlog } from "../api/blogs";
 
 const HomePage = {
     async render() {
         const { data } = await getAllProduct();
         const { data: item } = await getProduct("Vdw6m91");
+        const { data: blogItem } = await limitBlog(1, 3);
         document.title = "Trang chủ";
         return /* html */ `<main>
         ${Banner.render()}
@@ -161,64 +163,26 @@ const HomePage = {
            <div class="bg-gray-100">
               <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                  <div class="max-w-2xl mx-auto py-10 sm:py-24 lg:py-20 lg:max-w-none">
-                    <div class="  lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
-
-                       <div class="group relative">
-                          <div
-                             class="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
-                             <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg"
-                                alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
-                                class="w-full h-full object-center object-cover">
-                          </div>
-                          <h3 class="mt-6 text-sm text-gray-500">
-                             <a href="#">
-                                <span class="absolute inset-0"></span>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Aut ducimus amet excepturi adipisci reprehenderit accusamus accusantium praesentium
-                             </a>
-                          </h3>
-                          <p class="text-base font-semibold text-gray-900">Work from home accessories</p>
-                          <p class="text-xs font-semibold text-gray-900">Ngày tạo: 20 - 01 - 2022</p>
-                          <a href="#" class="text-xs font-semibold text-gray-900">Xem thêm >></a>
-                       </div>
-
-                       <div class="group relative">
-                          <div
-                             class="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
-                             <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg"
-                                alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
-                                class="w-full h-full object-center object-cover">
-                          </div>
-                          <h3 class="mt-6 text-sm text-gray-500">
-                             <a href="#">
-                                <span class="absolute inset-0"></span>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Aut ducimus amet excepturi adipisci reprehenderit accusamus accusantium praesentium
-                             </a>
-                          </h3>
-                          <p class="text-base font-semibold text-gray-900">Work from home accessories</p>
-                          <p class="text-xs font-semibold text-gray-900">Ngày tạo: 20 - 01 - 2022</p>
-                          <a href="#" class="text-xs font-semibold text-gray-900">Xem thêm >></a>
-                       </div>
-
-                       <div class="group relative">
-                          <div
-                             class="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
-                             <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg"
-                                alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
-                                class="w-full h-full object-center object-cover">
-                          </div>
-                          <h3 class="mt-6 text-sm text-gray-500">
-                             <a href="#">
-                                <span class="absolute inset-0"></span>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Aut ducimus amet excepturi adipisci reprehenderit accusamus accusantium praesentium
-                             </a>
-                          </h3>
-                          <p class="text-base font-semibold text-gray-900">Work from home accessories</p>
-                          <p class="text-xs font-semibold text-gray-900">Ngày tạo: 20 - 01 - 2022</p>
-                          <a href="#" class="text-xs font-semibold text-gray-900">Xem thêm >></a>
-                       </div>
+                    <div class=" lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
+                    ${blogItem.map((blog) => `<div class="group relative">
+                    <div
+                       class="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+                       <img src="${blog.thumbnail}"
+                          alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
+                          class="w-full h-full object-center object-cover">
+                    </div>
+                    <h3 class="mt-6 text-sm text-gray-500">
+                       <a href="/#/blogs/${blog.id}">
+                          <span class="absolute inset-0"></span>
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                          Aut ducimus amet excepturi adipisci reprehenderit accusamus accusantium praesentium
+                       </a>
+                    </h3>
+                    <p class="text-base font-semibold text-gray-900">${blog.title}</p>
+                    <p class="text-xs font-semibold text-gray-900">Ngày tạo: ${blog.create_at}</p>
+                    <a href="/#/blogs/${blog.id}" class="text-xs font-semibold text-gray-900">Xem thêm >></a>
+                 </div>`).join("")}
+                       
                     </div>
                  </div>
               </div>

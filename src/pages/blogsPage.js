@@ -1,10 +1,12 @@
-import { limitBlog } from "../api/blogs";
+import { limitBlog, getBlog } from "../api/blogs";
+import blogs from "../components/blogs";
 
 const BlogsPage = {
     async render() {
         document.title = "Blogs";
         const { data } = await limitBlog(1, 3);
-        console.log(data);
+        const { data: recent } = await limitBlog(2, 3);
+        const { data: firstBlog } = await getBlog("NFLDhpk");
         return /* html */ `
         <div class="max-w-5xl mx-auto pt-10 pb-10 mt-6">
             <ul class="flex flex-wrap -mx-2 overflow-hidden">
@@ -32,117 +34,24 @@ const BlogsPage = {
                     <div class="pb-10">
                        <!-- first post -->
                        <div>
-                          <img class="article-image" src="./images/1-770x518.jpg" alt="">
-                          <h2 class="text-gray-900 font-serif text-3xl my-5 font-thin"><a href="">How To Make More Travel
-                                By Doing Less</a></h2>
+                       <div class="flex justify-between items-center">
+                       <h2 class="text-gray-900 font-serif text-3xl my-5 font-thin"><a href="">${firstBlog.title}</a> </h2>
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                           <path fill-rule="evenodd" d="M9.243 3.03a1 1 0 01.727 1.213L9.53 6h2.94l.56-2.243a1 1 0 111.94.486L14.53 6H17a1 1 0 110 2h-2.97l-1 4H15a1 1 0 110 2h-2.47l-.56 2.242a1 1 0 11-1.94-.485L10.47 14H7.53l-.56 2.242a1 1 0 11-1.94-.485L5.47 14H3a1 1 0 110-2h2.97l1-4H5a1 1 0 110-2h2.47l.56-2.243a1 1 0 011.213-.727zM9.03 8l-1 4h2.938l1-4H9.031z" clip-rule="evenodd" />
+                        </svg>
+                       </div>
+                          <img class="article-image w-full h-96 object-cover" src="${firstBlog.thumbnail}" alt="">
                           <span class="text-xs text-gray-800 font-thin block mb-5">By Page. December 02, 2019</span>
                           <p class="article-body">Far far away, behind the word mountains, far from the countries Vokalia
                              and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at
                              the coast...</p>
-                          <a href="./article-details.html" class="readmore">Read More...</a>
+                          <a href="/#/blogs/${firstBlog.id}" class="readmore">Read More...</a>
                        </div>
                     </div>
-                    <div class="article-row">
-                       <div class="article-card-right">
-                          <div>
-                             <img class="article-image" src="./images/2-340x220.jpg" alt="">
-                             <h2 class="article-title"><a href="">Do You Make These Simple Mistakes In Travel?</a></h2>
-                             <p class="article-body">Far far away, behind the word mountains, far from the countries...
-                             </p>
-                             <a href="" class="readmore">Read More...</a>
-                          </div>
-                       </div>
-                       <div class="article-card-left">
-                          <div>
-                             <img class="article-image" src="./images/1-340x220.jpg" alt="">
-                             <h2 class="article-title"><a href="">Use Travel To Make Someone Fall In Love With You</a>
-                             </h2>
-                             <p class="article-body">Far far away, behind the word mountains, far from the countries...
-                             </p>
-                             <a href="" class="readmore">Read More...</a>
-                          </div>
-                       </div>
-                    </div>
-                    <div class="article-row">
-                       <div class="article-card-right">
-                          <div>
-                             <img class="article-image" src="./images/3-340x220.jpg" alt="">
-                             <h2 class="article-title"><a href="">What Google Teach About Travel</a></h2>
-                             <p class="article-body">Far far away, behind the word mountains, far from the countries...
-                             </p>
-                             <a href="" class="readmore">Read More...</a>
-                          </div>
-                       </div>
-                       <div class="article-card-left">
-                          <div>
-                             <img class="article-image-" src="./images/4-340x220.jpg" alt="">
-                             <h2 class="article-title"><a href="">The Hidden Mystery Behind Travel</a></h2>
-                             <p class="article-body">Far far away, behind the word mountains, far from the countries...
-                             </p>
-                             <a href="" class="readmore">Read More...</a>
-                          </div>
-                       </div>
+                    <div class="article-row grid grid-cols-3 grid-rows-auto gap-3">
+                       ${await blogs.render()}                   
                     </div>
                  </div>
-  
-                 <!-- repeat repeat repeat -->
-                 <div class="mr-2 md:mr-4 ml-2">
-                    <div class="pb-10">
-                       <!-- first post -->
-                       <div>
-                          <img class="article-image" src="./images/1-770x518.jpg" alt="">
-                          <h2 class="text-gray-900 font-serif text-3xl my-5 font-thin"><a href="">How To Make More Travel
-                                By Doing Less</a></h2>
-                          <span class="text-xs text-gray-800 font-thin block mb-5">By Page. December 02, 2019</span>
-                          <p class="article-body">Far far away, behind the word mountains, far from the countries Vokalia
-                             and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at
-                             the coast...</p>
-                          <a href="" class="readmore">Read More...</a>
-                       </div>
-                    </div>
-                    <div class="article-row">
-                       <div class="article-card-right">
-                          <div>
-                             <img class="article-image" src="./images/2-340x220.jpg" alt="">
-                             <h2 class="article-title"><a href="">Do You Make These Simple Mistakes In Travel?</a></h2>
-                             <p class="article-body">Far far away, behind the word mountains, far from the countries...
-                             </p>
-                             <a href="" class="readmore">Read More...</a>
-                          </div>
-                       </div>
-                       <div class="article-card-left">
-                          <div>
-                             <img class="article-image" src="./images/1-340x220.jpg" alt="">
-                             <h2 class="article-title"><a href="">Use Travel To Make Someone Fall In Love With You</a>
-                             </h2>
-                             <p class="article-body">Far far away, behind the word mountains, far from the countries...
-                             </p>
-                             <a href="" class="readmore">Read More...</a>
-                          </div>
-                       </div>
-                    </div>
-                    <div class="article-row">
-                       <div class="article-card-right">
-                          <div>
-                             <img class="article-image" src="./images/3-340x220.jpg" alt="">
-                             <h2 class="article-title"><a href="">What Google Teach About Travel</a></h2>
-                             <p class="article-body">Far far away, behind the word mountains, far from the countries...
-                             </p>
-                             <a href="" class="readmore">Read More...</a>
-                          </div>
-                       </div>
-                       <div class="article-card-left">
-                          <div>
-                             <img class="article-image-" src="./images/4-340x220.jpg" alt="">
-                             <h2 class="article-title"><a href="">The Hidden Mystery Behind Travel</a></h2>
-                             <p class="article-body">Far far away, behind the word mountains, far from the countries...
-                             </p>
-                             <a href="" class="readmore">Read More...</a>
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-                 <!-- repeat repeat repeat -->
               </div>
   
               <div class="w-full overflow-hidden md:w-2/6 lg:w-2/6 xl:w-2/6">
@@ -151,42 +60,18 @@ const BlogsPage = {
                     <div class="mt-10">
                        <h2 class="font-light text-xl mb-5 text-gray-900 text-center">Recent Posts</h2>
                        <ul>
-                          <li class="mb-3">
-                             <a href="" class="flex">
-                                <div class="w-1/3">
-                                   <img class="rounded" src="./images/1-100x100.jpg" alt="">
-                                </div>
-                                <div class="w-2/3 p-2">
-                                   <h3 class="text-gray-900 font-thin font-serif mb-2">Use Travel To Make Someone Fall In
-                                      Love...</h3>
-                                   <span class="text-xs text-gray-800 font-thin block mb-5">December 02, 2019</span>
-                                </div>
-                             </a>
-                          </li>
-                          <li class="mb-3">
-                             <a href="" class="flex">
-                                <div class="w-1/3">
-                                   <img class="rounded" src="./images/2-100x100.jpg" alt="">
-                                </div>
-                                <div class="w-2/3 p-2">
-                                   <h3 class="text-gray-900 font-thin font-serif mb-2">The Hidden Mystery Behind Travel
-                                   </h3>
-                                   <span class="text-xs text-gray-800 font-thin block mb-5">October 22, 2019</span>
-                                </div>
-                             </a>
-                          </li>
-                          <li class="mb-3">
-                             <a href="" class="flex">
-                                <div class="w-1/3">
-                                   <img class="rounded" src="./images/3-100x100.jpg" alt="">
-                                </div>
-                                <div class="w-2/3 p-2">
-                                   <h3 class="text-gray-900 font-thin font-serif mb-2">Do You Make These Simple
-                                      Mistakes...</h3>
-                                   <span class="text-xs text-gray-800 font-thin block mb-5">October 10, 2019</span>
-                                </div>
-                             </a>
-                          </li>
+                          ${recent.map((item) => `<li class="mb-3">
+                          <a href="/#/blogs/${item.id}" class="flex">
+                             <div class="w-1/3">
+                                <img class="rounded" src="${item.thumbnail}" alt="">
+                             </div>
+                             <div class="w-2/3 p-2">
+                                <h3 class="text-gray-900 font-thin font-serif mb-2">${item.title}</h3>
+                                <span class="text-xs text-gray-800 font-thin block mb-5">October 10, 2019</span>
+                             </div>
+                          </a>
+                       </li>`).join("")}
+                          
                        </ul>
                     </div>
   
