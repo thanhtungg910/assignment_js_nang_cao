@@ -6,7 +6,7 @@ const OrderList = {
         <main class="h-full pb-16 overflow-y-auto">
            <div class="container grid px-5 mx-auto">
               <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                 Danh sách order
+                 Danh sách orders
               </h2>
               <!-- CTA -->
               <div
@@ -34,18 +34,6 @@ const OrderList = {
                     </span>
   
                  </div>
-                 <span><a href="/#/admin/blogs/add"
-                 class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                 <!-- Heroicon name: solid/check -->
-                 <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" viewBox="0 0 20 20"
-                    fill="currentColor">
-                    <path fill-rule="evenodd"
-                       d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                       clip-rule="evenodd" />
-                 </svg>
-                 Thêm blogs
-              </a>
-                 </span>
               </div>
               <!-- With avatar -->
               <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
@@ -59,8 +47,8 @@ const OrderList = {
                                   <th class="px-4 py-3">Số điện thoại</th>
                                   <th class="px-4 py-3">Địa chỉ</th>
                                   <th class="px-4 py-3">Ghi chú</th>
-                                  <th class="px-4 py-3">Số lượng</th>
-                                  <th class="px-4 py-3">Giá</th>
+                                  <th class="px-4 py-3">Số lượng sản phẩm</th>
+                                  <th class="px-4 py-3">Thành tiền</th>
                                   <th class="px-4 py-3">Trạng thái</th>
                                </tr>
                             </thead>
@@ -141,6 +129,9 @@ const OrderList = {
               </div>
            </div>
         </main>`;
+    },
+    afterRender() {
+        order.afterRender();
     },
 };
 export default OrderList;

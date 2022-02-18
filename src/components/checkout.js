@@ -170,7 +170,7 @@ const CheckoutList = {
            </div>
               <div class="flex items-center justify-between mt-5 text-xl font-mono"">
                  <h3>Tổng tiền</h3>
-                 <span>${data.reduce(((cur, item) => cur + ((+item.sale_off !== 0) ? (+item.amount * (+item.price * (+item.sale_off / 100))) : (+item.amount * +item.price))), 0).toLocaleString("it-IT", { style: "currency", currency: "VND" })}</span>
+                 <span data-price="${data.reduce(((cur, item) => cur + ((+item.sale_off !== 0) ? (+item.amount * (+item.price * (+item.sale_off / 100))) : (+item.amount * +item.price))), 0)}" class="unit-price">${data.reduce(((cur, item) => cur + ((+item.sale_off !== 0) ? (+item.amount * (+item.price * (+item.sale_off / 100))) : (+item.amount * +item.price))), 0).toLocaleString("it-IT", { style: "currency", currency: "VND" })}</span>
               </div>`}
                  
               </div>

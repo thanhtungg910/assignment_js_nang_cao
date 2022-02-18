@@ -57,6 +57,7 @@ const CheckoutPage = {
                             orderId,
                             productId: item.id,
                             quantity: item.amount,
+                            unit_price: $(".unit-price").dataset.price,
                         });
                     });
                 })

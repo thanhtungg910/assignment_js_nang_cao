@@ -1,6 +1,7 @@
 /* eslint-disable eqeqeq */
 import { AddToCart } from "../api/cart";
 import { getAll, getRelationships } from "../api/categories";
+import Popup from "./popup";
 
 const Category = {
     async render() {
@@ -64,6 +65,7 @@ const Category = {
                <p class="text-sm font-sans text-gray-900">${(+item.sale_off !== 0) ? (item.price * (item.sale_off / 100)).toLocaleString("vi", { style: "currency", currency: "VND" }) : (item.price).toLocaleString("vi", { style: "currency", currency: "VND" })}</p>
                </div>
                </div>`).join(" ");
+                    Popup.afterRender();
                 }
                 AddToCart(".add-to-cart");
             } else {

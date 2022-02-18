@@ -11,6 +11,7 @@ export { default as AddBlogsPage } from "./admin/blogs/addBlogs";
 export { default as EditBlogPage } from "./admin/blogs/editBlogsPage";
 export { default as ContactsPageDashboard } from "./admin/contacts/contactsPage";
 export { default as InboxPage } from "./admin/contacts/inboxPage";
+export { default as DetailsOrdersPage } from "./admin/order/detailsOrder";
 //
 export { default as HomePage } from "./home";
 export { default as ProductsPage } from "./products";

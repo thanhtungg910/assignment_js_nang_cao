@@ -20,7 +20,7 @@ const AuthorTr = {
                  </div>
               </div>
               <div>
-                 <p class="font-semibold">${item.username}</p>
+                 <p class="font-semibold">${item?.username}</p>
                  <p class="text-xs text-gray-600 dark:text-gray-400">
                     10x Developer
                  </p>
@@ -28,7 +28,7 @@ const AuthorTr = {
            </div>
         </td>
         <td class="px-4 py-3 text-sm">
-        ${item.email}
+        ${item?.email}
         </td>
         <td class="px-4 py-3 text-sm">
         ${item?.phone}

@@ -7,8 +7,8 @@ import { AddToCart } from "../api/cart";
 
 const Popup = {
     render() {
-        return /* html */`<div style="opacity: -0.1; display: none;"
-        class="py-12 fixed  inset-0 overflow-y-auto bg-gray-700 transition z-30 max-h-full overflow-hidden  duration-150 ease-in-out  top-0 right-0 bottom-0 left-0"
+        return /* html */`<div style="opacity: -0.1; display: none;background: rgba(0,0,0,.7)"
+        class="py-10 fixed overflow-y-hidden  inset-0  bg-gray-700 transition z-30 max-h-full overflow-hidden  duration-150 ease-in-out  top-0 right-0 bottom-0 left-0"
         id="popup-product">
         <div role="alert" class="container mx-auto w-11/12 md:w-2/3">
            <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400 w-full">
