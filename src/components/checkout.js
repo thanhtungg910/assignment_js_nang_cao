@@ -74,7 +74,7 @@ const CheckoutList = {
                  </label>
                  <label class="block flex-1 ml-3">
                     <input type="text" class="form-input mt-1 block w-full text-gray-700"
-                       placeholder="Address">
+                       placeholder="Địa chỉ">
                  </label>
               </div>
            </div>
@@ -99,11 +99,7 @@ const CheckoutList = {
                  </a>
                  <button
                     class="flex items-center px-3 py-2 bg-black text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                    <span>Thanh toán</span>
-                    <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                       stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                       <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
+                    <span>Đặt hàng</span>
                  </button>
               </div>
            </form>
@@ -113,13 +109,12 @@ const CheckoutList = {
               <div  id="product-table" class="border rounded-md max-w-md w-full px-4 py-3">
                  ${`<div class="flex items-center justify-between">
                  <h3 class="text-gray-700 font-medium">Số lượng (${data.length})</h3>
-                 <span class="text-gray-600 text-sm">Edit</span>
               </div><div id="product-table">
               ${data.map((item) => `<div class="flex justify-between mt-6">
               <div class="flex">
                  <img class="h-20 w-20 object-cover rounded" src="${item.featured_image}" alt="">
                  <div class="mx-3">
-                    <h3 class="text-sm text-gray-600">${item.title}</h3>
+                    <h3 class="text-sm text-gray-600">${item.title} ${(+item.sale_off !== 0) ? `<span class="font-serif text-sm ml-4">${item.sale_off}%</span>` : ""}</h3>
                     <div class="flex items-center mt-2">
                        <button data-id=${item.id}
                           class="text-gray-500 focus:outline-none focus:text-gray-600 increase-checkout">
@@ -163,9 +158,9 @@ const CheckoutList = {
                     </div>
                  </div>
               </div>
-              <span class="text-gray-600 text-center">${(+item.amount * +item.price).toLocaleString("it-IT", { style: "currency", currency: "VND" })}
+              <span class="text-gray-600 text-center">${(+item.sale_off !== 0) ? (+item.amount * (item.price * (item.sale_off / 100))).toLocaleString("vi", { style: "currency", currency: "VND" }) : (+item.amount * item.price).toLocaleString("vi", { style: "currency", currency: "VND" })}
                  <svg data-id="${item.id}" xmlns="http://www.w3.org/2000/svg"
-                    class="delete-item-cart h-4 w-4 mx-auto cursor-pointer text-red-700" viewBox="0 0 20 20"
+                    class="delete-item-cart-checkout h-4 w-4 mx-auto cursor-pointer text-red-700" viewBox="0 0 20 20"
                     fill="currentColor">
                     <path fill-rule="evenodd"
                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
@@ -175,7 +170,7 @@ const CheckoutList = {
            </div>
               <div class="flex items-center justify-between mt-5 text-xl font-mono"">
                  <h3>Tổng tiền</h3>
-                 <span>${data.reduce(((cur, item) => cur + +item.price * +item.amount), 0).toLocaleString("it-IT", { style: "currency", currency: "VND" })}</span>
+                 <span>${data.reduce(((cur, item) => cur + ((+item.sale_off !== 0) ? (+item.amount * (+item.price * (+item.sale_off / 100))) : (+item.amount * +item.price))), 0).toLocaleString("it-IT", { style: "currency", currency: "VND" })}</span>
               </div>`}
                  
               </div>
@@ -218,7 +213,7 @@ const CheckoutList = {
                 decreaseItemInCart(btnsDecrease.dataset.id, "#checkout-table", CheckoutList);
             });
         }
-        deleteItemCart(".delete-item-cart", "#checkout-table", CheckoutList);
+        deleteItemCart(".delete-item-cart-checkout", "#checkout-table", CheckoutList);
     },
 };
 export default CheckoutList;

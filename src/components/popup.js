@@ -43,23 +43,8 @@ const Popup = {
                 modalHandler(true);
                 const { data } = await getProduct(item.dataset.id);
                 const { options } = data;
-                return $("#popup-product-table").innerHTML = `<div class="swiper w-full product-item-img">
+                $("#popup-product-table").innerHTML = `<div class="swiper w-full product-item-img">
                 <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                      <img class="object-cover w-full"
-                         src="https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_1_900x_uxa3nv.jpg"
-                         alt="">
-                   </div>
-                   <div class="swiper-slide">
-                      <img class="object-cover w-full"
-                         src="https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_1_900x_uxa3nv.jpg"
-                         alt="">
-                   </div>
-                   <div class="swiper-slide">
-                      <img class="object-cover w-full"
-                         src="https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_1_900x_uxa3nv.jpg"
-                         alt="">
-                   </div>
                 ${data.images.map((img) => `<div class="swiper-slide">
                 <img class="object-cover w-full"
                    src="${img}"
@@ -108,12 +93,30 @@ const Popup = {
                 </div>
                 </fieldset>
              </div>
+             <div class="mb-6 mt-10">
+    <input type="number" id="amount" value="1" min="1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+</div>
              <button data-id=${data.id} id="add-product" class="mt-10 w-full bg-black border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="submit">Mua ngay</button>
              <div class="w-[283px] text-sm  overflow-hidden p-2">
                 ${data.description}     
              </div>
           </form>
              </div>`;
+                $(".product-item").addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const color = $("input[name=\"color\"]:checked").value;
+                    const size = $("input[name=\"size\"]:checked").value;
+                    const option = {
+                        color,
+                        size,
+                        id: $("#add-product").dataset.id,
+                        amount: ($("#amount").value),
+                    };
+                    if (option) {
+                        AddToCart(false, option);
+                        modalHandler(false);
+                    }
+                });
             });
         });
         $(".close-popup").addEventListener("click", () => {
@@ -150,19 +153,6 @@ const Popup = {
                 }
             }());
         }
-        $(".product-item").addEventListener("submit", (e) => {
-            e.preventDefault();
-            const color = $("input[name=\"color\"]:checked").value;
-            const size = $("input[name=\"size\"]:checked").value;
-            const data = {
-                color,
-                size,
-                id: $("#add-product").dataset.id,
-            };
-            if (data) {
-                AddToCart(false, data);
-            }
-        });
     },
 };
 export default Popup;

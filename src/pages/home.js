@@ -7,6 +7,7 @@ import "swiper/css/bundle";
 import Banner from "../components/banner";
 import Product from "../components/product";
 import { limitBlog } from "../api/blogs";
+import Popup from "../components/popup";
 
 const HomePage = {
     async render() {
@@ -125,8 +126,8 @@ const HomePage = {
                                 class="w-full h-full absolute object-center object-cover lg:w-full lg:h-full opacity-0 group-hover:opacity-100" />
                           </a></div>
 
-                       <svg xmlns="http://www.w3.org/2000/svg"
-                          class="h-6 w-6 absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-50 group-hover:opacity-100 text-black"
+                       <svg data-id="${product.id}" xmlns="http://www.w3.org/2000/svg"
+                          class="h-6 w-6 popup-product absolute opacity-0 right-4 cursor-pointer transition ease-in-out delay-150 top-[25%] z-50 group-hover:opacity-100 text-black"
                           fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -241,6 +242,7 @@ const HomePage = {
                 },
             },
         });
+        Popup.afterRender();
         return { swiper, productSelling };
     },
 };

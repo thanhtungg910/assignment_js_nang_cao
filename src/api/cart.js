@@ -50,12 +50,14 @@ const AddToCart = async (dom, payUpload = false) => {
         });
     }
     if (payUpload) {
-        const { color, size, id } = payUpload;
+        const {
+            color, size, id, amount,
+        } = payUpload;
         const { data } = await getProduct(id);
         if (data) {
             const currentCart = cart.find((item) => item.id === id);
             if (currentCart) {
-                currentCart.amount += 1;
+                currentCart.amount += (+amount) || 1;
                 currentCart.color = color;
                 currentCart.size = size;
             } else {
@@ -63,7 +65,7 @@ const AddToCart = async (dom, payUpload = false) => {
                     id: data.id,
                     title: data.title,
                     featured_image: data.featured_image,
-                    amount: 1,
+                    amount: (+amount) || 1,
                     price: data.price,
                     sale_off: data.sale_off,
                     color,
@@ -127,11 +129,18 @@ const decreaseItemInCart = (id, dom, component) => {
             cart = cart.filter((item) => item.id !== id);
             localStorage.setItem("cart", JSON.stringify(cart));
             reRender("#authen", Nav);
+            if (component) {
+                reRender(dom, component);
+            }
             return toastr.success("Xóa thành công");
         };
         const onCancel = () => {
             currentCart.amount = 1;
             localStorage.setItem("cart", JSON.stringify(cart));
+
+            if (component) {
+                reRender(dom, component);
+            }
             return reRender("#authen", Nav);
         };
         notifier.confirm(

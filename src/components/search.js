@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-use-before-define */
 import { searchProduct } from "../api/products";
 
 const Search = {
@@ -62,6 +64,28 @@ const Search = {
         };
         formSearch.addEventListener("change", handlerSearch);
         btnSearch.addEventListener("click", handlerSearch);
+        const openmodal = document.querySelectorAll(".modal-open");
+        for (let i = 0; i < openmodal.length; i++) {
+            openmodal[i].addEventListener("click", (event) => {
+                event.preventDefault();
+                toggleModal();
+            });
+        }
+
+        const overlay = document.querySelector(".modal-overlay");
+        overlay.addEventListener("click", toggleModal);
+
+        const closemodal = document.querySelectorAll(".modal-close");
+        for (let i = 0; i < closemodal.length; i++) {
+            closemodal[i].addEventListener("click", toggleModal);
+        }
+        function toggleModal() {
+            const body = document.querySelector("body");
+            const modal = document.querySelector(".modal");
+            modal.classList.toggle("opacity-0");
+            modal.classList.toggle("pointer-events-none");
+            body.classList.toggle("modal-active");
+        }
     },
 };
 export default Search;

@@ -52,6 +52,9 @@ const Details = {
                </div>
                </fieldset>
             </div>
+            <div class="mb-6 mt-10">
+            <input type="number" id="amount" value="1" min="1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        </div>
             <button data-id=${data.id} id="add-product" class="mt-10 w-full bg-black border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="submit">Mua ngay</button>
             <div class="w-[283px] text-sm  overflow-hidden p-2">
                ${data.description}     
@@ -107,6 +110,7 @@ const Details = {
                 color,
                 size,
                 id: $("#add-product").dataset.id,
+                amount: $("#amount").value,
             };
             if (data) {
                 AddToCart(false, data);

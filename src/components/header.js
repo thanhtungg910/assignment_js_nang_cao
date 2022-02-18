@@ -19,8 +19,7 @@ const Header = {
             </div>
         </header>`;
     },
-    async afterRender() {
-        Search.afterRender();
+    afterRender() {
         Nav.afterRender();
         Popup.afterRender();
     },
