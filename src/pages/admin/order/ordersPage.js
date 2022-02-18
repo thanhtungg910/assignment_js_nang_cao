@@ -2,6 +2,7 @@ import order from "../../../components/admin/order";
 
 const OrderList = {
     async render() {
+        document.title = "Orders";
         return /* html */ `
         <main class="h-full pb-16 overflow-y-auto">
            <div class="container grid px-5 mx-auto">
