@@ -511,5 +511,109 @@
       "content": "Abcsadsa<img src=\"https://res.cloudinary.com/dhfndew6y/image/upload/v1645083588/js-nang-cao/yoihfwpktetamix33x3r.jpg\" alt=\"\"><span class=\"italic text-xs\"></span><br/>You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use md:align-top to apply the align-top utility at only medium screen sizes and above.You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use md:align-top to apply the align-top utility at only medium screen sizes and above.You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use md:align-top to apply the align-top utility at only medium screen sizes and above.",
       "id": "8jC7vn6"
     }
+  ],
+  "contacts": [
+    {
+      "name": "tesst",
+      "email": "daylatung@gmail.com",
+      "messages": "npi dung tesst",
+      "id": 1
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "customer_name": "Tung",
+      "customer_address": "Ha Noi",
+      "customer_email": "iphone4s.0910@gmail.com",
+      "customer_phone": "012345678",
+      "nodes": "NODe",
+      "created_date": "2022-01-15T01:54:24.955Z",
+      "status": "0"
+    },
+    {
+      "customer_name": "Admin",
+      "customer_address": "asdv",
+      "customer_email": "admin@gmail.com",
+      "customer_phone": "0234256323",
+      "nodes": "asdxeas",
+      "created_date": "2022-01-15T01:54:24.955Z",
+      "status": "0",
+      "id": "3O2Sjgt"
+    },
+    {
+      "customer_name": "Admin",
+      "customer_address": "abc",
+      "customer_email": "admin@gmail.com",
+      "customer_phone": "0234256323",
+      "nodes": "ases",
+      "created_date": "2022-01-15T01:54:24.955Z",
+      "status": "0",
+      "id": "91lAViK"
+    },
+    {
+      "customer_name": "tung day",
+      "customer_address": "test",
+      "customer_email": "admin@gmail.com",
+      "customer_phone": "0234256323",
+      "nodes": "Ghi chu test",
+      "created_date": "2022-01-15T01:54:24.955Z",
+      "status": "0",
+      "id": "Kn1Lk0n"
+    },
+    {
+      "customer_name": "Admin",
+      "customer_address": "",
+      "customer_email": "admin@gmail.com",
+      "customer_phone": "0234256323",
+      "nodes": "",
+      "created_date": "2022-01-15T01:54:24.955Z",
+      "status": "0",
+      "id": "1DcrvTq"
+    }
+  ],
+  "orders_details": [
+    {
+      "id": "1",
+      "orderId": "1",
+      "productId": "1",
+      "quantity": "1"
+    },
+    {
+      "orderId": "91lAViK",
+      "productId": "2",
+      "quantity": 21,
+      "id": "YUtW6B3"
+    },
+    {
+      "orderId": "91lAViK",
+      "productId": "C6QpL8A",
+      "quantity": 8,
+      "id": "drkMWWs"
+    },
+    {
+      "orderId": "Kn1Lk0n",
+      "productId": "yDNPPG0",
+      "quantity": 1,
+      "id": "XL3JS29"
+    },
+    {
+      "orderId": "Kn1Lk0n",
+      "productId": "PZzFLsg",
+      "quantity": 3,
+      "id": "ohqGNO-"
+    },
+    {
+      "orderId": "Kn1Lk0n",
+      "productId": "2",
+      "quantity": 1,
+      "id": "pJj8H8v"
+    },
+    {
+      "orderId": "1DcrvTq",
+      "productId": "2",
+      "quantity": 1,
+      "id": "zd9iSqr"
+    }
   ]
 }

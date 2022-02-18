@@ -1,3 +1,6 @@
+import { addContacts } from "../api/contacts";
+import $ from "../utils/dom";
+
 const Contacts = {
     render() {
         document.title = "Liên hệ";
@@ -19,26 +22,26 @@ const Contacts = {
                     <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold tracking-wider text-indigo-700">
                        Liên hệ với chúng tôi
                     </h1>
-                    <div class="w-full 2xl:w-8/12 mt-3" role="form">
+                    <form id="form-contact" class="w-full 2xl:w-8/12 mt-3" role="form">
                        <h2 class="text-gray-800 text-base md:text-lg leading-8 tracking-wider">Nếu có thắc mắc, vui
                           lòng gửi email cho chúng tôi theo mẫu dưới đây</h2>
                        <div class="mt-4 md:mt-8">
                           <p class="text-gray-800 text-base font-medium">Họ Tên</p>
                           <input
                              class="mt-3 text-base border-2 w-11/12 lg:w-full xl:w-10/12 hover:border-indigo-600 focus:border-indigo-600 focus:outline-none border-black py-5 pl-4 text-gray-800"
-                             type="text" placeholder="Nguyen Van A" aria-label="enter your name input" />
+                             type="text" id="name" placeholder="Nguyen Van A" aria-label="enter your name input" />
                        </div>
                        <div class="mt-4 md:mt-8">
                           <p class="text-gray-800 text-base font-medium">Email </p>
                           <input
                              class="mt-3 text-base border-2 w-11/12 lg:w-full xl:w-10/12 hover:border-indigo-600 focus:border-indigo-600 focus:outline-none border-black py-5 pl-4 text-gray-800"
-                             type="email" placeholder="example@mail.com" />
+                             type="email" id="email" placeholder="example@mail.com" />
                        </div>
                        <div class="mt-4 md:mt-8">
                           <p class="text-gray-800 text-base font-medium">Nội dung</p>
                           <textarea
                              class="mt-3 text-base border-2 w-11/12 lg:w-full xl:w-10/12 resize-none hover:border-indigo-600 focus:border-indigo-600 focus:outline-none border-black xl:h-40 py-5 pl-4 text-gray-800"
-                             type="text" placeholder="..." aria-label="enter your message input"></textarea>
+                             type="text" id="messages" placeholder="..." aria-label="enter your message input"></textarea>
                        </div>
                        <div class="py-5">
                           <button class="py-3 md:py-5 px-5 md:px-10 bg-gray-900 text-white 
@@ -46,7 +49,7 @@ const Contacts = {
                               font-semibold focus:border-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">Gửi
                           </button>
                        </div>
-                    </div>
+                    </form>
                  </div>
               </div>
            </div>
@@ -72,6 +75,14 @@ const Contacts = {
                     "text-black",
                 );
             }
+        });
+        $("#form-contact").addEventListener("submit", (e) => {
+            e.preventDefault();
+            addContacts({
+                name: $("#name").value,
+                email: $("#email").value,
+                messages: $("#messages").value,
+            });
         });
     },
 };

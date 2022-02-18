@@ -8,7 +8,7 @@ import {
     Dashboard, ProductList, OrderList, HomePage, ProductsPage,
     Author, DetailsPage, Categories, ContactsPage, SigninPage,
     SignupPage, AddProduct, EditProduct, CheckoutPage, BlogsPage,
-    ArticlePage, BlogsPageDashboard, AddBlogsPage, EditBlogPage,
+    ArticlePage, BlogsPageDashboard, AddBlogsPage, EditBlogPage, ContactsPageDashboard, InboxPage,
 } from "./src/pages";
 import NotFoundPage from "./src/pages/notfound";
 
@@ -78,6 +78,9 @@ const Router = () => {
         "/admin/blogs": () => { renderAdmin(BlogsPageDashboard); },
         "/admin/blogs/add": () => { renderAdmin(AddBlogsPage); },
         "/admin/blogs/edit/:id": ({ data: { id } }) => { renderAdmin(EditBlogPage, id); },
+        "/admin/contacts": () => { renderAdmin(ContactsPageDashboard); },
+        "/admin/contacts/inbox/:id": ({ data: { id } }) => { renderAdmin(InboxPage, id); },
+
     }).notFound(() => { NotFoundPage.render(); });
     router.resolve();
 };

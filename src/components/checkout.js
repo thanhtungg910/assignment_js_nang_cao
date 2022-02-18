@@ -14,12 +14,12 @@ const CheckoutList = {
            <div class="flex items-center">
               <h3 class="text-gray-700 text-2xl font-mono">Thanh toán</h3>
            </div>
-           <form class="mt-8 lg:w-3/4">
+           <form id="form-checkout" class="mt-8 lg:w-3/4">
               <div>
                  <div class="mt-6">
                     <div class="relative z-0 mb-6 w-full group">
                        <input type="text" name="username" value="${user.username ?? ""}"
-                          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                          class="block username py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                           placeholder=" " required />
                        <label for="username"
                           class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform
@@ -33,7 +33,7 @@ const CheckoutList = {
                  <div class="mt-6">
                  <div class="relative z-0 mb-6 w-full group">
                  <input type="email" name="email" value="${user.email ?? ""}"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    class="block email py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" " required />
                  <label for="email"
                     class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform
@@ -47,7 +47,7 @@ const CheckoutList = {
                  <div class="mt-6">
                  <div class="relative z-0 mb-6 w-full group">
                  <input type="number" name="phone" value="${user.phone ?? ""}"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    class="block phone py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" " required />
                  <label for="phone"
                     class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform
@@ -73,7 +73,7 @@ const CheckoutList = {
                     </select>
                  </label>
                  <label class="block flex-1 ml-3">
-                    <input type="text" class="form-input mt-1 block w-full text-gray-700"
+                    <input type="text" class="form-input address mt-1 block w-full text-gray-700"
                        placeholder="Địa chỉ">
                  </label>
               </div>
@@ -81,7 +81,7 @@ const CheckoutList = {
            <div class="mt-8">
            <h4 class="text-sm text-gray-500 font-medium">Ghi chú</h4>
            <div class="mt-6 flex">
-           <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900
+           <textarea id="message" rows="4" class="block message p-2.5 w-full text-sm text-gray-900
             bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
              dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
               dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="...."></textarea>
