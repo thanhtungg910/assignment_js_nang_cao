@@ -25,7 +25,7 @@ const limitPageProduct = (min, max) => {
     return instance.get(url);
 };
 const searchProduct = (internet) => {
-    const url = internet ? `/products?q=${internet}` : `/products?_page=${1}&_limit=${3}`;
+    const url = internet ? `/products?title_like=${internet}` : `/products?_page=${1}&_limit=${3}`;
     return instance.get(url);
 };
 const limitPageProducts = (inter) => {
