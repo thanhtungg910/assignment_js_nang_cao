@@ -30,7 +30,7 @@
          ],
          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur non aliquam facilis voluptatem possimus! Nulla consequuntur cumque inventore nihil eligendi saepe, impedit deleniti et minima mollitia rerum est, tenetur quod.",
          "created_at": "2022-01-15T01:54:24.955Z",
-         "price": "1000000",
+         "price": "500000",
          "sale_off": "0",
          "options": [{
                "name": "color",
