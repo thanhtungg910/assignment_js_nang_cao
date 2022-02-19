@@ -8,4 +8,8 @@ const addOrderDetails = (payload) => {
     const url = `/orders_details`;
     return instance.post(url, payload);
 };
-export { getOrderDetails, addOrderDetails };
+const getOrdersDetailsOrderId = (orderId) => {
+    const url = `/orders_details?orderId=${orderId}`;
+    return instance.get(url);
+};
+export { getOrderDetails, addOrderDetails, getOrdersDetailsOrderId };

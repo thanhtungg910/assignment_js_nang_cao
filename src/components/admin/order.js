@@ -2,6 +2,8 @@
 import AWN from "awesome-notifications";
 import "awesome-notifications/dist/style.css";
 import { getOrders, relationshipsOrdersDetails } from "../../api/orders";
+import { getOrdersDetailsOrderId } from "../../api/ordersDetails";
+import { productsEmbedOrders } from "../../api/products";
 import $ from "../../utils/dom";
 
 const order = {
@@ -46,7 +48,7 @@ const order = {
         </td>
         <td class="px-4 py-3 text-sm">
            <div class="flex items-center space-x-4 text-sm">
-              <button data-id="${item.id}"
+              <button data-id="${item.id}" data-name="${item.customer_name}"
                  class="flex details-order items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                  aria-label="Delete">
                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -71,19 +73,54 @@ const order = {
                         },
                     },
                 };
+                const popUpOrders = async () => {
+                    const { data } = await getOrdersDetailsOrderId(btn.dataset.id);
+                    const dataOrders = data.map((item) => item.productId);
+                    return dataOrders.map(async (item) => {
+                        const { data: products } = await productsEmbedOrders(item);
+                        return products;
+                    });
+                };
                 notifiAwn.asyncBlock(
-                    getOrders(),
-                    ({ data }) => {
-                        console.log(data);
+                    popUpOrders(),
+                    (res) => {
+                        console.log(res);
                         notifiAwn.modal(
-                            `<div class="mb-6 flex space-x-2 w-full">
-             <input type="text" id="cate-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-             <button id="btn-add-cate" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-             fill="currentColor">
-             <path fill-rule="evenodd"
-                d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                clip-rule="evenodd" />
-          </svg></button></div>`,
+                            `<div clas="w-[400px]">
+                               <div class="flex justify-between w-full gap-3">
+                               <div class="flex">
+                                  <img class="w-1/2 object-cover rounded" src="https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_1_900x_uxa3nv.jpg" alt="">
+                                  <div class="mx-3 font-mono">
+                                     <h3 class="text-base text-gray-600">Khách hàng: ${btn.dataset.name} </h3>
+                               
+                                     <div class="flex items-center space-x-3 mt-2">
+                                        <label class="relative input-radio-checked rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
+                                           <span class="text-sm" aria-hidden="true">Màu</span>
+                                        </label>
+                                        <label class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
+                                           <span class="h-5 w-5 bg-[#111827] border rounded-full" aria-hidden="true"></span>
+                                        </label>
+                                     </div>
+                                     <div class="flex items-center space-x-3 mt-2">
+                                        <label class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
+                                           <span class="text-sm" aria-hidden="true">Só lượng</span>
+                                        </label>
+                                        <label class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
+                                           <span class="font-bold" aria-hidden="true">3</span>
+                                        </label>
+                                     </div> <div class="flex items-center space-x-3 mt-2">
+                                     <label class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
+                                        <span class="text-sm" aria-hidden="true">Size</span>
+                                     </label>
+                                     <label class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
+                                        <span class="font-bold" aria-hidden="true">39</span>
+                                     </label>
+                                  </div>
+                                  <h2 class="text-gray-600 text-base">Thành tiền: 3.000.000&nbsp;VND</h2>
+                                  </div>
+                               </div>
+                           </div>
+                            </div>`,
                             "modal-tiny",
                             options,
                         );

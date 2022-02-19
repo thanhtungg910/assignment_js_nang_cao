@@ -36,9 +36,13 @@ const relationshipsProductOrder = (productId) => {
     const url = `/products/${productId}?_embed=orders_details`;
     return instance.get(url);
 };
+const productsEmbedOrders = (id) => {
+    const url = `/products/${id}?_embed=orders_details`;
+    return instance.get(url);
+};
 export {
     getAllProduct, getProduct, addProduct,
     editProduct, deleteProduct, limitPageProduct,
     searchProduct, limitPageProducts,
-    relationshipsProductOrder,
+    relationshipsProductOrder, productsEmbedOrders,
 };
