@@ -1,6 +1,4 @@
 /* eslint-disable no-nested-ternary */
-import AWN from "awesome-notifications";
-import "awesome-notifications/dist/style.css";
 import { relationshipsOrdersDetails } from "../../api/orders";
 import { getOrdersDetailsOrderId } from "../../api/ordersDetails";
 import { productsEmbedOrders } from "../../api/products";
