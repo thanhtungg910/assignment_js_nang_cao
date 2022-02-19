@@ -22,7 +22,7 @@ const FilterProduct = {
                               </svg>
                            </button>
                         </div>
-                        <div class="drop-downs origin-top-right absolute right-0 z-50 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5
+                        <div class="drop-downs origin-top-right absolute right-0 z-10 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5
                             focus:outline-none transform invisible scale-95" role="menu" aria-orientation="vertical"
                            aria-labelledby="menu-button" tabindex="-1">
 
