@@ -1,12 +1,12 @@
 import AWN from "awesome-notifications";
 import "awesome-notifications/dist/style.css";
 import toastr from "toastr";
-import { deleteProduct, getAllProduct } from "../../api/products";
+import { deleteProduct, getSortProducts } from "../../api/products";
 import reRender from "../../utils/rerender";
 
 const Products = {
     async render() {
-        const { data } = await getAllProduct();
+        const { data } = await getSortProducts("desc");
         return /* html */data.map((item) => `<tr class="text-gray-700 dark:text-gray-400">
               <td class="px-4 py-3">
               <!-- Avatar with inset shadow -->

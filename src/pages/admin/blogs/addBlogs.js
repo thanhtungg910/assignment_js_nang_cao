@@ -125,7 +125,6 @@ const AddBlogsPage = {
 
         });
         $("#featured_image").addEventListener("change", () => {
-            // img = uploadFile($("#featured_image").files[0], UPLOAD_PRESET);
             const file = $("#featured_image").files[0];
             file.preview = URL.createObjectURL(file);
             $("#preview_image_featured").src = file.preview;

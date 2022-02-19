@@ -12,8 +12,7 @@ const ProductList = {
                  Tất cả sản phẩm
               </h2>
               <!-- CTA -->
-              <div
-                 class="flex items-center justify-between p-4  text-sm font-semibold focus:outline-none focus:shadow-outline-purple">
+              <div class="flex items-center justify-between p-4  text-sm font-semibold focus:outline-none focus:shadow-outline-purple">
                  <div class="flex items-center">
                     <div class="relative text-gray-600">
                        <input type="search" id="search-input" name="serch" placeholder="Tìm kiếm sản phẩm"
@@ -28,15 +27,16 @@ const ProductList = {
                           </svg>
                        </button>
                     </div>
-                    <span>
-                       <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                             d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
-                          </path>
-                       </svg>
-                    </span>
-  
-                 </div>
+                    <div class="flex justify-center">
+                        <select class="form-select select-order appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat
+                              border border-solid border-gray-300 rounded transition  ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                              <option selected>Open this select menu</option>
+                              <option value="">Mới nhất</option>
+                              <option value="2">Cũ nhất</option>
+                              <option value="3">Three</option>
+                           </select>
+                        </div>
+                     </div>
                  <span x-data="{ open: false }"><a href="/#/admin/products/add"
                  class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                  <!-- Heroicon name: solid/check -->

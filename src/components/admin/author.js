@@ -21,9 +21,6 @@ const AuthorTr = {
               </div>
               <div>
                  <p class="font-semibold">${item?.username}</p>
-                 <p class="text-xs text-gray-600 dark:text-gray-400">
-                    10x Developer
-                 </p>
               </div>
            </div>
         </td>

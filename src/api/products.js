@@ -4,6 +4,10 @@ const getAllProduct = () => {
     const url = "/products";
     return instance.get(url);
 };
+const getSortProducts = (order = "asc") => {
+    const url = `/products?_sort=created_at&_order=${order}`;
+    return instance.get(url);
+};
 const getProduct = (id) => {
     const url = `/products/${id}`;
     return instance.get(url);
@@ -49,5 +53,5 @@ export {
     editProduct, deleteProduct, limitPageProduct,
     searchProduct, limitPageProducts,
     relationshipsProductOrder, productsEmbedOrders,
-    getOperatorsPrice,
+    getOperatorsPrice, getSortProducts,
 };
