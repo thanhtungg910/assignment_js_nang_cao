@@ -142,7 +142,7 @@ const AddBlogsPage = {
                     : `${item.data?.text}`}`).join("");
                 addBlog({
                     title: $("#title-product").value,
-                    create_at: "2022-02-16T13:14:56.303Z",
+                    create_at: Date.now(),
                     thumbnail: img.data.secure_url,
                     content: data,
                 }); toastr.success("Tạo bài viết thành công");

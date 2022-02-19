@@ -13,7 +13,7 @@ const Products = {
               <div class="max-w-4xl mx-auto py-16 px-5 sm:py-20 sm:px-6 lg:max-w-full lg:px-4 ">
                  <div class="flex justify-between">
                      ${await Category.render()}
-                     ${FilterProduct.render()}
+                     ${await FilterProduct.render()}
                  </div>
 
                  <div id="product-list" class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-4">
@@ -68,6 +68,7 @@ const Products = {
         });
         Category.afterRender();
         Product.afterRender();
+        FilterProduct.afterRender();
     },
 };
 export default Products;

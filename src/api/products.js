@@ -40,9 +40,14 @@ const productsEmbedOrders = (id) => {
     const url = `/products/${id}?_embed=orders_details`;
     return instance.get(url);
 };
+const getOperatorsPrice = (gte, lte) => {
+    const url = `/products?price_gte=${gte}$price_lte=${lte}`;
+    return instance.get(url);
+};
 export {
     getAllProduct, getProduct, addProduct,
     editProduct, deleteProduct, limitPageProduct,
     searchProduct, limitPageProducts,
     relationshipsProductOrder, productsEmbedOrders,
+    getOperatorsPrice,
 };
