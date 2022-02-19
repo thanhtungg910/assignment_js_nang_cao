@@ -57,7 +57,7 @@ const Search = {
             </a>
             <div class="mx-3">
                <h3 class="text-sm text-gray-600"><a href="/#/details/${item.id}">${item.title}</a></h3>    
-               <span class="text-gray-600">${item.price}</span>
+               <span class="text-gray-600">${(+item.sale_off !== 0) ? (+item.price * (+item.sale_off / 100)).toLocaleString("vi", { style: "currency", currency: "VND" }) : (+item.price).toLocaleString("vi", { style: "currency", currency: "VND" })}</span>
             </div>
          </div>
       </div>`).join("");

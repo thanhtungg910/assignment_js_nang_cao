@@ -151,7 +151,7 @@ const HomePage = {
                           </h3>
                           <p class="mt-1 text-sm text-gray-500">Black</p>
                        </div>
-                       <p class="text-sm font-medium text-gray-900">${product.price}</p>
+                       <p class="text-sm font-medium text-gray-900">${(+product.sale_off !== 0) ? (+product.price * (+product.sale_off / 100)).toLocaleString("vi", { style: "currency", currency: "VND" }) : (+product.price).toLocaleString("vi", { style: "currency", currency: "VND" })}</p>
                     </div>
                  </div>`).join("")}
 

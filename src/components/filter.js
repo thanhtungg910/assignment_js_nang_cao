@@ -244,7 +244,7 @@ const FilterProduct = {
                </h3>
                <p class="mt-1 text-sm text-gray-500">${item.options[0].name}</p>
                </div>
-               <p class="text-sm font-sans text-gray-900">${(+item.sale_off !== 0) ? (item.price * (item.sale_off / 100)).toLocaleString("vi", { style: "currency", currency: "VND" }) : (item.price).toLocaleString("vi", { style: "currency", currency: "VND" })}</p>
+               <p class="text-sm font-sans text-gray-900">${(+item.sale_off !== 0) ? (+item.price * (+item.sale_off / 100)).toLocaleString("vi", { style: "currency", currency: "VND" }) : (+item.price).toLocaleString("vi", { style: "currency", currency: "VND" })}</p>
                </div>
                </div>`).join(" ");
             Popup.afterRender();

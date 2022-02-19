@@ -20,7 +20,7 @@ const Products = {
               ${item.title}
               </td>
               <td class="px-4 py-3 text-xs">
-              ${item.price}
+              ${(+item.sale_off !== 0) ? (+item.price * (+item.sale_off / 100)).toLocaleString("vi", { style: "currency", currency: "VND" }) : (+item.price).toLocaleString("vi", { style: "currency", currency: "VND" })}
               </td>
               <td class="px-4 py-3 text-sm">
               ${item.sale_off}%
