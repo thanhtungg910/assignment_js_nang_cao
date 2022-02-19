@@ -52,7 +52,6 @@ const CheckoutPage = {
             })
                 .then(({ data: { id: orderId } }) => {
                     products.forEach((item) => {
-                        console.log(products);
                         /* Them san pham vào order chi tiet */
                         addOrderDetails({
                             orderId,
