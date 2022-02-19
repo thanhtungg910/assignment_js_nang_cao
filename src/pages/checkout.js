@@ -52,12 +52,15 @@ const CheckoutPage = {
             })
                 .then(({ data: { id: orderId } }) => {
                     products.forEach((item) => {
+                        console.log(products);
                         /* Them san pham vào order chi tiet */
                         addOrderDetails({
                             orderId,
                             productId: item.id,
                             quantity: item.amount,
-                            unit_price: $(".unit-price").dataset.price,
+                            unit_price: +item.price,
+                            color: item.color,
+                            size: item.size,
                         });
                     });
                 })

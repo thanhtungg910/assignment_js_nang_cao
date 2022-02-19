@@ -30,7 +30,7 @@ const order = {
         </td>
         <td class="px-4 py-3 text-sm">
            ${item.orders_details.reduce(
-        ((price, itemOrder) => price + ((+itemOrder.unit_price) * (+itemOrder.quantity))),
+        ((price, itemOrder) => price + ((+itemOrder.unit_price))),
         0,
     ).toLocaleString("vi", { style: "currency", currency: "VND" })}
         </td>
@@ -48,8 +48,11 @@ const order = {
         </td>
         <td class="px-4 py-3 text-sm">
            <div class="flex items-center space-x-4 text-sm">
-              <button data-id="${item.id}" data-name="${item.customer_name}"
-                 class="flex details-order items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+              <button data-id="${item.id}" data-name="${item.customer_name}" data-total="${item.orders_details.reduce(
+    ((price, itemOrder) => price + ((+itemOrder.unit_price))),
+    0,
+)}"
+                 class="flex details-order modal-open  items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                  aria-label="Delete">
                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
@@ -63,70 +66,52 @@ const order = {
      </tr>`).join("")}`;
     },
     afterRender() {
+        const ordersList = $("#orders-list");
         $(".details-order").forEach((btn) => {
-            btn.addEventListener("click", () => {
-                const notifiAwn = new AWN();
-                const options = {
-                    replacements: {
-                        modal: {
-                            "Class name": "DOM Class",
-                        },
-                    },
-                };
-                const popUpOrders = async () => {
-                    const { data } = await getOrdersDetailsOrderId(btn.dataset.id);
-                    const dataOrders = data.map((item) => item.productId);
-                    return dataOrders.map(async (item) => {
-                        const { data: products } = await productsEmbedOrders(item);
-                        return products;
-                    });
-                };
-                notifiAwn.asyncBlock(
-                    popUpOrders(),
-                    (res) => {
-                        console.log(res);
-                        notifiAwn.modal(
-                            `<div clas="w-[400px]">
-                               <div class="flex justify-between w-full gap-3">
-                               <div class="flex">
-                                  <img class="w-1/2 object-cover rounded" src="https://res.cloudinary.com/dhfndew6y/image/upload/v1643008631/js-nang-cao/CALIFORNIA_SHOE_SEAFOAM_2265_1_900x_uxa3nv.jpg" alt="">
-                                  <div class="mx-3 font-mono">
-                                     <h3 class="text-base text-gray-600">Khách hàng: ${btn.dataset.name} </h3>
-                               
-                                     <div class="flex items-center space-x-3 mt-2">
-                                        <label class="relative input-radio-checked rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
-                                           <span class="text-sm" aria-hidden="true">Màu</span>
-                                        </label>
-                                        <label class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
-                                           <span class="h-5 w-5 bg-[#111827] border rounded-full" aria-hidden="true"></span>
-                                        </label>
-                                     </div>
-                                     <div class="flex items-center space-x-3 mt-2">
-                                        <label class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
-                                           <span class="text-sm" aria-hidden="true">Só lượng</span>
-                                        </label>
-                                        <label class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
-                                           <span class="font-bold" aria-hidden="true">3</span>
-                                        </label>
-                                     </div> <div class="flex items-center space-x-3 mt-2">
-                                     <label class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
-                                        <span class="text-sm" aria-hidden="true">Size</span>
-                                     </label>
-                                     <label class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
-                                        <span class="font-bold" aria-hidden="true">39</span>
-                                     </label>
-                                  </div>
-                                  <h2 class="text-gray-600 text-base">Thành tiền: 3.000.000&nbsp;VND</h2>
-                                  </div>
-                               </div>
-                           </div>
-                            </div>`,
-                            "modal-tiny",
-                            options,
-                        );
-                    }, /* omitted onResolve */
-                    (err) => notifiAwn.alert(`API responded with code: ${err.response.status}`),
-                );
+            btn.addEventListener("click", async () => {
+                const { data } = await getOrdersDetailsOrderId(btn.dataset.id);
+                const dataOrders = data.map((item) => item.productId);
+                ordersList.innerHTML = "";
+                dataOrders.forEach(async (item) => {
+                    const { data: products } = await productsEmbedOrders(item);
+                    $(".custommer").innerHTML = `Khách hàng: ${btn.dataset.name}`;
+                    $(".total").innerHTML = `Tổng tiền: ${(+btn.dataset.total).toLocaleString("vi", { style: "currency", currency: "VND" })}`;
+                    ordersList.innerHTML += `<tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <td
+                       class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                       ${products?.title}</td>
+                    <td
+                       class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
+                       <img class="w-52" src="${products?.featured_image}" alt="">
+                    </td>
+                    <td
+                       class="py-4 price-order px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                       ${(+products.price).toLocaleString("vi", { style: "currency", currency: "VND" })}</td>
+                    <td id="options-products" class="py-4 px-6 text-sm font-medium">
+                    ${products.orders_details.map((options) => `<div class="flex items-center space-x-3 mt-2 border-t-0">
+                    <label
+                       class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
+                       <span class="text-sm" aria-hidden="true">Màu</span>
+                    </label>
+                    <label
+                       class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
+                       <span class="h-5 w-5 bg-[${options.color}] border rounded-full"
+                          aria-hidden="true"></span>
+                    </label>
+                 </div><div class="flex items-center space-x-3 mt-2">
+                 <label
+                    class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
+                    <span class="text-sm" aria-hidden="true">Size: ${options.size}</span>
+                 </label>
+              </div><div class="flex items-center space-x-3 mt-2">
+              <label
+                 class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
+                 <span class="text-sm" aria-hidden="true">Số lượng: ${options.quantity}</span>
+              </label>
+           </div>`).join("")}
+                    </td>
+                 </tr>`;
+                });
             });
         });
     },

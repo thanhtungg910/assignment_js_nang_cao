@@ -1,9 +1,11 @@
 import order from "../../../components/admin/order";
+import modalOrders from "../../../components/admin/modalOrders";
 
 const OrderList = {
     async render() {
         document.title = "Orders";
         return /* html */ `
+        ${modalOrders.render()}
         <main class="h-full pb-16 overflow-y-auto">
            <div class="container grid px-5 mx-auto">
               <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
@@ -133,6 +135,7 @@ const OrderList = {
     },
     afterRender() {
         order.afterRender();
+        modalOrders.afterRender();
     },
 };
 export default OrderList;
