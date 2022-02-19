@@ -100,7 +100,7 @@ const Signup = {
                                 <i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
                              <input type="text"
                                 class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                placeholder="johnsmith@example.com" id="username">
+                                placeholder="Nguyen Van A" id="username">
                           </div>
                        </div>
                     </div>
@@ -126,7 +126,7 @@ const Signup = {
                                 <i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
                              <input type="email"
                                 class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                placeholder="johnsmith@example.com" id="email-name">
+                                placeholder="fearofgod@example.com" id="email-name">
                           </div>
                        </div>
                     </div>
