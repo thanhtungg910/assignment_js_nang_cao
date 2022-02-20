@@ -35,6 +35,7 @@ const ProfilePage = {
             }
         });
         Profile.afterRender();
+        MenuClient.afterRender();
     },
 };
 export default ProfilePage;

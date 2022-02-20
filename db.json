@@ -568,6 +568,14 @@
       "username": "mua thu lan 2",
       "phone": "0353370505",
       "id": 10
+    },
+    {
+      "email": "tessss@gmail.com",
+      "password": "$2a$10$I5SzpZqOrq.SyglbpuNut.VwZTSTQNROqPtmrxxBADfg/XUKtcKce",
+      "username": "test chinh sua",
+      "phone": "0123456789",
+      "avatar": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645350714/js-nang-cao/gc1pz8wa6qylufnrbmcx.jpg",
+      "id": 11
     }
   ],
   "blogs": [

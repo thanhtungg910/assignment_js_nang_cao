@@ -18,7 +18,6 @@ const getUserApi = (id) => {
 };
 const updateUser = (data) => {
     const url = `/users/${data.id}`;
-    console.log(data);
     return instance.patch(url, data);
 };
 const deleteUser = (id) => {

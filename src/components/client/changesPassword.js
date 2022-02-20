@@ -1,3 +1,6 @@
+import toastr from "toastr";
+import $ from "../../utils/dom";
+
 const ChangesPass = {
     render() {
         return /* html */ `<div class="body-content flex flex-col gap-4">
@@ -45,7 +48,7 @@ const ChangesPass = {
                                 clip-rule="evenodd" />
                           </svg>
                        </div>
-                       <input type="text" id="new-password"
+                       <input type="password" id="new-password"
                           class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="**********">
                     </div>
@@ -63,13 +66,13 @@ const ChangesPass = {
                                 clip-rule="evenodd" />
                           </svg>
                        </div>
-                       <input type="text" id="password"
+                       <input type="password" id="password"
                           class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="**********">
                     </div>
                  </div>
                  <button
-                    class="text-center w-full mt-4 px-4 py-2  text-sm font-medium leading-5 text-white transition-colors duration-150 bg-black border border-transparent rounded-lg active:bg-black hover:bg-blue-500 focus:outline-none focus:shadow-outline-purple">
+                    class="text-center changes-pass w-full mt-4 px-4 py-2  text-sm font-medium leading-5 text-white transition-colors duration-150 bg-black border border-transparent rounded-lg active:bg-black hover:bg-blue-500 focus:outline-none focus:shadow-outline-purple">
                     Đổi mật khẩu
                  </button>
               </div>
@@ -85,7 +88,7 @@ const ChangesPass = {
                              clip-rule="evenodd" />
                        </svg>
                     </div>
-                    <input type="text" id="requi-pass"
+                    <input type="password" id="requi-pass"
                        class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        placeholder="**********">
                  </div>
@@ -95,7 +98,28 @@ const ChangesPass = {
      </div>`;
     },
     afterRender() {
+        const newPassword = $("#new-password");
+        const password = $("#password");
+        const requiPass = $("#requi-pass");
 
+        $(".changes-pass").addEventListener("click", (e) => {
+            e.preventDefault();
+            if (newPassword.value.length > 0
+               && password.value.length > 0
+               && requiPass.value.length > 0) {
+                if (newPassword !== requiPass) {
+                    toastr.error("Mật khẩu không trùng khớp");
+                } else {
+                    console.log("hihi");
+                }
+            } else if (newPassword.value.length <= 8
+                        && password.value.length <= 8
+                        && requiPass.value.length <= 8) {
+                toastr.error("Vui lòng nhập nhiều hơn 8 kí tự");
+            } else {
+                toastr.error("Vui lòng nhập đầy đủ các trường");
+            }
+        });
     },
 };
 export default ChangesPass;

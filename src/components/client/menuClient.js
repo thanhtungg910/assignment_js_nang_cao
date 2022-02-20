@@ -1,3 +1,6 @@
+import AWN from "awesome-notifications";
+import "awesome-notifications/dist/style.css";
+
 const MenuClient = {
     render() {
         return /* html */ `<div class="w-full h-[385px] p-2 border-2 rounded-lg shadow">
@@ -55,7 +58,7 @@ const MenuClient = {
          </ul>
          <div class="px-6 my-6">
             <button
-               class="logout flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-black border border-transparent rounded-lg active:bg-black hover:bg-blue-500 focus:outline-none focus:shadow-outline-purple">
+               class="logout-author flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-black border border-transparent rounded-lg active:bg-black hover:bg-blue-500 focus:outline-none focus:shadow-outline-purple">
                Đăng xuất
                <span class="ml-2" aria-hidden="true"> <svg xmlns="http://www.w3.org/2000/svg"
                      class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -67,6 +70,30 @@ const MenuClient = {
          </div>
       </div>
    </div>`;
+    },
+    afterRender() {
+        const logout = document.querySelector(".logout-author");
+        if (logout) {
+            logout.addEventListener("click", (e) => {
+                e.preventDefault();
+                const notifier = new AWN();
+                const onOk = () => {
+                    localStorage.removeItem("user");
+                    document.location.href = "/";
+                };
+                const onCancel = () => "";
+                notifier.confirm(
+                    " ",
+                    onOk,
+                    onCancel,
+                    {
+                        labels: {
+                            confirm: "Bạn có muốn đăng xuất?",
+                        },
+                    },
+                );
+            });
+        }
     },
 };
 export default MenuClient;

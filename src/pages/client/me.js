@@ -90,6 +90,7 @@ const MePage = {
      </main>`;
     },
     afterRender() {
+        MenuClient.afterRender();
         const activeMenu = document.querySelector("#menu");
         activeMenu.classList.toggle("text-black");
         window.addEventListener("scroll", () => {
