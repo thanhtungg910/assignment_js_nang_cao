@@ -9,7 +9,7 @@ import {
     Author, DetailsPage, Categories, ContactsPage, SigninPage,
     SignupPage, AddProduct, EditProduct, CheckoutPage, BlogsPage,
     ArticlePage, BlogsPageDashboard, AddBlogsPage, EditBlogPage,
-    ContactsPageDashboard, InboxPage, ProfilePage,
+    ContactsPageDashboard, InboxPage, ProfilePage, MePage, MyCartPage,
 } from "./src/pages";
 import NotFoundPage from "./src/pages/notfound";
 
@@ -70,6 +70,8 @@ const Router = () => {
         "/details/:id": ({ data: { id } }) => { render(DetailsPage, id); },
         "/contact": () => { render(ContactsPage); },
         "/profile": () => { render(ProfilePage); },
+        "/me": () => { render(MePage); },
+        "/mycart": () => { render(MyCartPage); },
         "/admin": () => { renderAdmin(Dashboard); },
         "/admin/products": () => { renderAdmin(ProductList); },
         "/admin/products/add": () => { renderAdmin(AddProduct); },

@@ -22,4 +22,6 @@ export { default as SigninPage } from "./signin";
 export { default as CheckoutPage } from "./checkout";
 export { default as BlogsPage } from "./blogsPage";
 export { default as ArticlePage } from "./articleDetails";
-export { default as ProfilePage } from "./profile";
+export { default as ProfilePage } from "./client/profile";
+export { default as MePage } from "./client/me";
+export { default as MyCartPage } from "./client/mycart";

@@ -67,7 +67,7 @@ const Nav = {
             transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white
              rounded-full  dark:border-gray-800 text-center text-[10px]">${JSON.parse(localStorage.getItem("cart")).length}</span>` : ""}
         </button>
-        ${localStorage.getItem("user") ? `Hello! ${JSON.parse(localStorage.getItem("user")).username} <svg
+        ${localStorage.getItem("user") ? `<a href="/#/me">Hello! ${JSON.parse(localStorage.getItem("user")).username}</a> <svg
            xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cursor-pointer logout" viewBox="0 0 20 20"
            fill="currentColor">
            <path fill-rule="evenodd"
