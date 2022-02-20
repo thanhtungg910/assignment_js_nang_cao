@@ -22,3 +22,4 @@ export { default as SigninPage } from "./signin";
 export { default as CheckoutPage } from "./checkout";
 export { default as BlogsPage } from "./blogsPage";
 export { default as ArticlePage } from "./articleDetails";
+export { default as ProfilePage } from "./profile";

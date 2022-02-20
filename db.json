@@ -668,6 +668,16 @@
       "created_date": "2022-01-15T01:54:24.955Z",
       "status": "0",
       "id": 7
+    },
+    {
+      "customer_name": "Thanh Tung Day",
+      "customer_address": "asdsadsadsad",
+      "customer_email": "daylatung@gmail.com",
+      "customer_phone": "12345678",
+      "nodes": "asdsadsadsadsadsa",
+      "created_date": "2022-01-15T01:54:24.955Z",
+      "status": "0",
+      "id": 8
     }
   ],
   "orders_details": [
@@ -715,6 +725,24 @@
       "color": "#909497",
       "size": "M",
       "id": 12
+    },
+    {
+      "orderId": 8,
+      "productId": "3",
+      "quantity": 2,
+      "unit_price": 1000000,
+      "color": "#909497",
+      "size": "M",
+      "id": 13
+    },
+    {
+      "orderId": 8,
+      "productId": "2",
+      "quantity": 1,
+      "unit_price": 1000000,
+      "color": "#111827",
+      "size": "31",
+      "id": 14
     }
   ]
 }
