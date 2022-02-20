@@ -16,8 +16,9 @@ const Details = {
          <div class="mt-4 lg:mt-0 p-2 lg:row-span-3 relative">
          <form class="content-product product-item sticky top-32">
             <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">${data.title}</h1>
+            ${(+data.sale_off !== 0) ? `<h1 class="py-2"><del>${(+data.price).toLocaleString("vi", { style: "currency", currency: "VND" })}</del> <span class="text-xl">-${+data.sale_off}%</span></h1>` : ""}
             <h2 class="sr-only">Product information</h2>
-            <p class="text-3xl text-gray-900">${data.price}</p>
+            <p class="text-3xl text-gray-900 pt-2">${(+data.sale_off !== 0) ? (+data.price * (+data.sale_off / 100)).toLocaleString("vi", { style: "currency", currency: "VND" }) : (+data.price).toLocaleString("vi", { style: "currency", currency: "VND" })}</p>
             <!-- Reviews-->
             <!-- Colors-->
             <div class="mt-10">
