@@ -49,6 +49,7 @@ const CheckoutPage = {
                 nodes: $(".message").value,
                 created_date: "2022-01-15T01:54:24.955Z",
                 status: "0",
+                id: $("#id-user").value,
             })
                 .then(({ data: { id: orderId } }) => {
                     products.forEach((item) => {
