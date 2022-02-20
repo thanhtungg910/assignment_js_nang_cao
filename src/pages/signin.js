@@ -139,10 +139,14 @@ const Signin = {
         formSignin.addEventListener("submit", async (e) => {
             e.preventDefault();
             try {
-                const { data: { user } } = await signin({
+                const { data: { user }/* , data: { accessToken } */ } = await signin({
                     email: document.querySelector("#email").value,
                     password: document.querySelector("#password").value,
                 });
+                //  if (accessToken) {
+                //      document.cookie = `_testcookies=${accessToken};
+                //   expires=${new Date()}; path=/`;
+                //  }
                 if (user) {
                     if (user.id === 1) {
                         toastr.success("Đăng nhập thành công!");
