@@ -12,7 +12,7 @@ const MenuClient = {
                </div>
             </div>
             <div>
-               <p class="font-semibold"><a href="/#/profile">Jolina Angelie</a></p>
+               <p class="font-semibold"><a href="/#/me/profile">Jolina Angelie</a></p>
                <p class="text-xs text-gray-600 dark:text-gray-400">
                   Unemployed
                </p>
@@ -21,7 +21,7 @@ const MenuClient = {
          <ul class="mt-6">
             <li class="relative px-6 py-3">
                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="/#/profile">
+                  href="/#/me/profile">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                      stroke="currentColor">
                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -32,7 +32,7 @@ const MenuClient = {
             </li>
             <li class="relative px-6 py-3">
                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="/#/mycart">
+                  href="/#/me/mycart">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                      stroke="currentColor">
                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -43,7 +43,7 @@ const MenuClient = {
             </li>
             <li class="relative px-6 py-3">
                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="/#/history">
+                  href="/#/me/history">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                      stroke="currentColor">
                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

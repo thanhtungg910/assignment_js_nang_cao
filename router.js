@@ -44,6 +44,9 @@ const renderAdmin = async (page, id) => {
 };
 
 const Router = () => {
+    /**
+    * Private router admin
+    */
     router.on("/admin/*", () => {}, {
         before(done) {
             if (JSON.parse(localStorage.getItem("user"))) {
@@ -53,6 +56,18 @@ const Router = () => {
                 } else {
                     document.location.href = "/";
                 }
+            } else {
+                document.location.href = "/";
+            }
+        },
+    });
+    /**
+     * Private client
+     */
+    router.on("/me/*", () => {}, {
+        before(done) {
+            if (JSON.parse(localStorage.getItem("user"))) {
+                done();
             } else {
                 document.location.href = "/";
             }
@@ -71,7 +86,7 @@ const Router = () => {
         "/contact": () => { render(ContactsPage); },
         "/profile": () => { render(ProfilePage); },
         "/me": () => { render(MePage); },
-        "/mycart": () => { render(MyCartPage); },
+        "/me/mycart": () => { render(MyCartPage); },
         "/admin": () => { renderAdmin(Dashboard); },
         "/admin/products": () => { renderAdmin(ProductList); },
         "/admin/products/add": () => { renderAdmin(AddProduct); },
