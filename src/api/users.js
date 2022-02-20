@@ -12,11 +12,20 @@ const getUsers = () => {
     const url = `/users`;
     return instance.get(url);
 };
+const getUserApi = (id) => {
+    const url = `/users/${id}`;
+    return instance.get(url);
+};
+const updateUser = (data) => {
+    const url = `/users/${data.id}`;
+    console.log(data);
+    return instance.patch(url, data);
+};
 const deleteUser = (id) => {
     const url = `/users/${id}`;
     return instance.delete(url);
 };
 const getUser = () => JSON.parse(localStorage.getItem("user"));
 export {
-    signin, signup, getUsers, deleteUser, getUser,
+    signin, signup, getUsers, deleteUser, getUser, getUserApi, updateUser,
 };

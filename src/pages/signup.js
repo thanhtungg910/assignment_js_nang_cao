@@ -185,6 +185,7 @@ const Signup = {
                         username: username.value,
                         phone: phone.value,
                         email: email.value,
+                        avatar: "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-3.jpg",
                         password: password.value,
                     });
                     if (res) {

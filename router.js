@@ -84,7 +84,7 @@ const Router = () => {
         "/productCates/*": () => { render(ProductsPage); },
         "/details/:id": ({ data: { id } }) => { render(DetailsPage, id); },
         "/contact": () => { render(ContactsPage); },
-        "/profile": () => { render(ProfilePage); },
+        "/me/profile": () => { render(ProfilePage); },
         "/me": () => { render(MePage); },
         "/me/mycart": () => { render(MyCartPage); },
         "/admin": () => { renderAdmin(Dashboard); },

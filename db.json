@@ -499,6 +499,7 @@
   "users": [
     {
       "email": "admin@gmail.com",
+      "avatar": "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-3.jpg",
       "password": "$2a$10$vwwc0QWegcfxBshmCKB/b.jigMfF8cxuosTGmLwT66/g.lhxE1TfW",
       "phone": "0234256323",
       "username": "Admin",
@@ -506,6 +507,7 @@
     },
     {
       "email": "abascd@gmail.com",
+      "avatar": "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-3.jpg",
       "password": "$2a$10$frqahEXSCzfro2B89jRoI.zHZKBJVn.UEi8E2VUu4KNnRjvb9rXBK",
       "phone": "0234256323",
       "username": "adad",
@@ -513,6 +515,7 @@
     },
     {
       "email": "abcasdsad@gmail.com",
+      "avatar": "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-3.jpg",
       "password": "$2a$10$xQrQ.tLap4P9YGlzJNn2J.IQvs4vI0XIwPbErKj2q15Fh9TeC374q",
       "phone": "0234256323",
       "username": "adad",
@@ -520,6 +523,7 @@
     },
     {
       "email": "iphone4s.0910@gmail.com",
+      "avatar": "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-3.jpg",
       "password": "$2a$10$PSRzF/h6S2JOLPX23BaEJ.w0ceFwMa/wNVtV9NR8/ZtkKp77J9KOS",
       "username": "iphone4s.0910@gmail.com",
       "phone": "0353370512",
@@ -527,6 +531,7 @@
     },
     {
       "email": "adssmin@gmail.com",
+      "avatar": "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-3.jpg",
       "password": "$2a$10$Tuv8xDr5AY1StdBf7.zPYOFcdYIVGCR5Fhygt41HnDt7m5XtF528q",
       "username": "tthnhunádsadg.dhqt14a15hn@sv.uneti.edu.vn",
       "phone": "11111111",
@@ -534,13 +539,15 @@
     },
     {
       "email": "daylatung@gmail.com",
-      "password": "$2a$10$ApiDbVOFhVq8GnESqX.YG./dLEnxQpdqysxjOOUDhkSsPXedr.DyG",
-      "username": "Thanh Tung",
-      "phone": "0234256323",
+      "avatar": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645345684/js-nang-cao/c3b2plylewvj0tuodywh.jpg",
+      "password": "$2a$10$iGoc0y2uuPty9kkBdl0uqeNDkr90Plgt2NYzaBJS5X3r.PkMP/PXK",
+      "username": "Tùng đây nè",
+      "phone": "0123457689",
       "id": 7
     },
     {
       "email": "abcd@gmail.com",
+      "avatar": "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-3.jpg",
       "password": "$2a$10$RZDSCogDiiQhpoezL.0I0eCH7dexGQBu3Qcu0J6u6WSryGrsNCrQW",
       "username": "as",
       "phone": "12345678",
@@ -548,6 +555,7 @@
     },
     {
       "email": "muathu@gmail.com",
+      "avatar": "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-3.jpg",
       "password": "$2a$10$y1r9Zw5qt/mCGVuofJThn.Gutl4nuOfEMTQ2kHVmKgi9UNccxgEdu",
       "username": "mua thu",
       "phone": "12345678",
@@ -555,6 +563,7 @@
     },
     {
       "email": "mualan2@gmail.com",
+      "avatar": "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-3.jpg",
       "password": "$2a$10$eRDBcFwqJUfgOAJ22J98MuNWaJ9a6rnObGW3V1bvw7rguNOYIFYma",
       "username": "mua thu lan 2",
       "phone": "0353370505",
