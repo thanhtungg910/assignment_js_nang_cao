@@ -28,13 +28,13 @@ const order = {
         </td>
         <td class="px-4 py-3 text-sm">
            ${item.orders_details.reduce(
-        ((price, itemOrder) => price + ((+itemOrder.unit_price))),
+        ((price, itemOrder) => price + ((+itemOrder.unit_price * +itemOrder.quantity))),
         0,
     ).toLocaleString("vi", { style: "currency", currency: "VND" })}
         </td>
         <td class="px-4 py-3 text-sm">
            ${(+item.status === 0) ? `<span class="px-2 py-1 font-semibold leading-tight text-orange-700
-              bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"> Pending </span>` : (+item.status === 1)
+                   bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"> Pending </span>` : (+item.status === 1)
         ? `<span
               class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700">
               Shiping
@@ -47,10 +47,9 @@ const order = {
         <td class="px-4 py-3 text-sm">
            <div class="flex items-center space-x-4 text-sm">
               <button data-id="${item.id}" data-name="${item.customer_name}" data-total="${item.orders_details.reduce(
-    ((price, itemOrder) => price + ((+itemOrder.unit_price))),
+    ((price, itemOrder) => price + ((+itemOrder.unit_price * +itemOrder.quantity))),
     0,
-)}"
-                 class="flex details-order modal-open  items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+)}" class="flex details-order modal-open  items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                  aria-label="Delete">
                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />

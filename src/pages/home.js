@@ -94,7 +94,7 @@ const HomePage = {
                  
                  Cái tên thương hiệu Fear of God (tạm dịch: kính sợ đức chúa trời), đến từ nguồn gốc tín ngưỡng của gia đình nhà sáng lập Jerry Lorenzo, cũng như hình ảnh về Đức chúa trong quyển sách My Utmost for His Highest của tác giả Oswald Chambers.
                  </p>
-                 <a href="">Đọc thêm</a>
+                 <a href="/#/blogs/NFLDhpk">Đọc thêm</a>
               </div>
               <div class="about-image">
                  <img class="w-[60%] ml-auto" src="https://cdn.accentuate.io/70677266493/1608649750643/FGA_announcement_UPDATE.jpg?v=1640297646480" alt="" />
