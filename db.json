@@ -679,7 +679,7 @@
       "customer_phone": "0234256323",
       "nodes": "",
       "created_date": "2022-01-15T01:54:24.955Z",
-      "status": "0",
+      "status": "1",
       "id": 5
     },
     {
@@ -689,7 +689,7 @@
       "customer_phone": "0234256323",
       "nodes": "ádsd",
       "created_date": "2022-01-15T01:54:24.955Z",
-      "status": "0",
+      "status": "1",
       "id": 6
     },
     {
@@ -721,6 +721,15 @@
       "created_date": "2022-01-15T01:54:24.955Z",
       "status": "0",
       "id": 12
+    },
+    {
+      "customer_name": "Admin",
+      "customer_address": "",
+      "customer_email": "admin@gmail.com",
+      "nodes": "4 trịu",
+      "created_date": "2022-01-15T01:54:24.955Z",
+      "status": "0",
+      "id": 13
     }
   ],
   "orders_details": [
@@ -804,6 +813,24 @@
       "color": "#196f3d",
       "size": "36",
       "id": 16
+    },
+    {
+      "orderId": 13,
+      "productId": "4",
+      "quantity": 2,
+      "unit_price": 1000000,
+      "color": "#85c1e9",
+      "size": "xl",
+      "id": 17
+    },
+    {
+      "orderId": 13,
+      "productId": "2",
+      "quantity": 2,
+      "unit_price": 1000000,
+      "color": "#111827",
+      "size": "31",
+      "id": 18
     }
   ]
 }

@@ -8,6 +8,10 @@ const addOrder = (payload) => {
     const url = `/orders`;
     return instance.post(url, payload);
 };
+const updateOrder = (payload) => {
+    const url = `/orders/${payload.id}`;
+    return instance.patch(url, payload);
+};
 const getOrder = (id) => {
     const url = `/orders/${id}`;
     return instance.get(url);
@@ -17,5 +21,5 @@ const relationshipsOrdersDetails = (orderId = "") => {
     return instance.get(url);
 };
 export {
-    getOrders, addOrder, relationshipsOrdersDetails, getOrder,
+    getOrders, addOrder, relationshipsOrdersDetails, getOrder, updateOrder,
 };

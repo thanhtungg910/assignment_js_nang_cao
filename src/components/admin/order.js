@@ -1,8 +1,10 @@
 /* eslint-disable no-nested-ternary */
-import { relationshipsOrdersDetails } from "../../api/orders";
+import toastr from "toastr";
+import { relationshipsOrdersDetails, updateOrder } from "../../api/orders";
 import { getOrdersDetailsOrderId } from "../../api/ordersDetails";
 import { productsEmbedOrders } from "../../api/products";
 import $ from "../../utils/dom";
+import reRender from "../../utils/rerender";
 
 const order = {
     async render() {
@@ -33,8 +35,10 @@ const order = {
     ).toLocaleString("vi", { style: "currency", currency: "VND" })}
         </td>
         <td class="px-4 py-3 text-sm">
-           ${(+item.status === 0) ? `<span class="px-2 py-1 font-semibold leading-tight text-orange-700
-                   bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"> Pending </span>` : (+item.status === 1)
+           ${(+item.status === 0) ? `<span data-id="${item.id}"
+                   class="px-2 accept-btn py-1 font-semibold cursor-pointer leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                   Accept
+                </span>` : (+item.status === 1)
         ? `<span
               class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700">
               Shiping
@@ -109,6 +113,19 @@ const order = {
                     </td>
                  </tr>`;
                 });
+            });
+        });
+        $(".accept-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                updateOrder({
+                    id: btn.dataset.id,
+                    status: "1",
+                })
+                    .then(() => {
+                        toastr.success("Cập nhật thành công");
+                        reRender("#blogs-table", order);
+                    })
+                    .catch((err) => toastr.error(err));
             });
         });
     },
