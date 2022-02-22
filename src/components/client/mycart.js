@@ -8,13 +8,13 @@ const Mycart = {
         const { id } = JSON.parse(localStorage.getItem("user"));
         const { data } = await getOrderDetailsWithOrder(+id);
         const { data: { status } } = await getOrder(id);
-        const productId = data.map((item) => item.productId);
-        const promise = Promise.all(productId.map(async (idProduct) => {
+        const productId = data.map((item) => item?.productId);
+        const promise = Promise.all(productId?.map(async (idProduct) => {
             const { data: product } = await productsEmbedOrders(idProduct);
             return product;
         }));
         const res = await promise;
-        return /* html */ `${res.map((item) => `<tr class="text-gray-700 dark:text-gray-400">
+        return /* html */ `${res?.map((item) => `<tr class="text-gray-700 dark:text-gray-400">
         <td class="px-4 py-3">
            ${item.title}
         </td>

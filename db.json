@@ -15,6 +15,10 @@
     {
       "id": "4",
       "title": "phụ kiện"
+    },
+    {
+      "title": "mói",
+      "id": "IeglZgn"
     }
   ],
   "products": [
@@ -494,6 +498,28 @@
           ]
         }
       ]
+    },
+    {
+      "id": "9ejb_0R",
+      "title": "áo",
+      "productCateId": "1",
+      "featured_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645425456/js-nang-cao/cavrrl1yy42rgpfzcmbv.jpg",
+      "sub_image": "https://res.cloudinary.com/dhfndew6y/image/upload/v1645425165/js-nang-cao/o7kkj3yr3m10fiz2sw8x.png",
+      "images": [],
+      "description": "noi dung <b>aaaa</b>",
+      "created_at": "2022-02-21T06:37:25.652Z",
+      "price": "8000000",
+      "sale_off": "0",
+      "options": [
+        {
+          "name": "color",
+          "value": []
+        },
+        {
+          "name": "size",
+          "value": []
+        }
+      ]
     }
   ],
   "users": [
@@ -502,7 +528,7 @@
       "avatar": "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-3.jpg",
       "password": "$2a$10$vwwc0QWegcfxBshmCKB/b.jigMfF8cxuosTGmLwT66/g.lhxE1TfW",
       "phone": "0234256323",
-      "username": "Admin",
+      "username": "Adminn",
       "id": 1
     },
     {
@@ -730,6 +756,15 @@
       "created_date": "2022-01-15T01:54:24.955Z",
       "status": "0",
       "id": 13
+    },
+    {
+      "customer_name": "Admin",
+      "customer_address": "giá 4 triu",
+      "customer_email": "admin@gmail.com",
+      "nodes": "giá 4 triu",
+      "created_date": "2022-01-15T01:54:24.955Z",
+      "status": "0",
+      "id": 14
     }
   ],
   "orders_details": [
@@ -831,6 +866,24 @@
       "color": "#111827",
       "size": "31",
       "id": 18
+    },
+    {
+      "orderId": 14,
+      "productId": "4",
+      "quantity": 1,
+      "unit_price": 1000000,
+      "color": "#0099ff",
+      "size": "xxl",
+      "id": 19
+    },
+    {
+      "orderId": 14,
+      "productId": "5",
+      "quantity": 3,
+      "unit_price": 1000000,
+      "color": "#85c1e9",
+      "size": "44",
+      "id": 20
     }
   ]
 }
