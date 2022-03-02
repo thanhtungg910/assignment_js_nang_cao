@@ -178,7 +178,12 @@ const Signin = {
         });
         signInWithGoogle.addEventListener("click", async () => {
             const response = await signInWithPopup(auth, provider);
-            console.log("🚀 ~ file: signin.js ~ line 181 ~ signInWithGoogle.addEventListener ~ response", response);
+            const { user } = response;
+            localStorage.setItem("user", JSON.stringify(user));
+            toastr.success("Đăng nhập thành công!");
+            setTimeout(() => {
+                document.location.href = "/";
+            }, 1000);
         });
     },
 };
