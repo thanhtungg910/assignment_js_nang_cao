@@ -1,6 +1,8 @@
+import { signInWithPopup } from "firebase/auth";
 import toastr from "toastr";
 import "toastr/build/toastr.min.css";
 import { signin } from "../api/users";
+import { auth, provider } from "../../firebase-config";
 
 const Signin = {
     render() {
@@ -122,6 +124,11 @@ const Signin = {
                           <button
                              class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">Đăng
                              nhập</button>
+                        <div 
+                        class="flex justify-center items-center gap-5 w-full mt-5 max-w-xs  cursor-pointer mx-auto border border-gray-300 bg-white sign-in-with-google">
+                        <img src="https://img.icons8.com/color/30/000000/google-logo.png"/>
+                        <span class="text-gray-500 rounded-lg px-3 py-3 font-semibold"> Sign in with Google</span>
+                        </div>
                        </div>
                     </div>
                     <div class="mt-4 text-center">
@@ -136,10 +143,13 @@ const Signin = {
     },
     afterLogin() {
         const formSignin = document.querySelector("#form-signin");
+        const signInWithGoogle = document.querySelector(".sign-in-with-google");
         formSignin.addEventListener("submit", async (e) => {
             e.preventDefault();
             try {
-                const { data: { user }/* , data: { accessToken } */ } = await signin({
+                const {
+                    data: { user } /* , data: { accessToken } */,
+                } = await signin({
                     email: document.querySelector("#email").value,
                     password: document.querySelector("#password").value,
                 });
@@ -165,6 +175,10 @@ const Signin = {
             } catch (error) {
                 toastr.error(error.response.data);
             }
+        });
+        signInWithGoogle.addEventListener("click", async () => {
+            const response = await signInWithPopup(auth, provider);
+            console.log("🚀 ~ file: signin.js ~ line 181 ~ signInWithGoogle.addEventListener ~ response", response);
         });
     },
 };
