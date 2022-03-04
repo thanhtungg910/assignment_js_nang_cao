@@ -19,24 +19,24 @@ const EditProduct = {
         <a href="/#/admin/products"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-5" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
       </svg></a>
-        <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+        <h2 class="my-6 text-2xl font-semibold text-gray-700 ">
         Thêm sản phẩm
         </h2>
            <form id="add-product" class="bg-white px-3 pb-2">
 
               <div class="border-y-2 py-6 flex items-center">
                  <div class="w-[40%]">
-                    <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tên sản phẩm</h2>
+                    <h2 class="block mb-2 text-sm font-medium text-gray-900 ">Tên sản phẩm</h2>
                  </div>
                  <div>
                     <input type="text" value="${data.title}" id="title-product" data-name="Tên sản phẩm"
-                       class="check-input shadow-sm w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">
+                       class="check-input shadow-sm w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 ">
                  </div>
               </div>
 
               <div class="border-y-2 py-6 flex items-center">
                  <div class="w-[40%]">
-                    <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <h2 class="block mb-2 text-sm font-medium text-gray-900 ">
                        Loại sản phẩm</h2>
                  </div>
                  <div>
@@ -67,7 +67,7 @@ const EditProduct = {
 
               <div class="border-y-2 py-6 flex items-center">
                  <div class="w-[40%]">
-                    <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <h2 class="block mb-2 text-sm font-medium text-gray-900 ">
                        Hình ảnh nổi bật</h2>
                  </div>
                  <div
@@ -95,7 +95,7 @@ const EditProduct = {
 
               <div class="border-y-2 py-6 flex items-center">
                  <div class="w-[40%]">
-                    <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <h2 class="block mb-2 text-sm font-medium text-gray-900 ">
                        Hình ảnh</h2>
                  </div>
                  <div
@@ -123,7 +123,7 @@ const EditProduct = {
 
               <div class="border-y-2 py-6 flex items-center">
                  <div class="w-[40%]">
-                    <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <h2 class="block mb-2 text-sm font-medium text-gray-900 ">
                        Album</h2>
                  </div>
                  <div
@@ -150,29 +150,29 @@ const EditProduct = {
 
               <div class="border-y-2 py-6 flex items-center">
                  <div class="w-[40%]">
-                    <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <h2 class="block mb-2 text-sm font-medium text-gray-900 ">
                        Giá sản phẩm</h2>
                  </div>
                  <div>
                     <input type="number" value="${data.price}" id="price" data-name="Giá sản phẩm"
-                       class="check-input shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">
+                       class="check-input shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                  </div>
               </div>
 
               <div class="border-y-2 py-6 flex items-center">
                  <div class="w-[40%]">
-                    <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <h2 class="block mb-2 text-sm font-medium text-gray-900 ">
                        Giá giảm</h2>
                  </div>
                  <div>
                     <input type="number" value="${data.sale_off}" id="price_sale" value="0"
-                       class="check-input shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">
+                       class="check-input shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                  </div>
               </div>
 
               <div class="border-y-2 py-6 flex items-center">
                  <div class="w-[40%]">
-                    <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <h2 class="block mb-2 text-sm font-medium text-gray-900 ">
                        Màu</h2>
                  </div>
                  <div>
@@ -232,7 +232,7 @@ const EditProduct = {
 
               <div id="size-shirt" class=" border-y-2 py-6 flex items-center">
                  <div class="w-[40%]">
-                    <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <h2 class="block mb-2 text-sm font-medium text-gray-900 ">
                        Size</h2>
                  </div>
                  <div>
@@ -275,7 +275,7 @@ const EditProduct = {
 
               <div id="size-shoes" class="hidden border-y-2 py-6 flex items-center">
               <div class="w-[40%]">
-                 <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                 <h2 class="block mb-2 text-sm font-medium text-gray-900 :text-gray-30dark0">
                     Size</h2>
               </div>
               <div>
@@ -318,7 +318,7 @@ const EditProduct = {
 
               <div class="border-y-2 py-6 flex items-center">
                  <div class="w-[40%]">
-                    <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <h2 class="block mb-2 text-sm font-medium text-gray-900 ">
                        Mô tả</h2>
                  </div>
                  <div>
@@ -348,7 +348,7 @@ const EditProduct = {
               </div>
 
               <button
-                 class="text-white  bg-indigo-600 hover:bg-indigo-700  focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">
+                 class="text-white  bg-indigo-600 hover:bg-indigo-700  focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-4">
                  Cập nhật</button>
            </form>
         </div>

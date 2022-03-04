@@ -8,7 +8,7 @@ const ProductList = {
         return /* html */ `
         <main class="h-full pb-16 overflow-y-auto">
            <div class="container grid px-5 mx-auto">
-              <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+              <h2 class="my-6 text-2xl font-semibold text-gray-700">
                  Tất cả sản phẩm
               </h2>
               <!-- CTA -->
@@ -56,7 +56,7 @@ const ProductList = {
                          <table class="w-full whitespace-no-wrap">
                             <thead>
                                <tr
-                                  class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                  class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b   bg-gray-50">
                                   <th class="px-4 py-3">Ảnh</th>
                                   <th class="px-4 py-3">Tiêu đề</th>
                                   <th class="px-4 py-3">Giá sản phẩm</th>
@@ -64,13 +64,13 @@ const ProductList = {
                                   <th class="px-4 py-3">Ngày đăng sp</th>
                                </tr>
                             </thead>
-                            <tbody  id="product-table"  class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                            <tbody  id="product-table"  class="bg-white divide-y ">
                             ${await Products.render()}
                             </tbody>
                          </table>
                       </div>
               <div
-                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
+                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t bg-gray-50 sm:grid-cols-9 ">
                  <span class="flex items-center col-span-3">
                     Showing 21-30 of 100
                  </span>
@@ -150,7 +150,7 @@ const ProductList = {
         const handerSearch = async (e) => {
             e.preventDefault();
             const { data } = await searchProduct(searchInput.value);
-            productList.innerHTML = data.map((item) => `<tr class="text-gray-700 dark:text-gray-400">
+            productList.innerHTML = data.map((item) => `<tr class="text-gray-700 ">
             <td class="px-4 py-3">
             <!-- Avatar with inset shadow -->
             <div class="hidden w-28  md:block">
@@ -174,7 +174,7 @@ const ProductList = {
             <td class="px-4 py-3 text-sm">
                 <div class="flex items-center space-x-4 text-sm">
                 <a href="/#/admin/products/edit/${item.id}"
-                   class="edit-product flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                   class="edit-product flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg  focus:outline-none focus:shadow-outline-gray"
                    aria-label="Edit">
                    <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
                       viewBox="0 0 20 20">
@@ -184,7 +184,7 @@ const ProductList = {
                    </svg>
                 </a>
                 <button data-id="${item.id}"
-                   class="delete-product flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                   class="delete-product flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg  focus:outline-none focus:shadow-outline-gray"
                    aria-label="Delete">
                    <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
                       viewBox="0 0 20 20">

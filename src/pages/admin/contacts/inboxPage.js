@@ -1,6 +1,3 @@
-import $ from "../../../utils/dom";
-import Email from "../../../vendors";
-
 const InboxPage = {
     render() {
         return /* html */ `<main class="h-full pb-16 overflow-y-auto">
@@ -70,18 +67,6 @@ const InboxPage = {
      </main>`;
     },
     afterRender() {
-        $("#send").addEventListener("click", (e) => {
-            e.preventDefault();
-            Email.send({
-                SecureToken: "b645bf64-dd63-4c8c-bde8-34f1b358d510",
-                To: "trantungg910@gmail.com",
-                From: "iphone4s.0910@gmail.com",
-                Subject: "Subject sadsadsadsad ",
-                Body: "Bod a safdasfrdddfdsy",
-            }).then(
-                (message) => console.log(message),
-            );
-        });
     },
 };
 export default InboxPage;

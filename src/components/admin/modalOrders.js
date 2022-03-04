@@ -20,30 +20,30 @@ const modalOrders = {
                        <div class="overflow-x-auto border-0 sm:rounded-lg">
                           <div class="inline-block min-w-full align-middle">
                              <div class="overflow-hidden ">
-                                <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
-                                   <thead class="bg-gray-100 dark:bg-gray-700">
+                                <table class="min-w-full divide-y divide-gray-200 table-fixed">
+                                   <thead class="bg-gray-100 ">
                                       <tr>
                                          <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                                             Tên sản phẩm
                                          </th>
                                          <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                                             Hình ảnh
                                          </th>
                                          <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                                             Giá sản phẩm
                                          </th>
                                          <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                                             Lựa chọn
                                          </th>
                                          
                                       </tr>
                                    </thead>
                                    <tbody id="orders-list"
-                                      class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                                      class="bg-white divide-y divide-gray-200 ">
                                       <!-- start -->
                                       
                                       <!-- End -->

@@ -9,7 +9,7 @@ import reRender from "../../utils/rerender";
 const order = {
     async render() {
         const { data } = await relationshipsOrdersDetails();
-        return /* html */`${data.map((item) => `<tr class="text-gray-700 dark:text-gray-400 font-sans">
+        return /* html */`${data.map((item) => `<tr class="text-gray-700 font-sans">
         <td class="px-4 py-3 text-sm">
            ${item.customer_name}
         </td>
@@ -36,14 +36,14 @@ const order = {
         </td>
         <td class="px-4 py-3 text-sm">
            ${(+item.status === 0) ? `<span data-id="${item.id}"
-                   class="px-2 accept-btn py-1 font-semibold cursor-pointer leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                   class="px-2 accept-btn py-1 font-semibold cursor-pointer leading-tight text-green-700 bg-green-100 rounded-full ">
                    Accept
                 </span>` : (+item.status === 1)
         ? `<span
-              class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700">
+              class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full ">
               Shiping
            </span>` : `<span
-              class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+              class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full ">
               Done
            </span>`}
      
@@ -53,7 +53,7 @@ const order = {
               <button data-id="${item.id}" data-name="${item.customer_name}" data-total="${item.orders_details.reduce(
     ((price, itemOrder) => price + ((+itemOrder.unit_price * +itemOrder.quantity))),
     0,
-)}" class="flex details-order modal-open  items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+)}" class="flex details-order modal-open  items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg focus:outline-none focus:shadow-outline-gray"
                  aria-label="Delete">
                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
@@ -77,16 +77,16 @@ const order = {
                     const { data: products } = await productsEmbedOrders(item);
                     $(".custommer").innerHTML = `Khách hàng: ${btn.dataset.name}`;
                     $(".total").innerHTML = `Tổng tiền: ${(+btn.dataset.total).toLocaleString("vi", { style: "currency", currency: "VND" })}`;
-                    ordersList.innerHTML += `<tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                    ordersList.innerHTML += `<tr class="hover:bg-gray-100 ">
                     <td
-                       class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                       class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap ">
                        ${products?.title}</td>
                     <td
-                       class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
+                       class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap ">
                        <img class="w-52" src="${products?.featured_image}" alt="">
                     </td>
                     <td
-                       class="py-4 price-order px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                       class="py-4 price-order px-6 text-sm font-medium text-gray-900 whitespace-nowrap ">
                        ${(+products.price).toLocaleString("vi", { style: "currency", currency: "VND" })}</td>
                     <td id="options-products" class="py-4 px-6 text-sm font-medium">
                     ${products.orders_details.map((options) => `<div class="flex items-center space-x-3 mt-2 border-t-0">

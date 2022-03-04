@@ -1,7 +1,9 @@
 // eslint-disable-next-line import/no-cycle
+import { signOut } from "firebase/auth";
 import Cart from "../cart";
 import reRender from "../../utils/rerender";
 import Search from "../search";
+import { auth } from "../../../firebase-config";
 
 const Nav = {
     render() {
@@ -66,7 +68,7 @@ const Nav = {
         ? `<span aria-hidden="true"
            class="absolute top-0 right-0 text-white inline-block w-4 h-4
             transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white
-             rounded-full  dark:border-gray-800 text-center text-[10px]">${
+             rounded-full text-center text-[10px]">${
     JSON.parse(localStorage.getItem("cart")).length
 }</span>`
         : ""
@@ -96,8 +98,9 @@ const Nav = {
         const logout = document.querySelector(".logout");
         Search.afterRender();
         if (logout) {
-            logout.addEventListener("click", (e) => {
+            logout.addEventListener("click", async (e) => {
                 e.preventDefault();
+                await signOut(auth);
                 localStorage.removeItem("user");
                 reRender("#authen", Nav);
             });

@@ -7,7 +7,7 @@ import reRender from "../../utils/rerender";
 const Products = {
     async render() {
         const { data } = await getSortProducts("desc");
-        return /* html */data.map((item) => `<tr class="text-gray-700 dark:text-gray-400">
+        return /* html */data.map((item) => `<tr class="text-gray-700">
               <td class="px-4 py-3">
               <!-- Avatar with inset shadow -->
               <div class="hidden w-28  md:block">
@@ -31,7 +31,7 @@ const Products = {
               <td class="px-4 py-3 text-sm">
                   <div class="flex items-center space-x-4 text-sm">
                   <a href="/#/admin/products/edit/${item.id}"
-                     class="edit-product flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                     class="edit-product flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg  focus:outline-none focus:shadow-outline-gray"
                      aria-label="Edit">
                      <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
                         viewBox="0 0 20 20">
@@ -41,7 +41,7 @@ const Products = {
                      </svg>
                   </a>
                   <button data-id="${item.id}"
-                     class="delete-product flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                     class="delete-product flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg  focus:outline-none focus:shadow-outline-gray"
                      aria-label="Delete">
                      <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
                         viewBox="0 0 20 20">

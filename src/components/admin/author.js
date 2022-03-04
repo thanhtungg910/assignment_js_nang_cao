@@ -8,7 +8,7 @@ import reRender from "../../utils/rerender";
 const AuthorTr = {
     async  render() {
         const { data } = await getUsers();
-        return /* html */ data.map((item) => `<tr class="text-gray-700 dark:text-gray-400">
+        return /* html */ data.map((item) => `<tr class="text-gray-700  ">
         <td class="px-4 py-3">
            <div class="flex items-center text-sm">
               <!-- Avatar with inset shadow -->
@@ -32,7 +32,7 @@ const AuthorTr = {
         </td>
         <td class="px-4 py-3 text-xs">
            <span
-              class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+              class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full  ">
               Active
            </span>
         </td>

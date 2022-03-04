@@ -3,14 +3,14 @@ import "awesome-notifications/dist/style.css";
 
 const MenuDashboard = {
     render() {
-        return /* html */ `<aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
-        <div class="py-4 text-gray-500 dark:text-gray-400">
-           <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="/#/admin">
+        return /* html */ `<aside class="z-20 hidden w-64 overflow-y-auto bg-white  md:block flex-shrink-0">
+        <div class="py-4 text-gray-500  ">
+           <a class="ml-6 text-lg font-bold text-gray-800  " href="/#/admin">
               Dashboard
            </a>
            <ul class="mt-6">
               <li class="relative px-6 py-3"> 
-                 <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                 <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 "
                     href="/#/admin">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -24,7 +24,7 @@ const MenuDashboard = {
 
               <li x-data="{isPagesMenuOpen: false}" class="relative px-6 py-3">
                  <button @click="isPagesMenuOpen = !isPagesMenuOpen"
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800  "
                    >
                     <span class="inline-flex items-center">
                        <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -46,12 +46,12 @@ const MenuDashboard = {
                            x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
                            x-transition:leave="transition-all ease-in-out duration-300"
                            x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
-                           class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+                           class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 "
                            aria-label="submenu">
-                           <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                           <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800  ">
                        <a class="w-full" href="/#/admin/category">Danh mục sản phẩm</a>
                     </li>
-                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 ">
                        <a class="w-full" href="/#/admin/products">
                           Tất cả sản phẩm
                        </a>
@@ -60,7 +60,7 @@ const MenuDashboard = {
                      </template> 
               </li>
               <li class="relative px-6 py-3"> 
-                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 "
                     href="/#/admin/orders">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -72,7 +72,7 @@ const MenuDashboard = {
                  </a>
               </li>
               <li class="relative px-6 py-3"> 
-                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 "
                     href="/#/admin/account">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -83,7 +83,7 @@ const MenuDashboard = {
                  </a>
               </li>
               <li class="relative px-6 py-3"> 
-                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 "
                     href="/#/admin/blogs">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
   <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd" />
@@ -93,7 +93,7 @@ const MenuDashboard = {
                  </a>
               </li>
               <li class="relative px-6 py-3"> 
-                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 "
                     href="/#/admin/contacts">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
@@ -102,7 +102,7 @@ const MenuDashboard = {
                  </a>
               </li>
               <li class="relative px-6 py-3"> 
-                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 "
                     href="#">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">

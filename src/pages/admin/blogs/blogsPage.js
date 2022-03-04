@@ -5,7 +5,7 @@ const BlogsPage = {
         return /* html */`
         <main class="h-full pb-16 overflow-y-auto">
            <div class="container grid px-5 mx-auto">
-              <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+              <h2 class="my-6 text-2xl font-semibold text-gray-700 ">
                  Tất cả blogs
               </h2>
               <!-- CTA -->
@@ -53,19 +53,19 @@ const BlogsPage = {
                          <table class="w-full whitespace-no-wrap">
                             <thead>
                                <tr
-                                  class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                  class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b  bg-gray-50  ">
                                   <th class="px-4 py-3">Ảnh</th>
                                   <th class="px-4 py-3">Tiêu đề</th>
                                   <th class="px-4 py-3">Ngày xuất bản</th>
                                </tr>
                             </thead>
-                            <tbody  id="blogs-table"  class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                            <tbody  id="blogs-table"  class="bg-white divide-y  ">
                             ${await blogs.render()}
                             </tbody>
                          </table>
                       </div>
               <div
-                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
+                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t  bg-gray-50 sm:grid-cols-9 ">
                  <span class="flex items-center col-span-3">
                     Showing 21-30 of 100
                  </span>

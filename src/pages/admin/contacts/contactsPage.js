@@ -6,7 +6,7 @@ const ContactsPageDashboard = {
         return /* html */ `
         <main class="h-full pb-16 overflow-y-auto">
            <div class="container grid px-5 mx-auto">
-              <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+              <h2 class="my-6 text-2xl font-semibold text-gray-700  ">
                  Liên hệ
               </h2>
               <!-- CTA -->
@@ -43,13 +43,13 @@ const ContactsPageDashboard = {
                          <table class="w-full whitespace-no-wrap">
                             <thead>
                                <tr
-                                  class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                  class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
                                   <th class="px-4 py-3">Tên khách hàng</th>
                                   <th class="px-4 py-3">Email</th>
                                   <th class="px-4 py-3">Nội dung</th>
                                </tr>
                             </thead>
-                            <tbody  id="product-table"  class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                            <tbody  id="product-table"  class="bg-white divide-y ">
                             ${await Contacts.render()}
                             </tbody>
                          </table>

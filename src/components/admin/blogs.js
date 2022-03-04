@@ -8,7 +8,7 @@ import reRender from "../../utils/rerender";
 const blogs = {
     async render() {
         const { data } = await getBlogs();
-        return /* html */ `${data.map((item) => `<tr class="text-gray-700 dark:text-gray-400">
+        return /* html */ `${data.map((item) => `<tr class="text-gray-700  ">
         <td class="hidden w-28  md:block">
        <img class="object-cover w-full h-full m-3" src="${item.thumbnail}" />
         </td>
@@ -21,7 +21,7 @@ const blogs = {
         <td class="px-4 py-3 text-sm">
         <div class="flex items-center space-x-4 text-sm">
         <a href="/#/admin/blogs/edit/${item.id}"
-           class="edit-product flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+           class="edit-product flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg focus:outline-none focus:shadow-outline-gray"
            aria-label="Edit">
            <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
               viewBox="0 0 20 20">
@@ -31,7 +31,7 @@ const blogs = {
            </svg>
         </a>
         <button data-id="${item.id}"
-           class="delete-blog flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+           class="delete-blog flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg focus:outline-none focus:shadow-outline-gray"
            aria-label="Delete">
            <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
               viewBox="0 0 20 20">
