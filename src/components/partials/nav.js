@@ -5,7 +5,7 @@ import Search from "../search";
 
 const Nav = {
     render() {
-        return /* html */`<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" class="w-40" fill="currentColor"
+        return /* html */ `<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" class="w-40" fill="currentColor"
         viewBox="0 0 170.445 21.625">
         <g id="Layer_1" data-name="Layer 1">
            <path id="Path_12" data-name="Path 12"
@@ -62,10 +62,15 @@ const Nav = {
                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
            </svg>
            <!-- Notification badge -->
-           ${(JSON.parse(localStorage.getItem("cart")) && JSON.parse(localStorage.getItem("cart")).length !== 0) ? `<span aria-hidden="true"
+           ${JSON.parse(localStorage.getItem("cart")) && JSON.parse(localStorage.getItem("cart")).length !== 0
+        ? `<span aria-hidden="true"
            class="absolute top-0 right-0 text-white inline-block w-4 h-4
             transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white
-             rounded-full  dark:border-gray-800 text-center text-[10px]">${JSON.parse(localStorage.getItem("cart")).length}</span>` : ""}
+             rounded-full  dark:border-gray-800 text-center text-[10px]">${
+    JSON.parse(localStorage.getItem("cart")).length
+}</span>`
+        : ""
+}
         </button>
         ${localStorage.getItem("user") ? `<a href="/#/me">Hello! ${JSON.parse(localStorage.getItem("user")).username ?? JSON.parse(localStorage.getItem("user"))?.displayName}</a> <svg
            xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cursor-pointer logout" viewBox="0 0 20 20"
@@ -73,13 +78,15 @@ const Nav = {
            <path fill-rule="evenodd"
               d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
               clip-rule="evenodd" />
-        </svg>` : `<a href="/#/login">
+        </svg>`
+        : `<a href="/#/login">
            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
            </svg>
-        </a>`}
+        </a>`
+}
      </div><div :class="cartOpen ? 'translate-x-0 ease-out' : 'translate-x-full ease-in'"
      class="fixed cart-modal right-0 top-0 max-w-xs w-full h-full px-6 py-4 transition duration-300 transform overflow-y-auto bg-white border-l-2 border-gray-300 z-50">
      ${Cart.render()}</div>`;
