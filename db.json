@@ -618,6 +618,14 @@
       "phone": "0353370505",
       "avatar": "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-3.jpg",
       "id": 13
+    },
+    {
+      "email": "nguyenvanan@gmail.com",
+      "password": "$2a$10$NnyI2KBFnTbyiaUTZt.LjenWViTB/NKPVp.YHRu7ZLDV7IqsL3w/e",
+      "username": "Nguyen An",
+      "phone": "0353234505",
+      "avatar": "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-3.jpg",
+      "id": 14
     }
   ],
   "blogs": [

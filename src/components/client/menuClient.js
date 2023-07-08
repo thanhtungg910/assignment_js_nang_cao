@@ -2,7 +2,7 @@ import AWN from "awesome-notifications";
 import "awesome-notifications/dist/style.css";
 
 const MenuClient = {
-    render() {
+    async render() {
         return /* html */ `<div class="w-full h-[385px] p-2 border-2 rounded-lg shadow">
       <div class="py-4 text-gray-500 dark:text-gray-400">
          <div class="flex items-center text-sm">

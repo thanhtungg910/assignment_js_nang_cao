@@ -1,13 +1,13 @@
 // eslint-disable-next-line import/no-cycle
 import {
-    decreaseItemInCart, deleteItemCart, getCarts, increaseItemInCart,
+   decreaseItemInCart, deleteItemCart, getCarts, increaseItemInCart,
 } from "../api/cart";
 import $ from "../utils/dom";
 
 const Cart = {
-    render() {
-        const cartList = getCarts() ?? [];
-        return /* html */ `<div class="flex items-center justify-between">
+   render() {
+      const cartList = getCarts() ?? [];
+      return /* html */ `<div class="flex items-center justify-between">
         <h3 class="text-2xl font-medium text-gray-700">Giỏ hàng của bạn</h3>
         <button @click="cartOpen = !cartOpen" class="text-gray-600 focus:outline-none">
            <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -46,7 +46,7 @@ const Cart = {
               </label>
               <label
                  class="relative input-radio-checked  rounded-full flex items-center justify-center cursor-pointer ring-gray-400 -m-0.5 p-0.5 focus:outline-none">
-                 <span class="h-5 w-5 bg-[${item.color}] border rounded-full" aria-hidden="true"></span>
+                 <span class="h-5 w-5 bg-[${item.color}] border rounded-full" aria-hidden="true" style="background-color: ${item.color};"></span>
               </label>
            </div>
            <div class="flex items-center space-x-3 mt-2">
@@ -64,10 +64,10 @@ const Cart = {
         </div>
      </div>
      <span class="text-gray-600 text-center">${(item.price * item.amount).toLocaleString("it-IT", {
-        style:
-        "currency",
-        currency: "VND",
-    })}
+         style:
+            "currency",
+         currency: "VND",
+      })}
         <svg data-id="${item.id}" xmlns="http://www.w3.org/2000/svg"
            class="delete-item-cart h-4 w-4 mx-auto cursor-pointer text-red-700" viewBox="0 0 20 20"
            fill="currentColor">
@@ -97,33 +97,33 @@ const Cart = {
            <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
         </svg>
      </a>` : ""}`;
-    },
-    afterRender() {
-        const btns = $(".increase");
-        const btnsDecrease = $(".decrease");
-        if (btns.length >= 0) {
-            btns.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    increaseItemInCart(btn.dataset.id);
-                });
+   },
+   afterRender() {
+      const btns = $(".increase");
+      const btnsDecrease = $(".decrease");
+      if (btns.length >= 0) {
+         btns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+               increaseItemInCart(btn.dataset.id);
             });
-        } else {
-            btns.addEventListener("click", () => {
-                increaseItemInCart(btns.dataset.id);
+         });
+      } else {
+         btns.addEventListener("click", () => {
+            increaseItemInCart(btns.dataset.id);
+         });
+      }
+      if (btnsDecrease.length >= 0) {
+         btnsDecrease.forEach((btn) => {
+            btn.addEventListener("click", () => {
+               decreaseItemInCart(btn.dataset.id);
             });
-        }
-        if (btnsDecrease.length >= 0) {
-            btnsDecrease.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    decreaseItemInCart(btn.dataset.id);
-                });
-            });
-        } else {
-            btnsDecrease.addEventListener("click", () => {
-                decreaseItemInCart(btnsDecrease.dataset.id);
-            });
-        }
-        deleteItemCart(".delete-item-cart", ".cart-modal", Cart);
-    },
+         });
+      } else {
+         btnsDecrease.addEventListener("click", () => {
+            decreaseItemInCart(btnsDecrease.dataset.id);
+         });
+      }
+      deleteItemCart(".delete-item-cart", ".cart-modal", Cart);
+   },
 };
 export default Cart;

@@ -6,7 +6,7 @@ import { Product } from "../components";
 import $ from "../utils/dom";
 
 const Details = {
-    async  render(id) {
+    async render(id) {
         document.title = "Chi tiết sản phẩm";
         const { data } = await getProduct(id);
         const { options } = data;
@@ -26,11 +26,11 @@ const Details = {
                <fieldset class="mt-4">
                <legend class="sr-only">Choose a color</legend>
                <div class="flex items-center space-x-3">
-                  ${options[0].value.map((color) => `<div class="relative">
+                  ${options[0].value.map((color) =>/* html */ `<div class="relative">
                   <input class="sr-only peer" type="radio" checked value=${color} name="color" id="${color}">
                   <label
-                     class="flex h-8 w-8 bg-[${color}] border rounded-full border-gray-300  cursor-pointer focus:outline-none  peer-checked:ring-green-500 peer-checked:ring-2 peer-checked:border-transparent"
-                     for="${color}"></label>
+                     class="flex h-8 w-8 bg-[${color}] border rounded-full border-gray-300  cursor-pointer focus:outline-none  peer-checked:ring-black peer-checked:ring-2 peer-checked:border-transparent"
+                     for="${color}" style="background-color: ${color};"></label>
                </div>`).join("")}
                </div>
                </fieldset>
@@ -47,7 +47,7 @@ const Details = {
                   <input class="sr-only peer" type="radio" checked value=${size} name="size" id="${size}">
                   <label
                      class="flex py-3 px-4 border rounded-md items-center 
-                     justify-center text-sm font-medium uppercase bg-white shadow-sm text-gray-900 border-gray-300  cursor-pointer focus:outline-none  peer-checked:ring-green-500 peer-checked:ring-2 peer-checked:border-transparent"
+                     justify-center text-sm font-medium uppercase bg-white shadow-sm text-gray-900 border-gray-300  cursor-pointer focus:outline-none  peer-checked:ring-black peer-checked:ring-2 peer-checked:border-transparent"
                      for="${size}">${size}</label>
                </div>`).join("")}
                </div>

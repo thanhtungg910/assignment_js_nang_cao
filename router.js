@@ -16,6 +16,7 @@ import NotFoundPage from "./src/pages/notfound";
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
 const render = async (page, id) => {
+    window.scrollTo(0, 0);
     if (!page.afterLogin) {
         const layout = `${Header.render()} ${await page.render(id)} ${Footer.render()} `;
         document.getElementById("root").innerHTML = layout;
@@ -47,7 +48,7 @@ const Router = () => {
     /**
     * Private router admin
     */
-    router.on("/admin/*", () => {}, {
+    router.on("/admin/*", () => { }, {
         before(done) {
             if (JSON.parse(localStorage.getItem("user"))) {
                 const { id } = JSON.parse(localStorage.getItem("user"));
@@ -64,7 +65,7 @@ const Router = () => {
     /**
      * Private client
      */
-    router.on("/me/*", () => {}, {
+    router.on("/me/*", () => { }, {
         before(done) {
             if (JSON.parse(localStorage.getItem("user"))) {
                 done();

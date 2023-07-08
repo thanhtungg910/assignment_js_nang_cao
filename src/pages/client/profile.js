@@ -7,7 +7,7 @@ const ProfilePage = {
         return /* html */ `<main class="max-w-5xl container mx-auto my-32">
         <div class="container mx-auto px-6 bg-white pb-6">
            <div class="grid grid-cols-3 gap-4">
-              ${MenuClient.render()}
+              ${await MenuClient.render()}
               <div id="profile-list" class="col-span-2 w-full ">
                ${await Profile.render()}
            </div>

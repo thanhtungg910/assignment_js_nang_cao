@@ -7,7 +7,7 @@ const MePage = {
         return /* html */ `<main class="max-w-5xl container mx-auto my-32">
         <div class="container mx-auto px-6 bg-white pb-6">
            <div class="grid grid-cols-3 gap-4">
-              ${MenuClient.render()}
+              ${await MenuClient.render()}
               <div class="col-span-2 w-full border-2 rounded-lg shadow ">
               <div class="w-full overflow-hidden rounded-lg">
               <div class="w-full overflow-x-auto">
@@ -22,7 +22,7 @@ const MePage = {
                        </tr>
                     </thead>
                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                       ${Mycart.render()}
+                       ${await Mycart.render()}
                     </tbody>
                  </table>
               </div>
